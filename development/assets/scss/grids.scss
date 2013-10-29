@@ -1,8 +1,18 @@
-@import "variables";
 /* ==========================================================================
-   Grids
+   Grids / Twelve-Space Structure System [v0.1.0]
    ========================================================================== */
+/*!
+ * Twelve-Space Structure System v0.1.0
+ * Created by Kevin Mack
+ *
+ * Date: 2013-10-29
+ */
 
+.grid--12 {
+	> [class*="grid__cell"] {
+		float: left;
+	}
+}
 @mixin generate-grid-expand( $grid__cell-amount: 1, $grid-offset-value: 1, $element-name: "expand", $property: "width", $block-name: "grid__cell", $grid-column-quanity: 12 ) {
 	$class-name: $block-name + "--" + $grid__cell-amount + "__" + $element-name + "--" + $grid-offset-value;
 	.#{$class-name} {
@@ -48,16 +58,6 @@
 
 @for $i from 1 through 12 {
 	@include generate-grid__cell-offset(1, $i, "cell--offset--negative", "margin-left", -1, "grid", 12 );
-}
-
-
-/**
- * Griddin on Twelves
- */
-.grid--12 {
-	> [class*="grid__cell"] {
-		float: left;
-	}
 }
 
 @for $i from 1 through 12 {
