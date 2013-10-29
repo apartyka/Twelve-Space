@@ -1,0 +1,394 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html><!--<![endif]-->
+	<head>
+		<!-- _HTML_Starter_Kit_v1.4.1 -->
+		<meta charset="utf-8" />
+
+		<!--  Mobile Viewport Fix
+		http://j.mp/mobileviewport & http://davidbcalhoun.com/2010/viewport-metatag
+		device-width : Occupy full width of the screen in its current orientation
+		initial-scale = 1.0 retains dimensions instead of zooming out if page height > device height
+		maximum-scale = 1.0 retains dimensions instead of zooming in if page width < device width (not recommended for accessibility reasons)
+		-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+
+		<!-- Open Graph Meta Data
+		<meta property="og:title" content="" />
+		<meta property="og:description" content="" />
+		<meta property="og:url" content="" />
+		<meta property="og:type" content="company" />
+		<meta property="og:site_name" content="" />
+		<meta property="og:image" content="" />
+		-->
+		<!-- Windows 8 Meta Data
+		<meta name="application-name" content="" />
+		<meta name="msapplication-TileColor" content="" />
+		<meta name="msapplication-TileImage" content="" />
+		-->
+		<!-- Twitter Meta Data
+		<meta name="twitter:title" content="">
+		<meta name="twitter:url" content="">
+		<meta name="twitter:description" content="">
+		<meta name="twitter:site" content="">
+		<meta name="twitter:card" content="">
+		-->
+
+		<title>Resource.com Toolkit</title>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+
+		<!-- The traditional favicon.
+		 - size: 16x16 or 32x32
+		 - transparency is OK
+		 - see wikipedia for info on browser support: http://mky.be/favicon/ -->
+		<link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon" />
+
+		<!-- For third-generation iPad with high-resolution Retina display:
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/apple-touch-icon-144x144-precomposed.png" /> -->
+		<!-- For iPhone with high-resolution Retina display:
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/apple-touch-icon-114x114-precomposed.png" /> -->
+		<!-- For first- and second-generation iPad:
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/apple-touch-icon-72x72-precomposed.png" /> -->
+		<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+		<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+		<!-- The is the icon for iOS's Web Clip.
+		- size: 57x57 for older iPhones, 72x72 for iPads, 114x114 for iPhone4's retina display
+		- To prevent iOS from applying its styles to the icon name it thusly: apple-touch-icon-precomposed.png
+		- Transparency is not recommended (iOS will put a black BG behind the icon) -->
+
+		<!-- build:css assets/css/styles.css -->
+		<!-- This file is generated from the scss directory and any files that are in the css directory
+		 - any plugin css should be added to the /assets/css directory and they will be concatinated to the end of the styles.css file
+		 - all of the css files added to this build block will be concatinated into the styles.css file by the usemin grunt task -->
+		<link rel="stylesheet" href="assets/css/toolkit.css" />
+		<!-- endbuild -->
+
+		<!--[if IE]><link rel="stylesheet" type="text/css" href="/assets/css/ie.css" /><![endif]-->
+
+		<!-- This is an un-minified, complete version of Modernizr.
+		 Before you move to production, you should generate a custom build that only has the detects you need. -->
+		<script src="assets/js/lib/modernizr-2.6.2.dev.js"></script>
+
+		<!--[if lt IE 9]>
+			<script src="/assets/js/lib/html5shiv.js"></script>
+		<![endif]-->
+
+	</head>
+	<body>
+		<div class="container-full background-color--gray">
+
+			<div class="container testing-grid">
+
+				<div id="demo">
+					<script type="text/template" id="grid-demo-template">
+
+
+						<%_.each([1,2,3,4,5,6,7,8,9,10,11,12], function(testCase) {%>
+							<% var max = 12 - testCase; %>
+							<% for (i=1; i <= max; i++) { %>
+								<% if ( (12 - testCase - i) > 0) { %>
+									<div class="grid--12  margin-bottom-2x">
+										<div class="grid__cell--<%=testCase%>">
+											<p>
+												This container is <%=testCase%> space<% if (testCase > 1) {%>s<%} %>
+											</p>
+										</div>
+										<div class="grid__cell--<%=12 - testCase%>">
+											<h3 class="grid__cell--<%=12 - testCase%>__offset--<%=i%>">
+												I am offset +<%=i%> space<% if (i > 1) {%>s<%} %>
+											</h3>
+											<p>
+												This container is <%=12 - testCase%> Space<% if (testCase < 11) {%>s<%} %>
+												and is header is offset.
+											</p>
+										</div>
+									</div>
+								<% } %>
+							<% } %>
+						<%})%>
+
+						<%_.each([1,2,3,4,5,6,7,8,9,10,11,12], function(testCase) {%>
+							<% var max = 12 - testCase; %>
+							<% for (i=1; i <= max; i++) { %>
+								<% if ( (12 - testCase - i) > 0) { %>
+									<div class="grid--12  margin-bottom-2x">
+										<div class="grid__cell--<%=testCase%>">
+											<p>
+												This container is <%=testCase%> space<% if (testCase > 1) {%>s<%} %>
+											</p>
+										</div>
+										<div class="grid__cell--<%=12 - testCase%>">
+											<h3 class="grid__cell--<%=12 - testCase%>__offset--negative--<%=i%>">
+												I am offset -<%=i%> space<% if (i > 1) {%>s<%} %>
+											</h3>
+											<p>
+												This container is <%=12 - testCase%> Space<% if (testCase < 11) {%>s<%} %>
+												and is header is offset.
+											</p>
+										</div>
+									</div>
+								<% } %>
+							<% } %>
+						<%})%>
+
+
+
+						<%_.each([1,2,3,4,5,6,7,8,9,10,11,12], function(testCase) {%>
+							<% var max = 12 - testCase; %>
+							<% for (i=1; i <= max; i++) { %>
+								<% if ( (12 - testCase - i) > 0) { %>
+									<div class="grid--12  margin-bottom-2x">
+										<div class="grid__cell--<%=testCase%>">
+											<p>
+												This container is <%=testCase%> space<% if (testCase > 1) {%>s<%} %>
+											</p>
+										</div>
+										<div class="grid__cell--<%=12 - testCase - i %> grid__cell--offset--<%=i%>">
+											<p>
+												This container is <%=12 - testCase%> Space<% if (testCase < 11) {%>s<%} %>
+												and is offset +<%=i%> space<% if (i > 1) {%>s<%} %>
+											</p>
+										</div>
+									</div>
+								<% } %>
+							<% } %>
+						<%})%>
+
+						<%_.each([1,2,3,4,5,6,7,8,9,10,11,12], function(testCase) {%>
+							<% var max = 12 - testCase; %>
+							<% for (i=1; i <= max; i++) { %>
+								<div class="grid--12  margin-bottom-2x">
+									<div class="grid__cell--<%=testCase%>">
+										<p>
+											This container is <%=testCase%> space<% if (testCase > 1) {%>s<%} %>
+										</p>
+									</div>
+									<div class="grid__cell--<%=12 - testCase%> grid__cell--offset--negative--<%=i%>">
+										<p>
+											This container is <%=12 - testCase%> Space<% if (testCase < 11) {%>s<%} %>
+											and is offset -<%=i%> space<% if (i > 1) {%>s<%} %>
+										</p>
+									</div>
+								</div>
+							<% } %>
+						<%})%>
+
+						<%_.each([1,2,3,4,5,6,7,8,9,10,11,12], function(testCase) {%>
+							<% var max = 12 - testCase; %>
+							<% for (i=1; i <= max; i++) { %>
+								<% if ( (12 - testCase - i) > 0) { %>
+									<div class="grid--12  margin-bottom-2x">
+										<div class="grid__cell--<%=testCase%>">
+											<p>
+												This container is <%=testCase%> space<% if (testCase > 1) {%>s<%} %>
+											</p>
+										</div>
+										<div class="grid__cell--<%=12 - testCase - i %> grid__cell--offset--<%=i%>">
+											<p>
+												This container is <%=12 - testCase%> Space<% if (testCase < 11) {%>s<%} %>
+												and is offset +<%=i%> space<% if (i > 1) {%>s<%} %>
+											</p>
+										</div>
+									</div>
+								<% } %>
+							<% } %>
+						<%})%>
+
+
+						<%_.each([1,2,3,4,5,6,7,8,9,10,11,12,11,10,9,8,7,6,5,4,3,2,1], function(testCase) {%>
+							<div class="grid--12 align--center  margin-bottom-2x">
+								<% if ( testCase !== 12 ) { %>
+									<div class="grid__cell--<%=12 - testCase%>">
+										<%= 12 - testCase%> Space<% if (testCase < 11) {%>s<%} %>
+									</div>
+								<% } %>
+								<div class="grid__cell--<%=testCase%>">
+									<%=testCase%> Space<% if (testCase > 1) {%>s<%} %>
+								</div>
+							</div>
+						<%})%>
+
+
+						<%_.each([1,2,3,4,5,6,7,8,9,10,11], function(testCase) {%>
+							<% var max = 12 - testCase; %>
+							<% for (i=1; i <= max; i++) { %>
+								<div class="grid--12  margin-bottom-2x">
+									<div class="grid__cell--<%=testCase%>">
+										<h3 class="grid__cell--<%=testCase%>__expand--<%=i%>">
+											I am expanding out <%=i%> space<% if (i > 1) {%>s<%} %>.
+										</h3>
+										<p>
+											This container is <%=testCase%> Space<% if (testCase > 1) {%>s<%} %>
+										</p>
+									</div>
+									<div class="grid__cell--<%=12 - testCase%>">
+										<p>
+											This container is <%=12 - testCase%> Space<% if (testCase < 11) {%>s<%} %>
+										</p>
+									</div>
+								</div>
+							<% } %>
+						<%})%>
+
+
+
+
+
+					</script>
+				</div>
+
+
+
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+
+				<div class="grid--12 align--center">
+					<div class="grid__cell--1">
+						Grid
+					</div>
+					<div class="grid__cell--11">
+						Grid
+					</div>
+
+					<div class="grid__cell--2">
+						Grid
+					</div>
+					<div class="grid__cell--10">
+						Grid
+					</div>
+
+					<div class="grid__cell--3">
+						Grid
+					</div>
+					<div class="grid__cell--9">
+						Grid
+					</div>
+
+					<div class="grid__cell--4">
+						Grid
+					</div>
+					<div class="grid__cell--8">
+						Grid
+					</div>
+
+					<div class="grid__cell--5">
+						Grid
+					</div>
+					<div class="grid__cell--7">
+						Grid
+					</div>
+
+					<div class="grid__cell--6">
+						Grid
+					</div>
+					<div class="grid__cell--6">
+						Grid
+					</div>
+
+					<div class="grid__cell--7">
+						Grid
+					</div>
+					<div class="grid__cell--5">
+						Grid
+					</div>
+
+					<div class="grid__cell--8">
+						Grid
+					</div>
+					<div class="grid__cell--4">
+						Grid
+					</div>
+
+					<div class="grid__cell--9">
+						Grid
+					</div>
+					<div class="grid__cell--3">
+						Grid
+					</div>
+
+					<div class="grid__cell--10">
+						Grid
+					</div>
+					<div class="grid__cell--2">
+						Grid
+					</div>
+
+					<div class="grid__cell--11">
+						Grid
+					</div>
+					<div class="grid__cell--1">
+						Grid
+					</div>
+
+					<div class="grid__cell--4">
+						Grid
+					</div>
+					<div class="grid__cell--4">
+						Grid
+					</div>
+					<div class="grid__cell--4">
+						Grid
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="assets/js/lib/jquery.min.js"><\/script>')</script>
+
+		<!-- build:js assets/js/main.js -->
+		<!-- Additional JS Libraries and Frameworks Here
+		 - List the js files and libraries below inside of the build block in the order you want them concatenated on build
+		 - This block is parsed by the usemin grunt task and it generates one main.js file for production -->
+	    <script src="assets/js/lib/underscore.js"></script>
+		<script src="assets/js/main.js"></script>
+		<!-- endbuild -->
+
+		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+		<script>
+			/*var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+			(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+			g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+			s.parentNode.insertBefore(g,s)}(document,'script'));*/
+		</script>
+
+
+		<script>
+		/*	var object = '
+						<div class="grid__cell--1">
+							<h1 class="">
+								I expand out
+							</h1>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc commodo eget massa tempor tempor. Donec ligula lorem, semper ut sagittis nec, vulputate pulvinar diam. Nunc eget accumsan nunc, a auctor nibh.
+							</p>
+						</div>
+						<div class="grid__cell--11">
+							<img src="http://placehold.it/350x150" style="display: block; width: 100%;"/>
+						</div>
+						';
+			for (i = 0; i < 10; i++) {
+				console.log("hi");
+			}
+			$(function() {
+				$("#demo").append(dom);
+			});
+*/
+			var demoObj = {};
+			$("#demo").append(_.template($("#grid-demo-template").html()));
+		</script>
+
+	</body>
+</html>

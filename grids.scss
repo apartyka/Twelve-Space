@@ -1,0 +1,1045 @@
+@import "variables";
+/* ==========================================================================
+   Grids
+   ========================================================================== */
+
+@mixin generate-grid-expand( $grid__cell-amount: 1, $grid-offset-value: 1, $element-name: "expand", $property: "width", $block-name: "grid__cell", $grid-column-quanity: 12 ) {
+	$class-name: $block-name + "--" + $grid__cell-amount + "__" + $element-name + "--" + $grid-offset-value;
+	.#{$class-name} {
+		#{$property}: percentage( 1 + ($grid-offset-value / $grid__cell-amount) );
+	}
+}
+
+@mixin generate-grid__cell-offset( $grid__cell-amount: 1, $grid-offset-value: 1, $element-name: "expand", $property: "width", $positiveOrNegative: 1, $block-name: "grid__cell", $grid-column-quanity: 12 ) {
+	$class-name: $block-name + "__" + $element-name + "--" + $grid-offset-value;
+	.#{$class-name} {
+		#{$property}:  percentage(($grid-offset-value / $grid-column-quanity)) * $positiveOrNegative;
+		background-color: pink !important;
+	}
+}
+
+@mixin generate-grid__cell__offset( $grid__cell-amount: 1, $grid-offset-value: 1, $element-name: "expand", $property: "width", $positiveOrNegative: 1, $block-name: "grid__cell", $grid-column-quanity: 12 ) {
+	$class-name: $block-name + "--" + $grid__cell-amount +  "__" + $element-name + "--" + $grid-offset-value;
+	.#{$class-name} {
+		#{$property}: percentage(  ($grid-offset-value / $grid__cell-amount) ) * -1;
+		background-color: $green !important;
+		opacity: .5;
+	}
+}
+
+
+@include generate-grid__cell__offset(1, 1, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(1, 2, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(1, 3, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(1, 4, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(1, 5, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(1, 6, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(1, 7, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(1, 8, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(1, 9, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(1, 10, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(1, 11, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(1, 12, "offset", "margin-right", -1, "grid__cell", 12 );
+
+@include generate-grid__cell__offset(2, 1, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(2, 2, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(2, 3, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(2, 4, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(2, 5, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(2, 6, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(2, 7, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(2, 8, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(2, 9, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(2, 10, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(2, 11, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(2, 12, "offset", "margin-right", -1, "grid__cell", 12 );
+
+@include generate-grid__cell__offset(3, 1, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(3, 2, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(3, 3, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(3, 4, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(3, 5, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(3, 6, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(3, 7, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(3, 8, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(3, 9, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(3, 10, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(3, 11, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(3, 12, "offset", "margin-right", -1, "grid__cell", 12 );
+
+@include generate-grid__cell__offset(4, 1, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(4, 2, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(4, 3, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(4, 4, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(4, 5, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(4, 6, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(4, 7, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(4, 8, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(4, 9, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(4, 10, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(4, 11, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(4, 12, "offset", "margin-right", -1, "grid__cell", 12 );
+
+@include generate-grid__cell__offset(5, 1, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(5, 2, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(5, 3, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(5, 4, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(5, 5, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(5, 6, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(5, 7, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(5, 8, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(5, 9, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(5, 10, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(5, 11, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(5, 12, "offset", "margin-right", -1, "grid__cell", 12 );
+
+@include generate-grid__cell__offset(6, 1, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(6, 2, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(6, 3, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(6, 4, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(6, 5, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(6, 6, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(6, 7, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(6, 8, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(6, 9, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(6, 10, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(6, 11, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(6, 12, "offset", "margin-right", -1, "grid__cell", 12 );
+
+@include generate-grid__cell__offset(7, 1, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(7, 2, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(7, 3, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(7, 4, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(7, 5, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(7, 6, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(7, 7, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(7, 8, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(7, 9, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(7, 10, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(7, 11, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(7, 12, "offset", "margin-right", -1, "grid__cell", 12 );
+
+@include generate-grid__cell__offset(8, 1, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(8, 2, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(8, 3, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(8, 4, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(8, 5, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(8, 6, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(8, 7, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(8, 8, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(8, 9, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(8, 10, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(8, 11, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(8, 12, "offset", "margin-right", -1, "grid__cell", 12 );
+
+@include generate-grid__cell__offset(9, 1, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(9, 2, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(9, 3, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(9, 4, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(9, 5, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(9, 6, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(9, 7, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(9, 8, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(9, 9, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(9, 10, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(9, 11, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(9, 12, "offset", "margin-right", -1, "grid__cell", 12 );
+
+@include generate-grid__cell__offset(10, 1, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(10, 2, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(10, 3, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(10, 4, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(10, 5, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(10, 6, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(10, 7, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(10, 8, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(10, 9, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(10, 10, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(10, 11, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(10, 12, "offset", "margin-right", -1, "grid__cell", 12 );
+
+@include generate-grid__cell__offset(11, 1, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(11, 2, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(11, 3, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(11, 4, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(11, 5, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(11, 6, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(11, 7, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(11, 8, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(11, 9, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(11, 10, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(11, 11, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(11, 12, "offset", "margin-right", -1, "grid__cell", 12 );
+
+@include generate-grid__cell__offset(12, 1, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(12, 2, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(12, 3, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(12, 4, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(12, 5, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(12, 6, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(12, 7, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(12, 8, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(12, 9, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(12, 10, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(12, 11, "offset", "margin-right", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(12, 12, "offset", "margin-right", -1, "grid__cell", 12 );
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+@include generate-grid__cell__offset(1, 1, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(1, 2, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(1, 3, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(1, 4, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(1, 5, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(1, 6, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(1, 7, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(1, 8, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(1, 9, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(1, 10, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(1, 11, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(1, 12, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+
+@include generate-grid__cell__offset(2, 1, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(2, 2, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(2, 3, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(2, 4, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(2, 5, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(2, 6, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(2, 7, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(2, 8, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(2, 9, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(2, 10, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(2, 11, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(2, 12, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+
+@include generate-grid__cell__offset(3, 1, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(3, 2, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(3, 3, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(3, 4, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(3, 5, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(3, 6, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(3, 7, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(3, 8, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(3, 9, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(3, 10, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(3, 11, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(3, 12, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+
+@include generate-grid__cell__offset(4, 1, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(4, 2, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(4, 3, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(4, 4, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(4, 5, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(4, 6, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(4, 7, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(4, 8, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(4, 9, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(4, 10, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(4, 11, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(4, 12, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+
+@include generate-grid__cell__offset(5, 1, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(5, 2, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(5, 3, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(5, 4, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(5, 5, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(5, 6, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(5, 7, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(5, 8, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(5, 9, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(5, 10, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(5, 11, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(5, 12, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+
+@include generate-grid__cell__offset(6, 1, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(6, 2, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(6, 3, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(6, 4, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(6, 5, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(6, 6, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(6, 7, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(6, 8, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(6, 9, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(6, 10, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(6, 11, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(6, 12, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+
+@include generate-grid__cell__offset(7, 1, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(7, 2, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(7, 3, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(7, 4, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(7, 5, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(7, 6, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(7, 7, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(7, 8, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(7, 9, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(7, 10, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(7, 11, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(7, 12, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+
+@include generate-grid__cell__offset(8, 1, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(8, 2, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(8, 3, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(8, 4, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(8, 5, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(8, 6, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(8, 7, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(8, 8, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(8, 9, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(8, 10, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(8, 11, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(8, 12, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+
+@include generate-grid__cell__offset(9, 1, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(9, 2, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(9, 3, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(9, 4, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(9, 5, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(9, 6, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(9, 7, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(9, 8, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(9, 9, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(9, 10, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(9, 11, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(9, 12, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+
+@include generate-grid__cell__offset(10, 1, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(10, 2, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(10, 3, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(10, 4, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(10, 5, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(10, 6, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(10, 7, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(10, 8, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(10, 9, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(10, 10, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(10, 11, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(10, 12, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+
+@include generate-grid__cell__offset(11, 1, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(11, 2, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(11, 3, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(11, 4, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(11, 5, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(11, 6, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(11, 7, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(11, 8, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(11, 9, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(11, 10, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(11, 11, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(11, 12, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+
+@include generate-grid__cell__offset(12, 1, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(12, 2, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(12, 3, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(12, 4, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(12, 5, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(12, 6, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(12, 7, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(12, 8, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(12, 9, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(12, 10, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(12, 11, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+@include generate-grid__cell__offset(12, 12, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+
+
+@include generate-grid__cell-offset(1, 1, "cell--offset", "margin-left", 1, "grid", 12 );
+@include generate-grid__cell-offset(1, 2, "cell--offset", "margin-left", 1, "grid", 12 );
+@include generate-grid__cell-offset(1, 3, "cell--offset", "margin-left", 1, "grid", 12 );
+@include generate-grid__cell-offset(1, 4, "cell--offset", "margin-left", 1, "grid", 12 );
+@include generate-grid__cell-offset(1, 5, "cell--offset", "margin-left", 1, "grid", 12 );
+@include generate-grid__cell-offset(1, 6, "cell--offset", "margin-left", 1, "grid", 12 );
+@include generate-grid__cell-offset(1, 7, "cell--offset", "margin-left", 1, "grid", 12 );
+@include generate-grid__cell-offset(1, 8, "cell--offset", "margin-left", 1, "grid", 12 );
+@include generate-grid__cell-offset(1, 9, "cell--offset", "margin-left", 1, "grid", 12 );
+@include generate-grid__cell-offset(1, 10, "cell--offset", "margin-left", 1, "grid", 12 );
+@include generate-grid__cell-offset(1, 11, "cell--offset", "margin-left", 1, "grid", 12 );
+@include generate-grid__cell-offset(1, 12, "cell--offset", "margin-left", 1, "grid", 12 );
+
+@include generate-grid__cell-offset(1, 1, "cell--offset--negative", "margin-left", -1, "grid", 12 );
+@include generate-grid__cell-offset(1, 2, "cell--offset--negative", "margin-left", -1, "grid", 12 );
+@include generate-grid__cell-offset(1, 3, "cell--offset--negative", "margin-left", -1, "grid", 12 );
+@include generate-grid__cell-offset(1, 4, "cell--offset--negative", "margin-left", -1, "grid", 12 );
+@include generate-grid__cell-offset(1, 5, "cell--offset--negative", "margin-left", -1, "grid", 12 );
+@include generate-grid__cell-offset(1, 6, "cell--offset--negative", "margin-left", -1, "grid", 12 );
+@include generate-grid__cell-offset(1, 7, "cell--offset--negative", "margin-left", -1, "grid", 12 );
+@include generate-grid__cell-offset(1, 8, "cell--offset--negative", "margin-left", -1, "grid", 12 );
+@include generate-grid__cell-offset(1, 9, "cell--offset--negative", "margin-left", -1, "grid", 12 );
+@include generate-grid__cell-offset(1, 10, "cell--offset--negative", "margin-left", -1, "grid", 12 );
+@include generate-grid__cell-offset(1, 11, "cell--offset--negative", "margin-left", -1, "grid", 12 );
+@include generate-grid__cell-offset(1, 12, "cell--offset--negative", "margin-left", -1, "grid", 12 );
+
+@include generate-grid-expand(1,1);
+@include generate-grid-expand(1,2);
+@include generate-grid-expand(1,3);
+@include generate-grid-expand(1,4);
+@include generate-grid-expand(1,5);
+@include generate-grid-expand(1,6);
+@include generate-grid-expand(1,6);
+@include generate-grid-expand(1,7);
+@include generate-grid-expand(1,8);
+@include generate-grid-expand(1,9);
+@include generate-grid-expand(1,10);
+@include generate-grid-expand(1,11);
+@include generate-grid-expand(1,12);
+
+@include generate-grid-expand(2,1);
+@include generate-grid-expand(2,2);
+@include generate-grid-expand(2,3);
+@include generate-grid-expand(2,4);
+@include generate-grid-expand(2,5);
+@include generate-grid-expand(2,6);
+@include generate-grid-expand(2,6);
+@include generate-grid-expand(2,7);
+@include generate-grid-expand(2,8);
+@include generate-grid-expand(2,9);
+@include generate-grid-expand(2,10);
+@include generate-grid-expand(2,11);
+@include generate-grid-expand(2,12);
+
+@include generate-grid-expand(3,1);
+@include generate-grid-expand(3,2);
+@include generate-grid-expand(3,3);
+@include generate-grid-expand(3,4);
+@include generate-grid-expand(3,5);
+@include generate-grid-expand(3,6);
+@include generate-grid-expand(3,6);
+@include generate-grid-expand(3,7);
+@include generate-grid-expand(3,8);
+@include generate-grid-expand(3,9);
+@include generate-grid-expand(3,10);
+@include generate-grid-expand(3,11);
+@include generate-grid-expand(3,12);
+
+@include generate-grid-expand(4,1);
+@include generate-grid-expand(4,2);
+@include generate-grid-expand(4,3);
+@include generate-grid-expand(4,4);
+@include generate-grid-expand(4,5);
+@include generate-grid-expand(4,6);
+@include generate-grid-expand(4,6);
+@include generate-grid-expand(4,7);
+@include generate-grid-expand(4,8);
+@include generate-grid-expand(4,9);
+@include generate-grid-expand(4,10);
+@include generate-grid-expand(4,11);
+@include generate-grid-expand(4,12);
+
+@include generate-grid-expand(5,1);
+@include generate-grid-expand(5,2);
+@include generate-grid-expand(5,3);
+@include generate-grid-expand(5,4);
+@include generate-grid-expand(5,5);
+@include generate-grid-expand(5,6);
+@include generate-grid-expand(5,6);
+@include generate-grid-expand(5,7);
+@include generate-grid-expand(5,8);
+@include generate-grid-expand(5,9);
+@include generate-grid-expand(5,10);
+@include generate-grid-expand(5,11);
+@include generate-grid-expand(5,12);
+
+@include generate-grid-expand(6,1);
+@include generate-grid-expand(6,2);
+@include generate-grid-expand(6,3);
+@include generate-grid-expand(6,4);
+@include generate-grid-expand(6,5);
+@include generate-grid-expand(6,6);
+@include generate-grid-expand(6,6);
+@include generate-grid-expand(6,7);
+@include generate-grid-expand(6,8);
+@include generate-grid-expand(6,9);
+@include generate-grid-expand(6,10);
+@include generate-grid-expand(6,11);
+@include generate-grid-expand(6,12);
+
+@include generate-grid-expand(7,1);
+@include generate-grid-expand(7,2);
+@include generate-grid-expand(7,3);
+@include generate-grid-expand(7,4);
+@include generate-grid-expand(7,5);
+@include generate-grid-expand(7,6);
+@include generate-grid-expand(7,6);
+@include generate-grid-expand(7,7);
+@include generate-grid-expand(7,8);
+@include generate-grid-expand(7,9);
+@include generate-grid-expand(7,10);
+@include generate-grid-expand(7,11);
+@include generate-grid-expand(7,12);
+
+@include generate-grid-expand(8,1);
+@include generate-grid-expand(8,2);
+@include generate-grid-expand(8,3);
+@include generate-grid-expand(8,4);
+@include generate-grid-expand(8,5);
+@include generate-grid-expand(8,6);
+@include generate-grid-expand(8,6);
+@include generate-grid-expand(8,7);
+@include generate-grid-expand(8,8);
+@include generate-grid-expand(8,9);
+@include generate-grid-expand(8,10);
+@include generate-grid-expand(8,11);
+@include generate-grid-expand(8,12);
+
+@include generate-grid-expand(9,1);
+@include generate-grid-expand(9,2);
+@include generate-grid-expand(9,3);
+@include generate-grid-expand(9,4);
+@include generate-grid-expand(9,5);
+@include generate-grid-expand(9,6);
+@include generate-grid-expand(9,6);
+@include generate-grid-expand(9,7);
+@include generate-grid-expand(9,8);
+@include generate-grid-expand(9,9);
+@include generate-grid-expand(9,10);
+@include generate-grid-expand(9,11);
+@include generate-grid-expand(9,12);
+
+@include generate-grid-expand(10,1);
+@include generate-grid-expand(10,2);
+@include generate-grid-expand(10,3);
+@include generate-grid-expand(10,4);
+@include generate-grid-expand(10,5);
+@include generate-grid-expand(10,6);
+@include generate-grid-expand(10,6);
+@include generate-grid-expand(10,7);
+@include generate-grid-expand(10,8);
+@include generate-grid-expand(10,9);
+@include generate-grid-expand(10,10);
+@include generate-grid-expand(10,11);
+@include generate-grid-expand(10,12);
+
+@include generate-grid-expand(11,1);
+@include generate-grid-expand(11,2);
+@include generate-grid-expand(11,3);
+@include generate-grid-expand(11,4);
+@include generate-grid-expand(11,5);
+@include generate-grid-expand(11,6);
+@include generate-grid-expand(11,6);
+@include generate-grid-expand(11,7);
+@include generate-grid-expand(11,8);
+@include generate-grid-expand(11,9);
+@include generate-grid-expand(11,10);
+@include generate-grid-expand(11,11);
+@include generate-grid-expand(11,12);
+
+@include generate-grid-expand(12,1);
+@include generate-grid-expand(12,2);
+@include generate-grid-expand(12,3);
+@include generate-grid-expand(12,4);
+@include generate-grid-expand(12,5);
+@include generate-grid-expand(12,6);
+@include generate-grid-expand(12,6);
+@include generate-grid-expand(12,7);
+@include generate-grid-expand(12,8);
+@include generate-grid-expand(12,9);
+@include generate-grid-expand(12,10);
+@include generate-grid-expand(12,11);
+@include generate-grid-expand(12,12);
+
+
+
+
+%grid {
+	> .grid__cell, > .grid__cell--asset, > .grid__cell--content, > .grid__cell--larger {
+		&:nth-child(odd) {
+			float: left;
+		}
+		&:nth-child(even) {
+			float: right;
+		}
+	}
+}
+
+
+/**
+ * ## Grid
+ * Inherits `%grid` properties
+ * **nth-child(1n)** is `float: left` and **nth-child(2n)** is `float: right`
+
+	````
+		<div class="grid">
+			<div class="grid__cell">
+				I'm a grid!
+			</div>
+			<div class="grid__cell">
+				I'm a grid! There can be more of me too!
+			</div>
+		</div>
+	````
+ */
+.grid {
+	@extend %grid;
+}
+
+
+/**
+ * ### Basic Two Column Grid
+ * Note: it's not equal Columns inside - Width's are based off of design dimensions.
+ * The basic grid setup is two columns, one is larger than other 46-to-54 proportions.
+
+	````
+		<div class="grid--two">
+			<div class="grid__cell">
+				I'm a grid!
+			</div>
+			<div class="grid__cell">
+				I'm a grid! There can be more of me too!
+			</div>
+		</div>
+	````
+
+	````
+ * ## Basic Content Setup Grid
+	````
+		<div class="grid--two">
+			<div class="grid__cell--content">
+				I'm a grid!
+			</div>
+			<div class="grid__cell--asset">
+				I'm a grid! There can be more of me too!
+			</div>
+		</div>
+	````
+ * ### Variation of naming available
+ * You can children of `.grid__cell` = `grid__cell--content` and `.grid__cell--asset` = `.grid__cell_larger`
+
+ 	````
+		<div class="grid--two">
+			<div class="grid__cell--content">
+				I'm a grid!
+			</div>
+			<div class="grid__cell--asset">
+				I'm a grid! There can be more of me too!
+			</div>
+			<div class="grid__cell">
+				I'm a grid!
+			</div>
+			<div class="grid__cell--larger">
+				I'm a grid! There can be more of me too!
+			</div>
+			<div class="grid__cell--asset">
+				Flip flop!
+			</div>
+			<div class="grid__cell--content">
+				They can switch too
+			</div>
+			<div class="grid__cell">
+				Or combined? YES, I'm on the left
+			</div>
+			<div class="grid__cell">
+				I'm on the right!!
+			</div>
+		</div>
+	````
+ */
+.grid--two, .grid--two--layed {
+	@extend %grid;
+}
+
+.grid--two {
+	> .grid__cell, > .grid__cell--content {
+		width: percentage( 4 / 12);
+	}
+	> .grid__cell--larger, > .grid__cell--asset {
+		width: percentage( 8 / 12);
+	}
+}
+
+%expand-out {
+	position: relative;
+	display: block;
+}
+
+.expand-out__1, .expand-out__2 {
+	@extend %expand-out;
+	z-index: 2;
+}
+
+.position-absolute {
+	position: absolute;
+}
+
+.grid--two--layed {
+	position: relative;
+	outline: 1px solid yellow;
+	> .grid__cell--larger, > .grid__cell--asset  {
+		width: percentage( 11 / 12 );
+		.expand-out__to-edge {
+			@extend %expand-out;
+			z-index: 1;
+			width: percentage( 1163 / 960 );
+			opacity: .5;
+		}
+	}
+	> .grid__cell, > .grid__cell--content {
+		width: percentage( 1 / 12 );
+		> h2, > p {
+			//background-color: rgba(0,0,0,.5);
+			@extend .expand-out__1;
+		}
+		> p , .expand-out__1 {
+			width: percentage( 36 / 12 );
+		}
+		> h2, .expand-out__2 {
+			//width: percentage( 48 / 12 );
+			width: percentage( 36 / 12 );
+		}
+	}
+	.position-absolute.grid__cell--asset {
+		left: percentage( 1 / 12 );
+	}
+}
+
+/*
+.grid--12__offset--right-11 {
+	background-color: yellow;
+	font-size: 12px;
+	width: percentage( ( 5.5 * 12 ) / 12 );
+}
+*/
+
+
+/**
+ * ## Image Widths
+ * `.grid__cell--asset` and `.asset-container` make children `<img />` width equal to "100%"
+
+	````
+		<div class="asset-container">
+			<img alt="I am full width of my parent container" src="http://placehold.it/350x150" />
+		</div>
+	````
+
+ */
+.grid__cell--asset, .asset-container {
+	img {
+		display: block;
+		width: 100%;
+	}
+}
+
+
+/*
+ * ## Two Column Grid
+ * Equal column widths (50%), applied to absolute path of child (`.grid__cell`)
+
+	````
+		<div class="grid--equal--two">
+			<div class="grid__cell">
+				I'm a grid
+			</div>
+			<div class="grid__cell">
+				We're both 50%!
+			</div>
+			<div class="grid__cell">
+				Me too!
+			</div>
+			<div class="grid__cell">
+				Griddin'
+			</div>
+		</div>
+	````
+ */
+.grid--equal--two {
+	> [class*="grid__cell"] {
+		width: 50%;
+	}
+}
+
+.grid--two, .grid--two--layed, .grid--equal--two {
+	> [class*="grid__cell"] {
+		// Clear for equal grid/column heights:
+		&:nth-child(2n+1) {
+			clear: both;
+		}
+	}
+}
+
+@media screen and ( max-width: 580px ) {
+	.grid--two, .grid--equal--two {
+		.grid__cell--asset, .grid__cell--content, .grid__cell {
+			float: none;
+		}
+		.grid__cell--content, .grid__cell, .grid__cell--asset {
+			width: auto;
+		}
+		.grid__cell--asset {
+			width: auto;
+		}
+	}
+}
+
+
+/*
+ * ## Three Column Grid
+ * Equal column widths (33.333%), applied to absolute path of child (`.grid__cell`)
+
+	````
+		<div class="grid--equal--three">
+			<div class="grid__cell">
+				I'm a grid
+			</div>
+			<div class="grid__cell">
+				I'm 33.333%
+			</div>
+			<div class="grid__cell">
+				I'm 33.333% too!
+			</div>
+			<div class="grid__cell">
+				Griddin'
+			</div>
+			<div class="grid__cell">
+				Griddin' more, still 33.333%
+			</div>
+		</div>
+	````
+ */
+.grid--equal--three {
+	> [class*="grid__cell"] {
+		width: percentage( 1 / 3 );
+		// Clear for equal grid/column heights:
+		&:nth-child(3n+1) {
+			clear: both;
+		}
+		@media screen and ( max-width: 580px ) {
+			width: 100%;
+		}
+	}
+}
+
+
+/**
+ * Griddin on Twelves
+ */
+.grid--12 {
+	> [class*="grid__cell"] {
+		float: left;
+	}
+}
+
+.grid__cell--1 {
+	width: percentage( 1 / 12);
+}
+
+.grid__cell--2 {
+	width: percentage( 2 / 12);
+}
+
+.grid__cell--3 {
+	width: percentage( 3 / 12);
+}
+
+.grid__cell--4 {
+	width: percentage( 4 / 12);
+}
+
+.grid__cell--5 {
+	width: percentage( 5 / 12);
+}
+
+.grid__cell--6 {
+	width: percentage( 6 / 12);
+}
+
+.grid__cell--7 {
+	width: percentage( 7 / 12);
+}
+
+.grid__cell--8 {
+	width: percentage( 8 / 12);
+}
+
+.grid__cell--9 {
+	width: percentage( 9 / 12);
+}
+
+.grid__cell--10 {
+	width: percentage( 10 / 12);
+}
+
+.grid__cell--11 {
+	width: percentage( 11 / 12);
+}
+
+.grid__cell--12 {
+	width: percentage( 12 / 12);
+}
+
+.grid__space--right--1 {
+	margin-right: percentage( 1 / 12);
+}
+
+.grid__space--right--2 {
+	margin-right: percentage( 2 / 12);
+}
+
+.grid__space--right--3 {
+	margin-right: percentage( 3 / 12);
+}
+
+.grid__space--right--4 {
+	margin-right: percentage( 4 / 12);
+}
+
+.grid__space--right--5 {
+	margin-right: percentage( 5 / 12);
+}
+
+.grid__space--right--6 {
+	margin-right: percentage( 6 / 12);
+}
+
+.grid__space--right--7 {
+	margin-right: percentage( 7 / 12);
+}
+
+.grid__space--right--8 {
+	margin-right: percentage( 8 / 12);
+}
+
+.grid__space--right--9 {
+	margin-right: percentage( 9 / 12);
+}
+
+.grid__space--right--10 {
+	margin-right: percentage( 10 / 12);
+}
+
+.grid__space--right--11 {
+	margin-right: percentage( 11 / 12);
+}
+
+.grid__space--right--12 {
+	margin-right: percentage( 12 / 12);
+}
+
+.grid__space--left--1 {
+	margin-left: percentage( 1 / 12);
+}
+
+.grid__space--left--2 {
+	margin-left: percentage( 2 / 12);
+}
+
+.grid__space--left--3 {
+	margin-left: percentage( 3 / 12);
+}
+
+.grid__space--left--4 {
+	margin-left: percentage( 4 / 12);
+}
+
+.grid__space--left--5 {
+	margin-left: percentage( 5 / 12);
+}
+
+.grid__space--left--6 {
+	margin-left: percentage( 6 / 12);
+}
+
+.grid__space--left--7 {
+	margin-left: percentage( 7 / 12);
+}
+
+.grid__space--left--8 {
+	margin-left: percentage( 8 / 12);
+}
+
+.grid__space--left--9 {
+	margin-left: percentage( 9 / 12);
+}
+
+.grid__space--left--10 {
+	margin-left: percentage( 10 / 12);
+}
+
+.grid__space--left--11 {
+	margin-left: percentage( 11 / 12);
+}
+
+.grid__space--left--12 {
+	margin-left: percentage( 12 / 12);
+}
+
+
+/**
+ * ## Grid Padding
+	````
+		<article class="grid--equal--three grid-padding" style="background-color: red;">
+			<div class="grid__cell asset-container">
+				<img alt="Share You should never have to roll your own" src="assets/images/share-roll-own.png" />
+			</div>
+			<div class="grid__cell asset-container">
+				<img alt="Share Not All Bathrooms are Created Equal." src="assets/images/share-not-equal.png" />
+			</div>
+			<div class="grid__cell asset-container">
+				<img alt="Share Free The Tampons" src="assets/images/share-ftt.png" />
+			</div>
+			<div class="grid__cell asset-container">
+				<img alt="Share You should never have to roll your own" src="assets/images/share-roll-own.png" />
+			</div>
+			<div class="grid__cell asset-container">
+				<img alt="Share Not All Bathrooms are Created Equal." src="assets/images/share-not-equal.png" />
+			</div>
+			<div class="grid__cell asset-container">
+				<img alt="Share Free The Tampons" src="assets/images/share-ftt.png" />
+			</div>
+		</article>
+	````
+
+ */
+.grid-padding {
+	margin-left: -1 * $default-space / 2;
+	.grid__cell {
+		padding-bottom: $default-space / 2;
+		padding-left: $default-space / 2;
+	}
+}
+
+
+/**
+ * ### Equal heights for any parent class that has `grid` in it
+
+	````
+		<div class="grid--two">
+			<div class="grid__cell">
+				I'm a grid!
+			</div>
+			<div class="grid__cell">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+			</div>
+			<div class="grid__cell">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+			</div>
+			<div class="grid__cell">
+				I'm a grid! We take breaks equal!
+			</div>
+		</div>
+	````
+*/
+.grid, [class*="grid__equal"], .float-container {
+	> .grid__cell--left {
+		float: left;
+	}
+	> .grid__cell--right {
+		float: right;
+	}
+}
+
+[class*="grid--equal"], .float-container {
+	> .grid__cell {
+		float: left;
+	}
+}
+
+.grid, .grid--two, .grid--two--layed, [class*="grid__equal"], .grid--12 {
+	&:after {
+		display: table;
+		clear: both;
+		content: "";
+	}
+}
+
+
