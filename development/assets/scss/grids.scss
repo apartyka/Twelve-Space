@@ -131,6 +131,26 @@
 
 
 /**
+ * ## Z-Index
+ * Use for layering
+ */
+%position {
+	position: relative;
+}
+
+.position, .position--1 {
+	z-index: 1;
+}
+
+@for $i from 2 through 12 {
+	.position--#{$i} {
+		@extend %position;
+		z-index: 1;
+	}
+}
+
+
+/**
  * ## Image Widths
  * `.grid__cell--asset` and `.asset-container` make children `<img />` width equal to "100%"
  */
@@ -141,6 +161,15 @@
 	}
 }
 
+img.full  {
+	display: block;
+}
+
+.grid, .grid--12, .grid--two, .grid--equal--two, .grid--equal--three, .grid--equal--four {
+	.full {
+		width: 100%;
+	}
+}
 
 /*
  * ## Two Column Grid
@@ -174,6 +203,20 @@
 	}
 }
 
+/*
+ * ## Four Column Grid
+ * Equal column widths (33.333%), applied to absolute path of child (`.grid__cell`)
+ */
+.grid--equal--four {
+	> [class*="grid__cell"] {
+		width: percentage( 1 / 4 );
+		// Clear for equal grid/column heights:
+		&:nth-child(4n+1) {
+			clear: both;
+		}
+	}
+}
+
 
 /**
  * ### Equal heights for any parent class that has `grid` in it
@@ -193,7 +236,7 @@
 	}
 }
 
-.grid, .grid--two, [class*="grid__equal"], .grid--12 {
+.grid, .grid--two, .grid--equal--two, .grid--equal--three, .grid--equal--four, .grid--12 {
 	&:after {
 		display: table;
 		clear: both;
