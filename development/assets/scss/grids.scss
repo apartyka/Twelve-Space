@@ -47,12 +47,25 @@
 	z-index: 1;
 }
 
+.overflow-hidden {
+	overflow: hidden;
+}
+
+.overflow-hidden--x {
+	overflow-x: hidden;
+}
+
+.overflow-hidden--y {
+	overflow-y: hidden;
+}
+
 @for $i from 0 through 12 {
 	.position-relative--#{$i} {
 		@extend .position-relative;
 		z-index: $i;
 	}
 }
+
 @for $i from 0 through 12 {
 	.position-absolute--#{$i} {
 		@extend .position-absolute;
@@ -69,6 +82,48 @@
 			float: right;
 		}
 	}
+}
+
+/**
+ * Image Height Disfactor!
+ * Make an `<img />` not be the deciding factor of height
+ * Usage:
+```
+   	<div class="overflow-control">
+   		<div class="grid__cell overflow-control__wrapper">
+   			<img class="overflow-control__wrapper__image" src="http://placehold.it/100x150" />
+   		</div>
+   	</div>
+```
+ * Pre fixed with "ns-" follow namespacing and inheritance path of:
+```
+   	<div class="ns-overflow-control"> <!-- Must follow path of ns-overflow-control > class*="grid__cell" > img -->
+   		<div class="grid__cell">  <!-- Any combo of `class*="grid__cell"` -->
+   			<img src="http://placehold.it/100x150" /> <!-- This gets the treatment -->
+   		</div>
+   	</div>
+```
+ */
+
+.overflow-control, .ns-overflow-control {
+	@extend .overflow-hidden--y;
+}
+
+.ns-overflow-control {
+	> [class*="grid__cell"] {
+		@extend .position-relative;
+		> img {
+			@extend .position-absolute;
+		}
+	}
+}
+
+.overflow-control__wrapper {
+	@extend .position-relative;
+}
+
+.overflow-control__wrapper__image {
+	@extend .position-absolute;
 }
 
 

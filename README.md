@@ -1,4 +1,4 @@
-Twelve-Space Structure System [v0.2.0]
+Twelve-Space Structure System [v0.2.1]
 =====
 
 This is a structure system for creating containers for content that is based in twelves and not a pixel dimension. The system keeps structures fluid to meet design needs and to allow for flexibility to focus on the context of content.
