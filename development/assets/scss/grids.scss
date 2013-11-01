@@ -8,11 +8,7 @@
  * Date: 2013-10-29
  */
 
-.grid--12 {
-	> [class*="grid__cell"] {
-		float: left;
-	}
-}
+
 @mixin generate-grid-expand( $grid__cell-amount: 1, $grid-offset-value: 1, $element-name: "expand", $property: "width", $block-name: "grid__cell", $grid-column-quanity: 12 ) {
 	$class-name: $block-name + "--" + $grid__cell-amount + "__" + $element-name + "--" + $grid-offset-value;
 	.#{$class-name} {
@@ -154,94 +150,84 @@
  * ## Image Widths
  * `.grid__cell--asset` and `.asset-container` make children `<img />` width equal to "100%"
  */
-.grid__cell--asset, .asset-container {
-	img {
-		display: block;
-		width: 100%;
-	}
-}
 
 img.full  {
 	display: block;
 }
 
-.grid, .grid--12, .grid--two, .grid--equal--two, .grid--equal--three, .grid--equal--four {
+%cell-child--full {
 	.full {
 		width: 100%;
 	}
 }
 
+.grid__cell--asset, .asset-container {
+	@extend %cell-child--full;
+	img {
+		@extend img.full;
+		width: 100%;
+	}
+}
+
+.grid, .grid--12 {
+	@extend %cell-child--full;
+}
+
 /*
- * ## Two Column Grid
+ * ## Two Column Grid -- FIX THIS to be expandedable
  * Equal column widths (50%), applied to absolute path of child (`.grid__cell`)
  */
-.grid--equal--two {
-	> [class*="grid__cell"] {
-		width: 50%;
+ %clear-after {
+ 	&:after {
+		display: table;
+		clear: both;
+		content: "";
 	}
-}
+ }
 
-.grid--two, .grid--equal--two {
-	> [class*="grid__cell"] {
-		// Clear for equal grid/column heights:
-		&:nth-child(2n+1) {
-			clear: both;
-		}
-	}
-}
-/*
- * ## Three Column Grid
- * Equal column widths (33.333%), applied to absolute path of child (`.grid__cell`)
- */
-.grid--equal--three {
-	> [class*="grid__cell"] {
-		width: percentage( 1 / 3 );
-		// Clear for equal grid/column heights:
-		&:nth-child(3n+1) {
-			clear: both;
-		}
-	}
-}
-
-/*
- * ## Four Column Grid
- * Equal column widths (33.333%), applied to absolute path of child (`.grid__cell`)
- */
-.grid--equal--four {
-	> [class*="grid__cell"] {
-		width: percentage( 1 / 4 );
-		// Clear for equal grid/column heights:
-		&:nth-child(4n+1) {
-			clear: both;
-		}
-	}
-}
-
-
-/**
- * ### Equal heights for any parent class that has `grid` in it
- */
-.grid, [class*="grid__equal"], .float-container {
+ %float--left-or-right {
 	> .grid__cell--left {
 		float: left;
 	}
 	> .grid__cell--right {
 		float: right;
 	}
-}
-
-[class*="grid--equal"], .float-container {
+ }
+ %float--cell--left {
 	> .grid__cell {
 		float: left;
 	}
+ }
+
+@for $i from 1 through 12 {
+	.grid--equal--#{$i} {
+		@extend %clear-after;
+		@extend %float--left-or-right;
+		@extend  %float--cell--left;
+		@extend %cell-child--full;
+		> [class*="grid__cell"] {
+			width: percentage( 1 / $i );
+			// Clear for equal grid/column heights:
+			&:nth-child(#{$i}n+1) {
+				clear: both;
+			}
+		}
+	}
 }
 
-.grid, .grid--two, .grid--equal--two, .grid--equal--three, .grid--equal--four, .grid--12 {
-	&:after {
-		display: table;
-		clear: both;
-		content: "";
-	}
+/**
+ * ### Equal heights for any parent class that has `grid` in it
+ */
+.grid, .grid--12, .float-container {
+	@extend  %float--left-or-right;
+}
+
+.float-container, .grid--12 {
+	@extend %float--cell--left;
+}
+
+.grid, .grid--12 {
+	@extend  %clear-after;
 }
 
 

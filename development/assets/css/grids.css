@@ -7,10 +7,6 @@
  *
  * Date: 2013-10-29
  */
-.grid--12 > [class*="grid__cell"] {
-  float: left;
-}
-
 .grid__cell--1__offset--1 {
   margin-right: -100%;
 }
@@ -2074,69 +2070,123 @@
  * ## Image Widths
  * `.grid__cell--asset` and `.asset-container` make children `<img />` width equal to "100%"
  */
-.grid__cell--asset img, .asset-container img {
+img.full, .grid__cell--asset img, .asset-container img {
   display: block;
+}
+
+.grid__cell--asset .full, .asset-container .full, .grid .full, .grid--12 .full, .grid--equal--1 .full, .grid--equal--2 .full, .grid--equal--3 .full, .grid--equal--4 .full, .grid--equal--5 .full, .grid--equal--6 .full, .grid--equal--7 .full, .grid--equal--8 .full, .grid--equal--9 .full, .grid--equal--10 .full, .grid--equal--11 .full, .grid--equal--12 .full {
   width: 100%;
 }
 
-img.full {
-  display: block;
-}
-
-.grid .full, .grid--12 .full, .grid--two .full, .grid--equal--two .full, .grid--equal--three .full, .grid--equal--four .full {
+.grid__cell--asset img, .asset-container img {
   width: 100%;
 }
 
 /*
- * ## Two Column Grid
+ * ## Two Column Grid -- FIX THIS to be expandedable
  * Equal column widths (50%), applied to absolute path of child (`.grid__cell`)
  */
-.grid--equal--two > [class*="grid__cell"] {
+.grid--equal--1:after, .grid--equal--2:after, .grid--equal--3:after, .grid--equal--4:after, .grid--equal--5:after, .grid--equal--6:after, .grid--equal--7:after, .grid--equal--8:after, .grid--equal--9:after, .grid--equal--10:after, .grid--equal--11:after, .grid--equal--12:after, .grid:after, .grid--12:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.grid--equal--1 > .grid__cell--left, .grid--equal--2 > .grid__cell--left, .grid--equal--3 > .grid__cell--left, .grid--equal--4 > .grid__cell--left, .grid--equal--5 > .grid__cell--left, .grid--equal--6 > .grid__cell--left, .grid--equal--7 > .grid__cell--left, .grid--equal--8 > .grid__cell--left, .grid--equal--9 > .grid__cell--left, .grid--equal--10 > .grid__cell--left, .grid--equal--11 > .grid__cell--left, .grid--equal--12 > .grid__cell--left, .grid > .grid__cell--left, .grid--12 > .grid__cell--left, .float-container > .grid__cell--left {
+  float: left;
+}
+.grid--equal--1 > .grid__cell--right, .grid--equal--2 > .grid__cell--right, .grid--equal--3 > .grid__cell--right, .grid--equal--4 > .grid__cell--right, .grid--equal--5 > .grid__cell--right, .grid--equal--6 > .grid__cell--right, .grid--equal--7 > .grid__cell--right, .grid--equal--8 > .grid__cell--right, .grid--equal--9 > .grid__cell--right, .grid--equal--10 > .grid__cell--right, .grid--equal--11 > .grid__cell--right, .grid--equal--12 > .grid__cell--right, .grid > .grid__cell--right, .grid--12 > .grid__cell--right, .float-container > .grid__cell--right {
+  float: right;
+}
+
+.grid--equal--1 > .grid__cell, .grid--equal--2 > .grid__cell, .grid--equal--3 > .grid__cell, .grid--equal--4 > .grid__cell, .grid--equal--5 > .grid__cell, .grid--equal--6 > .grid__cell, .grid--equal--7 > .grid__cell, .grid--equal--8 > .grid__cell, .grid--equal--9 > .grid__cell, .grid--equal--10 > .grid__cell, .grid--equal--11 > .grid__cell, .grid--equal--12 > .grid__cell, .float-container > .grid__cell, .grid--12 > .grid__cell {
+  float: left;
+}
+
+.grid--equal--1 > [class*="grid__cell"] {
+  width: 100%;
+}
+.grid--equal--1 > [class*="grid__cell"]:nth-child(1n+1) {
+  clear: both;
+}
+
+.grid--equal--2 > [class*="grid__cell"] {
   width: 50%;
 }
-
-.grid--two > [class*="grid__cell"]:nth-child(2n+1), .grid--equal--two > [class*="grid__cell"]:nth-child(2n+1) {
+.grid--equal--2 > [class*="grid__cell"]:nth-child(2n+1) {
   clear: both;
 }
 
-/*
- * ## Three Column Grid
- * Equal column widths (33.333%), applied to absolute path of child (`.grid__cell`)
- */
-.grid--equal--three > [class*="grid__cell"] {
+.grid--equal--3 > [class*="grid__cell"] {
   width: 33.33333%;
 }
-.grid--equal--three > [class*="grid__cell"]:nth-child(3n+1) {
+.grid--equal--3 > [class*="grid__cell"]:nth-child(3n+1) {
   clear: both;
 }
 
-/*
- * ## Four Column Grid
- * Equal column widths (33.333%), applied to absolute path of child (`.grid__cell`)
- */
-.grid--equal--four > [class*="grid__cell"] {
+.grid--equal--4 > [class*="grid__cell"] {
   width: 25%;
 }
-.grid--equal--four > [class*="grid__cell"]:nth-child(4n+1) {
+.grid--equal--4 > [class*="grid__cell"]:nth-child(4n+1) {
+  clear: both;
+}
+
+.grid--equal--5 > [class*="grid__cell"] {
+  width: 20%;
+}
+.grid--equal--5 > [class*="grid__cell"]:nth-child(5n+1) {
+  clear: both;
+}
+
+.grid--equal--6 > [class*="grid__cell"] {
+  width: 16.66667%;
+}
+.grid--equal--6 > [class*="grid__cell"]:nth-child(6n+1) {
+  clear: both;
+}
+
+.grid--equal--7 > [class*="grid__cell"] {
+  width: 14.28571%;
+}
+.grid--equal--7 > [class*="grid__cell"]:nth-child(7n+1) {
+  clear: both;
+}
+
+.grid--equal--8 > [class*="grid__cell"] {
+  width: 12.5%;
+}
+.grid--equal--8 > [class*="grid__cell"]:nth-child(8n+1) {
+  clear: both;
+}
+
+.grid--equal--9 > [class*="grid__cell"] {
+  width: 11.11111%;
+}
+.grid--equal--9 > [class*="grid__cell"]:nth-child(9n+1) {
+  clear: both;
+}
+
+.grid--equal--10 > [class*="grid__cell"] {
+  width: 10%;
+}
+.grid--equal--10 > [class*="grid__cell"]:nth-child(10n+1) {
+  clear: both;
+}
+
+.grid--equal--11 > [class*="grid__cell"] {
+  width: 9.09091%;
+}
+.grid--equal--11 > [class*="grid__cell"]:nth-child(11n+1) {
+  clear: both;
+}
+
+.grid--equal--12 > [class*="grid__cell"] {
+  width: 8.33333%;
+}
+.grid--equal--12 > [class*="grid__cell"]:nth-child(12n+1) {
   clear: both;
 }
 
 /**
  * ### Equal heights for any parent class that has `grid` in it
  */
-.grid > .grid__cell--left, [class*="grid__equal"] > .grid__cell--left, .float-container > .grid__cell--left {
-  float: left;
-}
-.grid > .grid__cell--right, [class*="grid__equal"] > .grid__cell--right, .float-container > .grid__cell--right {
-  float: right;
-}
-
-[class*="grid--equal"] > .grid__cell, .float-container > .grid__cell {
-  float: left;
-}
-
-.grid:after, .grid--two:after, .grid--equal--two:after, .grid--equal--three:after, .grid--equal--four:after, .grid--12:after {
-  display: table;
-  clear: both;
-  content: "";
-}
