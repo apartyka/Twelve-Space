@@ -114,6 +114,9 @@ img.full  {
 /*
  * ## Clear Floats
  */
+.clear, .grid__row {
+	clear: both;
+}
 
  %clear-after {
  	&:after {
@@ -131,9 +134,14 @@ img.full  {
 		float: right;
 	}
  }
+
+ %float-left {
+	float: left;
+ }
+
  %float--cell--left {
-	> .grid__cell {
-		float: left;
+	> .grid__cell, .grid__row > .grid__cell {
+		@extend %float-left;
 	}
  }
 
@@ -142,6 +150,7 @@ img.full  {
  * "Equal Columns"
  * Clears on #nth-child+1 for even rows
  */
+
 @for $i from 1 through 12 {
 	.grid--equal--#{$i} {
 		@extend %clear-after;
@@ -162,11 +171,12 @@ img.full  {
 /**
  * Equal heights for any parent class that has `grid` in it
  */
-.grid, .grid--12, .float-container {
+
+.grid, .grid--12, .float-container, .grid__row {
 	@extend  %float--left-or-right;
 }
 
-.float-container, .grid--12 {
+.float-container, .grid--12, .grid__row {
 	@extend %float--cell--left;
 }
 
@@ -201,6 +211,7 @@ img.full  {
 
 @for $i from 1 through 12 {
 	.grid__cell--#{$i} {
+		@extend  %float-left;
 		width: percentage( $i / 12);
 	}
 }
