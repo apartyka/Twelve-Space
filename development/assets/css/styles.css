@@ -8,8 +8,8 @@
  * Date: 2013-10-29
  */
 /**
- * ## Z-Index
- * Use for layering
+ * Z-Index for Absolute and Relative Positions
+ * Used for layering
  */
 .position-relative, .position-relative--0, .position-relative--1, .position-relative--2, .position-relative--3, .position-relative--4, .position-relative--5, .position-relative--6, .position-relative--7, .position-relative--8, .position-relative--9, .position-relative--10, .position-relative--11, .position-relative--12 {
   position: relative;
@@ -135,12 +135,12 @@
 }
 
 /**
- * ## Grid
+ * Grid
  * Inherits `%grid` properties
  * **nth-child(1n)** is `float: left` and **nth-child(2n)** is `float: right`
  */
 /**
- * ## Image Widths
+ * Image Widths
  * `.grid__cell--asset` and `.asset-container` make children `<img />` width equal to "100%"
  */
 img.full, .grid__cell--asset img, .asset-container img {
@@ -156,8 +156,7 @@ img.full, .grid__cell--asset img, .asset-container img {
 }
 
 /*
- * ## Two Column Grid -- FIX THIS to be expandable
- * Equal column widths (50%), applied to absolute path of child (`.grid__cell`)
+ * ## Clear Floats
  */
 .grid--equal--1:after, .grid--equal--2:after, .grid--equal--3:after, .grid--equal--4:after, .grid--equal--5:after, .grid--equal--6:after, .grid--equal--7:after, .grid--equal--8:after, .grid--equal--9:after, .grid--equal--10:after, .grid--equal--11:after, .grid--equal--12:after, .grid:after, .grid--12:after {
   display: table;
@@ -176,6 +175,10 @@ img.full, .grid__cell--asset img, .asset-container img {
   float: left;
 }
 
+/*
+ * "Equal Columns"
+ * Clears on #nth-child+1 for even rows
+ */
 .grid--equal--1 > [class*="grid__cell"] {
   width: 100%;
 }
@@ -261,7 +264,7 @@ img.full, .grid__cell--asset img, .asset-container img {
 }
 
 /**
- * ### Equal heights for any parent class that has `grid` in it
+ * Equal heights for any parent class that has `grid` in it
  */
 .grid__cell--1__expand--1 {
   width: 200%;

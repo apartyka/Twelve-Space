@@ -31,9 +31,10 @@
 }
 
 /**
- * ## Z-Index
- * Use for layering
+ * Z-Index for Absolute and Relative Positions
+ * Used for layering
  */
+
 .position-relative {
 	position: relative;
 }
@@ -59,7 +60,6 @@
 	}
 }
 
-
 %grid {
 	> .grid__cell {
 		&:nth-child(odd) {
@@ -71,17 +71,20 @@
 	}
 }
 
+
 /**
- * ## Grid
+ * Grid
  * Inherits `%grid` properties
  * **nth-child(1n)** is `float: left` and **nth-child(2n)** is `float: right`
  */
+
 .grid {
 	@extend %grid;
 }
 
+
 /**
- * ## Image Widths
+ * Image Widths
  * `.grid__cell--asset` and `.asset-container` make children `<img />` width equal to "100%"
  */
 
@@ -107,10 +110,11 @@ img.full  {
 	@extend %cell-child--full;
 }
 
+
 /*
- * ## Two Column Grid -- FIX THIS to be expandable
- * Equal column widths (50%), applied to absolute path of child (`.grid__cell`)
+ * ## Clear Floats
  */
+
  %clear-after {
  	&:after {
 		display: table;
@@ -133,6 +137,11 @@ img.full  {
 	}
  }
 
+
+/*
+ * "Equal Columns"
+ * Clears on #nth-child+1 for even rows
+ */
 @for $i from 1 through 12 {
 	.grid--equal--#{$i} {
 		@extend %clear-after;
@@ -149,8 +158,9 @@ img.full  {
 	}
 }
 
+
 /**
- * ### Equal heights for any parent class that has `grid` in it
+ * Equal heights for any parent class that has `grid` in it
  */
 .grid, .grid--12, .float-container {
 	@extend  %float--left-or-right;
@@ -204,10 +214,4 @@ img.full  {
 		margin-right: percentage( $i / 12);
 	}
 }
-
-
-
-
-
-
 
