@@ -30,52 +30,38 @@
 	}
 }
 
-
-@for $i from 1 through 12 {
-	@for $x from 1 through 12 {
-		@include generate-grid__cell__offset($i, $x, "offset", "margin-right", -1, "grid__cell", 12 );
-	}
-}
-@for $i from 1 through 12 {
-	@for $x from 1 through 12 {
-		@include generate-grid__cell__offset($i, $x, "offset--negative", "margin-left", -1, "grid__cell", 12 );
-	}
+/**
+ * ## Z-Index
+ * Use for layering
+ */
+.position-relative {
+	position: relative;
 }
 
-@for $i from 1 through 12 {
-	@for $x from 1 through 12 {
-		@include generate-grid-expand($i, $x);
-	}
+.position-absolute {
+	position: absolute;
 }
 
-@for $i from 1 through 12 {
-	@include generate-grid__cell-offset(1, $i, "cell--offset", "margin-left", 1, "grid", 12 );
+.position, .position--1 {
+	z-index: 1;
 }
 
-@for $i from 1 through 12 {
-	@include generate-grid__cell-offset(1, $i, "cell--offset--negative", "margin-left", -1, "grid", 12 );
-}
-
-@for $i from 1 through 12 {
-	.grid__cell--#{$i} {
-		width: percentage( $i / 12);
+@for $i from 0 through 12 {
+	.position-relative--#{$i} {
+		@extend .position-relative;
+		z-index: $i;
 	}
 }
-@for $i from 1 through 12 {
-	.grid__space--left--#{$i} {
-		margin-left: percentage( $i / 12);
+@for $i from 0 through 12 {
+	.position-absolute--#{$i} {
+		@extend .position-absolute;
+		z-index:  $i;
 	}
 }
-@for $i from 1 through 12 {
-	.grid__space--right--#{$i} {
-		margin-right: percentage( $i / 12);
-	}
-}
-
 
 
 %grid {
-	> .grid__cell, > .grid__cell--asset, > .grid__cell--content {
+	> .grid__cell {
 		&:nth-child(odd) {
 			float: left;
 		}
@@ -93,58 +79,6 @@
 .grid {
 	@extend %grid;
 }
-
-/**
- * ### Basic Two Column Grid
- */
-
-.grid--two, .grid--two--layed {
-	@extend %grid;
-}
-
-.grid--two {
-	> .grid__cell, > .grid__cell--content {
-		width: percentage( 4 / 12);
-	}
-	> .grid__cell--larger, > .grid__cell--asset {
-		width: percentage( 8 / 12);
-	}
-}
-
-%expand-out {
-	position: relative;
-	display: block;
-}
-
-.expand-out--1, .expand-out--2 {
-	@extend %expand-out;
-	z-index: 2;
-}
-
-.position--absolute {
-	position: absolute;
-}
-
-
-/**
- * ## Z-Index
- * Use for layering
- */
-%position {
-	position: relative;
-}
-
-.position, .position--1 {
-	z-index: 1;
-}
-
-@for $i from 2 through 12 {
-	.position--#{$i} {
-		@extend %position;
-		z-index: 1;
-	}
-}
-
 
 /**
  * ## Image Widths
@@ -174,7 +108,7 @@ img.full  {
 }
 
 /*
- * ## Two Column Grid -- FIX THIS to be expandedable
+ * ## Two Column Grid -- FIX THIS to be expandable
  * Equal column widths (50%), applied to absolute path of child (`.grid__cell`)
  */
  %clear-after {
@@ -229,5 +163,51 @@ img.full  {
 .grid, .grid--12 {
 	@extend  %clear-after;
 }
+
+@for $i from 1 through 12 {
+	@for $x from 1 through 12 {
+		@include generate-grid-expand($i, $x);
+	}
+}
+
+@for $i from 1 through 12 {
+	@for $x from 1 through 12 {
+		@include generate-grid__cell__offset($i, $x, "offset", "margin-right", -1, "grid__cell", 12 );
+	}
+}
+@for $i from 1 through 12 {
+	@for $x from 1 through 12 {
+		@include generate-grid__cell__offset($i, $x, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+	}
+}
+
+@for $i from 1 through 12 {
+	@include generate-grid__cell-offset(1, $i, "cell--offset", "margin-left", 1, "grid", 12 );
+}
+
+@for $i from 1 through 12 {
+	@include generate-grid__cell-offset(1, $i, "cell--offset--negative", "margin-left", -1, "grid", 12 );
+}
+
+@for $i from 1 through 12 {
+	.grid__cell--#{$i} {
+		width: percentage( $i / 12);
+	}
+}
+@for $i from 1 through 12 {
+	.grid__space--left--#{$i} {
+		margin-left: percentage( $i / 12);
+	}
+}
+@for $i from 1 through 12 {
+	.grid__space--right--#{$i} {
+		margin-right: percentage( $i / 12);
+	}
+}
+
+
+
+
+
 
 
