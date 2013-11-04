@@ -41,6 +41,35 @@
 	overflow-y: hidden;
 }
 
+/**
+ * Vertical Alignment for `grid--table--12` types
+ */
+.vertical-align, .vertical-align--middle {
+	vertical-align: middle;
+}
+
+.vertical-align--baseline {
+	vertical-align: baseline;
+}
+
+.vertical-align--bottom {
+	vertical-align: middle;
+}
+
+.vertical-align--text-bottom {
+	vertical-align: text-bottom;
+}
+
+.vertical-align--top {
+	vertical-align: top;
+}
+
+.vertical-align--bottom {
+	vertical-align: middle;
+}
+
+
+
 @for $i from 0 through 12 {
 	.position-relative--#{$i} {
 		@extend .position-relative;
