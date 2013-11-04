@@ -1,4 +1,4 @@
-Twelve-Space Structure System [v0.2.1]
+Twelve-Space Structure System [v0.3.0]
 =====
 
 This is a structure system for creating containers for content that is based in twelves and not a pixel dimension. The system keeps structures fluid to meet design needs and to allow for flexibility to focus on the context of content.
@@ -18,6 +18,18 @@ Add `grid--12` to block container and add `grid__cell--`+`#` to the element cont
 ### 5-7 Example
 ```
 	<div class="grid--12">
+		<div class="grid__cell--5">
+			I take up "5 Spaces"
+		</div>
+		<div class="grid__cell--7">
+			I take up "7 Spaces"
+		</div>
+	</div>
+```
+
+### 5-7 Example (Table)
+```
+	<div class="grid--table--12">
 		<div class="grid__cell--5">
 			I take up "5 Spaces"
 		</div>
@@ -100,6 +112,90 @@ Add `grid--12` to block container and add `grid__cell--`+`#` to the element cont
 	</div>
 ```
 
+### 5-7 Example with Nest of 4-8 (Table)
+```
+	<div class="grid--table--12">
+		<div class="grid--table--12 grid__cell--5">
+			<h2>
+				I take up "5 Spaces"
+			</h2>
+			<div class="grid__cell--4">
+				I take up "4 Spaces" of "5 Spaces"
+			</div>
+			<div class="grid__cell--8">
+				I take up "8 Spaces" of "5 Spaces"
+			</div>
+		</div>
+		<div class="grid--12 grid__cell--7">
+			<h2>
+				I take up "7 Spaces"
+			</h2>
+			<div class="grid__cell--4">
+				I take up "4 Spaces" of "7 Spaces"
+			</div>
+			<div class="grid__cell--8">
+				I take up "8 Spaces" of "7 Spaces"
+			</div>
+		</div>
+	</div>
+```
+
+### 5-7 / 7-5 Example with Nest of 4-8
+```
+	<div class="grid--table--12">
+		<div class="grid__cell--5">
+			<h2>
+				I take up "5 Spaces"
+			</h2>
+		</div>
+		<div class="grid--12 grid__cell--7">
+			<h2>
+				I take up "7 Spaces"
+			</h2>
+		</div>
+		<div class="grid--12 grid__cell--7">
+			<h2>
+				I take up "7 Spaces"
+			</h2>
+		</div>
+		<div class="grid__cell--5">
+			<h2>
+				I take up "5 Spaces"
+			</h2>
+		</div>
+	</div>
+```
+
+### 5-7 / 7-5 Example with Nest of 4-8 (Table)
+```
+	<div class="grid--table--12">
+		<div class="grid--table__row">
+			<div class="grid__cell--5">
+				<h2>
+					I take up "5 Spaces"
+				</h2>
+			</div>
+			<div class="grid--12 grid__cell--7">
+				<h2>
+					I take up "7 Spaces"
+				</h2>
+			</div>
+		</div>
+		<div class="grid--table__row">
+			<div class="grid--12 grid__cell--7">
+				<h2>
+					I take up "7 Spaces"
+				</h2>
+			</div>
+			<div class="grid__cell--5">
+				<h2>
+					I take up "5 Spaces"
+				</h2>
+			</div>
+		</div>
+	</div>
+```
+
 
 ## Layering
 You can layer a grid "space" on top of another to expand out of it's block container but keep the aspect-ratio of the parent.
@@ -171,6 +267,9 @@ Use block container's class (ie: `grid__cell--7`) plus `__offset--negative--` pl
 	</div>
 ```
 
+**NOTE**: "grid__cell--offset--negative--" does not work with Table Version.
+
+
 ### 5-7-2 Example
 
 Wait... 5+7+2=14... YES! But I am offset by "2" spaces making it: 5+7+14-2=12
@@ -196,6 +295,9 @@ Use `grid__cell--offset--negative--`+`#` on element container (ie: `grid__cell--
 		</div>
 	</div>
 ```
+
+**NOTE**: "grid__cell--offset--negative--" does not work with Table Version.
+
 
 ### 5-7 Expanded Example
 
@@ -247,6 +349,7 @@ Use block container's class (ie: `grid__cell--5`) plus `__offset--negative--` pl
 	</div>
 ```
 
+**NOTE**: "grid__cell--5__offset--negative--2" does not work with Table Version.
 
 
 

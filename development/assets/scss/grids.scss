@@ -1,34 +1,16 @@
+@import "variables";
+
 /* ==========================================================================
-   Grids / Twelve-Space Structure System [v0.2.0]
+   Grids / Twelve-Space Structure System [v0.3.0]
    ========================================================================== */
 /*!
- * Twelve-Space Structure System v0.2.0
+ * Twelve-Space Structure System v0.3.0
  * Created by Kevin Mack
+ * http://stash/users/kmack/repos/twelve-space
  *
  * Date: 2013-11-01
  */
 
-
-@mixin generate-grid-expand( $grid__cell-amount: 1, $grid-offset-value: 1, $element-name: "expand", $property: "width", $block-name: "grid__cell", $grid-column-quanity: 12 ) {
-	$class-name: $block-name + "--" + $grid__cell-amount + "__" + $element-name + "--" + $grid-offset-value;
-	.#{$class-name} {
-		#{$property}: percentage( 1 + ($grid-offset-value / $grid__cell-amount) );
-	}
-}
-
-@mixin generate-grid__cell-offset( $grid__cell-amount: 1, $grid-offset-value: 1, $element-name: "expand", $property: "width", $positiveOrNegative: 1, $block-name: "grid__cell", $grid-column-quanity: 12 ) {
-	$class-name: $block-name + "__" + $element-name + "--" + $grid-offset-value;
-	.#{$class-name} {
-		#{$property}:  percentage(($grid-offset-value / $grid-column-quanity)) * $positiveOrNegative;
-	}
-}
-
-@mixin generate-grid__cell__offset( $grid__cell-amount: 1, $grid-offset-value: 1, $element-name: "expand", $property: "width", $positiveOrNegative: 1, $block-name: "grid__cell", $grid-column-quanity: 12 ) {
-	$class-name: $block-name + "--" + $grid__cell-amount +  "__" + $element-name + "--" + $grid-offset-value;
-	.#{$class-name} {
-		#{$property}: percentage(  ($grid-offset-value / $grid__cell-amount) ) * -1;
-	}
-}
 
 /**
  * Z-Index for Absolute and Relative Positions
@@ -110,7 +92,7 @@
 }
 
 .ns-overflow-control {
-	> [class*="grid__cell"] {
+	> div {
 		@extend .position-relative;
 		> img {
 			@extend .position-absolute;
@@ -169,37 +151,55 @@ img.full  {
 /*
  * ## Clear Floats
  */
-.clear, .grid__row {
+.clear, .grid__row, .grid--table__row {
 	clear: both;
 }
 
- %clear-after {
- 	&:after {
+%clear-after {
+	&:after {
 		display: table;
 		clear: both;
 		content: "";
 	}
- }
+}
 
- %float--left-or-right {
+%float--left-or-right {
 	> .grid__cell--left {
 		float: left;
 	}
 	> .grid__cell--right {
 		float: right;
 	}
- }
+}
 
- %float-left {
+%float-left {
 	float: left;
- }
+}
 
- %float--cell--left {
+%display-table-cell {
+	display: table-cell
+}
+
+%display-table {
+ 	display: table;
+}
+
+.grid--table, .grid--table--12, .grid--table__row {
+	@extend %display-table;
+	width: 100%;
+}
+
+%float--cell--left {
 	> .grid__cell, .grid__row > .grid__cell {
 		@extend %float-left;
 	}
- }
+}
 
+%display-cell--table-cell {
+	> .grid__cell {
+		@extend %display-table-cell;
+	}
+}
 
 /*
  * "Equal Columns"
@@ -235,9 +235,40 @@ img.full  {
 	@extend %float--cell--left;
 }
 
+.grid--table--12, .grid--table__row {
+	@extend %display-cell--table-cell;
+}
+
 .grid, .grid--12 {
 	@extend  %clear-after;
 }
+
+@mixin generate-grid-expand( $grid__cell-amount: 1, $grid-offset-value: 1, $element-name: "expand", $property: "width", $block-name: "grid__cell", $grid-column-quanity: 12 ) {
+	$class-name: $block-name + "--" + $grid__cell-amount + "__" + $element-name + "--" + $grid-offset-value;
+	.#{$class-name} {
+		#{$property}: percentage( 1 + ($grid-offset-value / $grid__cell-amount) );
+	}
+	// OUTPUT: .grid__cell--{cell spaces}__expand--{cell spaces}
+}
+
+@mixin generate-grid__cell-offset( $grid__cell-amount: 1, $grid-offset-value: 1, $element-name: "expand", $property: "width", $positiveOrNegative: 1, $block-name: "grid__cell", $grid-column-quanity: 12 ) {
+	$class-name: $block-name + "__" + $element-name + "--" + $grid-offset-value;
+	.#{$class-name} {
+		#{$property}:  percentage(($grid-offset-value / $grid-column-quanity)) * $positiveOrNegative;
+	}
+	// OUTPUT: .grid__cell--offset--{cell spaces}
+	// OUTPUT: .grid__cell--offset--negative--{cell spaces}
+}
+
+@mixin generate-grid__cell__offset( $grid__cell-amount: 1, $grid-offset-value: 1, $element-name: "expand", $property: "width", $positiveOrNegative: 1, $block-name: "grid__cell", $grid-column-quanity: 12 ) {
+	$class-name: $block-name + "--" + $grid__cell-amount +  "__" + $element-name + "--" + $grid-offset-value;
+	.#{$class-name} {
+		#{$property}: percentage(  ($grid-offset-value / $grid__cell-amount) ) * -1;
+	}
+	// OUTPUT: .grid__cell--{cell spaces}__offset--{cell spaces}
+	// OUTPUT: .grid__cell--{cell spaces}__offset--native--{cell spaces}
+}
+
 
 @for $i from 1 through 12 {
 	@for $x from 1 through 12 {
@@ -250,11 +281,6 @@ img.full  {
 		@include generate-grid__cell__offset($i, $x, "offset", "margin-right", -1, "grid__cell", 12 );
 	}
 }
-@for $i from 1 through 12 {
-	@for $x from 1 through 12 {
-		@include generate-grid__cell__offset($i, $x, "offset--negative", "margin-left", -1, "grid__cell", 12 );
-	}
-}
 
 @for $i from 1 through 12 {
 	@include generate-grid__cell-offset(1, $i, "cell--offset", "margin-left", 1, "grid", 12 );
@@ -265,16 +291,35 @@ img.full  {
 }
 
 @for $i from 1 through 12 {
+	@for $x from 1 through 12 {
+		@include generate-grid__cell__offset($i, $x, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+	}
+}
+
+@for $i from 1 through 12 {
 	.grid__cell--#{$i} {
-		@extend  %float-left;
+		// @extend  %float-left;
 		width: percentage( $i / 12);
 	}
 }
+@for $i from 1 through 12 {
+	.grid--12 > .grid__cell--#{$i} {
+		@extend %float-left;
+	}
+}
+@for $i from 1 through 12 {
+	.grid--table--12 > .grid__cell--#{$i}, .grid--table__row > .grid__cell--#{$i} {
+		@extend %display-table-cell;
+	}
+}
+
+
 @for $i from 1 through 12 {
 	.grid__space--left--#{$i} {
 		margin-left: percentage( $i / 12);
 	}
 }
+
 @for $i from 1 through 12 {
 	.grid__space--right--#{$i} {
 		margin-right: percentage( $i / 12);

@@ -81,15 +81,17 @@
 
 	</head>
 	<body>
-		<div class="container--full">
+		<div class="container--full background-color--gray">
 
 			<div class="container testing-grid">
 
-
 				<div id="demo">
+
+
 					<script type="text/template" id="grid-demo-template">
-
-
+						<h2>
+							Float Version
+						</h2>
 						<%_.each([1,2,3,4,5,6,7,8,9,10,11,12], function(testCase) {%>
 							<% var max = 12 - testCase; %>
 							<% for (i=1; i <= max; i++) { %>
@@ -98,15 +100,27 @@
 										<div class="grid__cell--<%=testCase%>">
 											<p>
 												This container is <%=testCase%> space<% if (testCase > 1) {%>s<%} %>
+												<br />
+												<code>
+													.grid__cell--<%=testCase%>
+												</code>
 											</p>
 										</div>
 										<div class="grid__cell--<%=12 - testCase%>">
 											<h3 class="grid__cell--<%=12 - testCase%>__offset--<%=i%>">
 												I am offset +<%=i%> space<% if (i > 1) {%>s<%} %>
+												<br />
+												<code>
+													.grid__cell--<%=12 - testCase%>__offset--<%=i%>
+												</code>
 											</h3>
 											<p>
 												This container is <%=12 - testCase%> Space<% if (testCase < 11) {%>s<%} %>
 												and is header is offset.
+												<br />
+												<code>
+													.grid__cell--<%=12 - testCase%>__offset--<%=i%>
+												</code>
 											</p>
 										</div>
 									</div>
@@ -114,6 +128,48 @@
 							<% } %>
 						<%})%>
 
+						<h2>
+							Table Version
+						</h2>
+						<%_.each([1,2,3,4,5,6,7,8,9,10,11,12], function(testCase) {%>
+							<% var max = 12 - testCase; %>
+							<% for (i=1; i <= max; i++) { %>
+								<% if ( (12 - testCase - i) > 0) { %>
+									<div class="grid--table--12  margin-bottom--2x">
+										<div class="grid__cell--<%=testCase%>">
+											<p>
+												This container is <%=testCase%> space<% if (testCase > 1) {%>s<%} %>
+												<br />
+												<code>
+													.grid__cell--<%=testCase%>
+												</code>
+											</p>
+										</div>
+										<div class="grid__cell--<%=12 - testCase%>">
+											<h3 class="grid__cell--<%=12 - testCase%>__offset--<%=i%>">
+												I am offset +<%=i%> space<% if (i > 1) {%>s<%} %>
+												<br />
+												<code>
+													.grid__cell--<%=12 - testCase%>__offset--<%=i%>
+												</code>
+											</h3>
+											<p>
+												This container is <%=12 - testCase%> Space<% if (testCase < 11) {%>s<%} %>
+												and is header is offset.
+												<br />
+												<code>
+													.grid__cell--<%=12 - testCase%>__offset--<%=i%>
+												</code>
+											</p>
+										</div>
+									</div>
+								<% } %>
+							<% } %>
+						<%})%>
+
+						<h2>
+							Float Version
+						</h2>
 						<%_.each([1,2,3,4,5,6,7,8,9,10,11,12], function(testCase) {%>
 							<% var max = 12 - testCase; %>
 							<% for (i=1; i <= max; i++) { %>
@@ -122,15 +178,27 @@
 										<div class="grid__cell--<%=testCase%>">
 											<p>
 												This container is <%=testCase%> space<% if (testCase > 1) {%>s<%} %>
+												<br />
+												<code>
+													.grid__cell--<%=testCase%>
+												</code>
 											</p>
 										</div>
 										<div class="grid__cell--<%=12 - testCase%>">
 											<h3 class="grid__cell--<%=12 - testCase%>__offset--negative--<%=i%>">
 												I am offset -<%=i%> space<% if (i > 1) {%>s<%} %>
+												<br />
+												<code>
+													.grid__cell--<%=12 - testCase%>__offset--negative--<%=i%>
+												</code>
 											</h3>
 											<p>
 												This container is <%=12 - testCase%> Space<% if (testCase < 11) {%>s<%} %>
 												and is header is offset.
+												<br />
+												<code>
+													.grid__cell--<%=12 - testCase%>
+												</code>
 											</p>
 										</div>
 									</div>
@@ -138,8 +206,9 @@
 							<% } %>
 						<%})%>
 
-
-
+						<h2>
+							Table Version
+						</h2>
 						<%_.each([1,2,3,4,5,6,7,8,9,10,11,12], function(testCase) {%>
 							<% var max = 12 - testCase; %>
 							<% for (i=1; i <= max; i++) { %>
@@ -148,12 +217,60 @@
 										<div class="grid__cell--<%=testCase%>">
 											<p>
 												This container is <%=testCase%> space<% if (testCase > 1) {%>s<%} %>
+												<br />
+												<code>
+													.grid__cell--<%=testCase%>
+												</code>
+											</p>
+										</div>
+										<div class="grid__cell--<%=12 - testCase%>">
+											<h3 class="grid__cell--<%=12 - testCase%>__offset--negative--<%=i%>">
+												I am offset -<%=i%> space<% if (i > 1) {%>s<%} %>
+												<br />
+												<code>
+													.grid__cell--<%=12 - testCase%>__offset--negative--<%=i%>
+												</code>
+											</h3>
+											<p>
+												This container is <%=12 - testCase%> Space<% if (testCase < 11) {%>s<%} %>
+												and is header is offset.
+												<br />
+												<code>
+													.grid__cell--<%=12 - testCase%>
+												</code>
+											</p>
+										</div>
+									</div>
+								<% } %>
+							<% } %>
+						<%})%>
+
+
+						<h2>
+							Float Version
+						</h2>
+						<%_.each([1,2,3,4,5,6,7,8,9,10,11,12], function(testCase) {%>
+							<% var max = 12 - testCase; %>
+							<% for (i=1; i <= max; i++) { %>
+								<% if ( (12 - testCase - i) > 0) { %>
+									<div class="grid--12  margin-bottom--2x">
+										<div class="grid__cell--<%=testCase%>">
+											<p>
+												This container is <%=testCase%> space<% if (testCase > 1) {%>s<%} %>
+												<br />
+												<code>
+													.grid__cell--<%=testCase%>
+												</code>
 											</p>
 										</div>
 										<div class="grid__cell--<%=12 - testCase - i %> grid__cell--offset--<%=i%>">
 											<p>
 												This container is <%=12 - testCase%> Space<% if (testCase < 11) {%>s<%} %>
 												and is offset +<%=i%> space<% if (i > 1) {%>s<%} %>
+												<br />
+												<code>
+													.grid__cell--<%=12 - testCase - i %> grid__cell--offset--<%=i%>
+												</code>
 											</p>
 										</div>
 									</div>
@@ -161,6 +278,44 @@
 							<% } %>
 						<%})%>
 
+						<h2>
+							Table Version
+						</h2>
+						<p class="padding-bottom">
+							This does not work in table.
+						</p>
+						<%_.each([1,2,3,4,5,6,7,8,9,10,11,12], function(testCase) {%>
+							<% var max = 12 - testCase; %>
+							<% for (i=1; i <= max; i++) { %>
+								<% if ( (12 - testCase - i) > 0) { %>
+									<div class="grid--table--12  margin-bottom--2x">
+										<div class="grid__cell--<%=testCase%>">
+											<p>
+												This container is <%=testCase%> space<% if (testCase > 1) {%>s<%} %>
+												<br />
+												<code>
+													.grid__cell--<%=testCase%>
+												</code>
+											</p>
+										</div>
+										<div class="grid__cell--<%=12 - testCase - i %> grid__cell--offset--<%=i%>">
+											<p>
+												This container is <%=12 - testCase%> Space<% if (testCase < 11) {%>s<%} %>
+												and is offset +<%=i%> space<% if (i > 1) {%>s<%} %>
+												<br />
+												<code>
+													.grid__cell--<%=12 - testCase - i %> grid__cell--offset--<%=i%>
+												</code>
+											</p>
+										</div>
+									</div>
+								<% } %>
+							<% } %>
+						<%})%>
+
+						<h2>
+							Float Version
+						</h2>
 						<%_.each([1,2,3,4,5,6,7,8,9,10,11,12], function(testCase) {%>
 							<% var max = 12 - testCase; %>
 							<% for (i=1; i <= max; i++) { %>
@@ -168,18 +323,64 @@
 									<div class="grid__cell--<%=testCase%>">
 										<p>
 											This container is <%=testCase%> space<% if (testCase > 1) {%>s<%} %>
+											<br />
+											<code>
+												.grid__cell--<%=testCase%>
+											</code>
 										</p>
 									</div>
 									<div class="grid__cell--<%=12 - testCase%> grid__cell--offset--negative--<%=i%>">
 										<p>
 											This container is <%=12 - testCase%> Space<% if (testCase < 11) {%>s<%} %>
 											and is offset -<%=i%> space<% if (i > 1) {%>s<%} %>
+											<br />
+											<code>
+												.grid__cell--<%=12 - testCase%> grid__cell--offset--negative--<%=i%>
+											</code>
 										</p>
 									</div>
 								</div>
 							<% } %>
 						<%})%>
 
+
+						<h2>
+							Table Version
+						</h2>
+						<p class="padding-bottom">
+							This does not work in table.
+						</p>
+						<%_.each([1,2,3,4,5,6,7,8,9,10,11,12], function(testCase) {%>
+							<% var max = 12 - testCase; %>
+							<% for (i=1; i <= max; i++) { %>
+								<div class="grid--table--12  margin-bottom--2x">
+									<div class="grid__cell--<%=testCase%>">
+										<p>
+											This container is <%=testCase%> space<% if (testCase > 1) {%>s<%} %>
+											<br />
+											<code>
+												.grid__cell--<%=testCase%>
+											</code>
+										</p>
+									</div>
+									<div class="grid__cell--<%=12 - testCase%> grid__cell--offset--negative--<%=i%>">
+										<p>
+											This container is <%=12 - testCase%> Space<% if (testCase < 11) {%>s<%} %>
+											and is offset -<%=i%> space<% if (i > 1) {%>s<%} %>
+											<br />
+											<code>
+												.grid__cell--<%=12 - testCase%> grid__cell--offset--negative--<%=i%>
+											</code>
+										</p>
+									</div>
+								</div>
+							<% } %>
+						<%})%>
+
+
+						<h2>
+							Float Version
+						</h2>
 						<%_.each([1,2,3,4,5,6,7,8,9,10,11,12], function(testCase) {%>
 							<% var max = 12 - testCase; %>
 							<% for (i=1; i <= max; i++) { %>
@@ -188,12 +389,20 @@
 										<div class="grid__cell--<%=testCase%>">
 											<p>
 												This container is <%=testCase%> space<% if (testCase > 1) {%>s<%} %>
+												<br />
+												<code>
+													.grid__cell--<%=testCase%>
+												</code>
 											</p>
 										</div>
 										<div class="grid__cell--<%=12 - testCase - i %> grid__cell--offset--<%=i%>">
 											<p>
 												This container is <%=12 - testCase%> Space<% if (testCase < 11) {%>s<%} %>
 												and is offset +<%=i%> space<% if (i > 1) {%>s<%} %>
+												<br />
+												<code>
+													.grid__cell--<%=12 - testCase - i %> grid__cell--offset--<%=i%>
+												</code>
 											</p>
 										</div>
 									</div>
@@ -201,21 +410,93 @@
 							<% } %>
 						<%})%>
 
+						<h2>
+							Table Version
+						</h2>
+						<p class="padding-bottom">
+							This does not work in table.
+						</p>
+						<%_.each([1,2,3,4,5,6,7,8,9,10,11,12], function(testCase) {%>
+							<% var max = 12 - testCase; %>
+							<% for (i=1; i <= max; i++) { %>
+								<% if ( (12 - testCase - i) > 0) { %>
+									<div class="grid--table--12  margin-bottom--2x">
+										<div class="grid__cell--<%=testCase%>">
+											<p>
+												This container is <%=testCase%> space<% if (testCase > 1) {%>s<%} %>
+												<br />
+												<code>
+													.grid__cell--<%=testCase%>
+												</code>
+											</p>
+										</div>
+										<div class="grid__cell--<%=12 - testCase - i %> grid__cell--offset--<%=i%>">
+											<p>
+												This container is <%=12 - testCase%> Space<% if (testCase < 11) {%>s<%} %>
+												and is offset +<%=i%> space<% if (i > 1) {%>s<%} %>
+												<br />
+												<code>
+													.grid__cell--<%=12 - testCase - i %> grid__cell--offset--<%=i%>
+												</code>
+											</p>
+										</div>
+									</div>
+								<% } %>
+							<% } %>
+						<%})%>
 
+						<h2>
+							Float Version
+						</h2>
 						<%_.each([1,2,3,4,5,6,7,8,9,10,11,12,11,10,9,8,7,6,5,4,3,2,1], function(testCase) {%>
 							<div class="grid--12 align--center  margin-bottom--2x">
 								<% if ( testCase !== 12 ) { %>
 									<div class="grid__cell--<%=12 - testCase%>">
 										<%= 12 - testCase%> Space<% if (testCase < 11) {%>s<%} %>
+										<br />
+										<code>
+											.grid__cell--<%=12 - testCase%>
+										</code>
 									</div>
 								<% } %>
 								<div class="grid__cell--<%=testCase%>">
 									<%=testCase%> Space<% if (testCase > 1) {%>s<%} %>
+									<br />
+									<code>
+										.grid__cell--<%=testCase%>
+									</code>
+								</div>
+							</div>
+						<%})%>
+
+						<h2>
+							Table Version
+						</h2>
+						<%_.each([1,2,3,4,5,6,7,8,9,10,11,12,11,10,9,8,7,6,5,4,3,2,1], function(testCase) {%>
+							<div class="grid--table--12 align--center  margin-bottom--2x">
+								<% if ( testCase !== 12 ) { %>
+									<div class="grid__cell--<%=12 - testCase%>">
+										<%= 12 - testCase%> Space<% if (testCase < 11) {%>s<%} %>
+										<br />
+										<code>
+											.grid__cell--<%=12 - testCase%>
+										</code>
+									</div>
+								<% } %>
+								<div class="grid__cell--<%=testCase%>">
+									<%=testCase%> Space<% if (testCase > 1) {%>s<%} %>
+									<br />
+									<code>
+										.grid__cell--<%=testCase%>
+									</code>
 								</div>
 							</div>
 						<%})%>
 
 
+						<h2>
+							Float Version
+						</h2>
 						<%_.each([1,2,3,4,5,6,7,8,9,10,11], function(testCase) {%>
 							<% var max = 12 - testCase; %>
 							<% for (i=1; i <= max; i++) { %>
@@ -223,14 +504,26 @@
 									<div class="grid__cell--<%=testCase%>">
 										<h3 class="grid__cell--<%=testCase%>__expand--<%=i%>">
 											I am expanding out <%=i%> space<% if (i > 1) {%>s<%} %>.
+											<br />
+											<code>
+												.grid__cell--<%=testCase%>__expand--<%=i%>
+											</code>
 										</h3>
 										<p>
 											This container is <%=testCase%> Space<% if (testCase > 1) {%>s<%} %>
+											<br />
+											<code>
+												.grid__cell--<%=testCase%>
+											</code>
 										</p>
 									</div>
 									<div class="grid__cell--<%=12 - testCase%>">
 										<p>
 											This container is <%=12 - testCase%> Space<% if (testCase < 11) {%>s<%} %>
+											<br />
+											<code>
+												.grid__cell--<%=12 - testCase%>
+											</code>
 										</p>
 									</div>
 								</div>
@@ -238,10 +531,45 @@
 						<%})%>
 
 
-
+						<h2>
+							Table Version
+						</h2>
+						<%_.each([1,2,3,4,5,6,7,8,9,10,11], function(testCase) {%>
+							<% var max = 12 - testCase; %>
+							<% for (i=1; i <= max; i++) { %>
+								<div class="grid--table--12  margin-bottom--2x">
+									<div class="grid__cell--<%=testCase%>">
+										<h3 class="grid__cell--<%=testCase%>__expand--<%=i%>">
+											I am expanding out <%=i%> space<% if (i > 1) {%>s<%} %>.
+											<br />
+											<code>
+												.grid__cell--<%=testCase%>__expand--<%=i%>
+											</code>
+										</h3>
+										<p>
+											This container is <%=testCase%> Space<% if (testCase > 1) {%>s<%} %>
+											<br />
+											<code>
+												.grid__cell--<%=testCase%>
+											</code>
+										</p>
+									</div>
+									<div class="grid__cell--<%=12 - testCase%>">
+										<p>
+											This container is <%=12 - testCase%> Space<% if (testCase < 11) {%>s<%} %>
+											<br />
+											<code>
+												.grid__cell--<%=12 - testCase%>
+											</code>
+										</p>
+									</div>
+								</div>
+							<% } %>
+						<%})%>
 
 
 					</script>
+
 				</div>
 
 
@@ -254,6 +582,9 @@
 				<br />
 				<br />
 
+				<h2>
+					Float Version
+				</h2>
 				<div class="grid--12 align--center">
 					<div class="grid__cell--1">
 						Grid
@@ -342,6 +673,123 @@
 						Grid
 					</div>
 				</div>
+
+				<h2>
+					Table Version
+				</h2>
+				<div class="grid--table--12 align--center">
+					<div class="grid--table__row">
+						<div class="grid__cell--1">
+							Grid
+						</div>
+						<div class="grid__cell--11">
+							Grid
+						</div>
+					</div>
+
+					<div class="grid--table__row">
+						<div class="grid__cell--2">
+							Grid
+						</div>
+						<div class="grid__cell--10">
+							Grid
+						</div>
+					</div>
+
+					<div class="grid--table__row">
+						<div class="grid__cell--3">
+							Grid
+						</div>
+						<div class="grid__cell--9">
+							Grid
+						</div>
+					</div>
+
+					<div class="grid--table__row">
+						<div class="grid__cell--4">
+							Grid
+						</div>
+						<div class="grid__cell--8">
+							Grid
+						</div>
+					</div>
+
+					<div class="grid--table__row">
+						<div class="grid__cell--5">
+							Grid
+						</div>
+						<div class="grid__cell--7">
+							Grid
+						</div>
+					</div>
+
+					<div class="grid--table__row">
+						<div class="grid__cell--6">
+							Grid
+						</div>
+						<div class="grid__cell--6">
+							Grid
+						</div>
+					</div>
+
+					<div class="grid--table__row">
+						<div class="grid__cell--7">
+							Grid
+						</div>
+						<div class="grid__cell--5">
+							Grid
+						</div>
+					</div>
+
+					<div class="grid--table__row">
+						<div class="grid__cell--8">
+							Grid
+						</div>
+						<div class="grid__cell--4">
+							Grid
+						</div>
+					</div>
+
+					<div class="grid--table__row">
+						<div class="grid__cell--9">
+							Grid
+						</div>
+						<div class="grid__cell--3">
+							Grid
+						</div>
+					</div>
+
+					<div class="grid--table__row">
+						<div class="grid__cell--10">
+							Grid
+						</div>
+						<div class="grid__cell--2">
+							Grid
+						</div>
+					</div>
+
+					<div class="grid--table__row">
+						<div class="grid__cell--11">
+							Grid
+						</div>
+						<div class="grid__cell--1">
+							Grid
+						</div>
+					</div>
+
+					<div class="grid--table__row">
+						<div class="grid__cell--4">
+							Grid
+						</div>
+						<div class="grid__cell--4">
+							Grid
+						</div>
+						<div class="grid__cell--4">
+							Grid
+						</div>
+					</div>
+
+				</div>
 			</div>
 		</div>
 
@@ -367,7 +815,26 @@
 
 
 		<script>
-
+		/*	var object = '
+						<div class="grid__cell--1">
+							<h1 class="">
+								I expand out
+							</h1>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc commodo eget massa tempor tempor. Donec ligula lorem, semper ut sagittis nec, vulputate pulvinar diam. Nunc eget accumsan nunc, a auctor nibh.
+							</p>
+						</div>
+						<div class="grid__cell--11">
+							<img src="http://placehold.it/350x150" style="display: block; width: 100%;"/>
+						</div>
+						';
+			for (i = 0; i < 10; i++) {
+				console.log("hi");
+			}
+			$(function() {
+				$("#demo").append(dom);
+			});
+*/
 			var demoObj = {};
 			$("#demo").append(_.template($("#grid-demo-template").html()));
 		</script>
