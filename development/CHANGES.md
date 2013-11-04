@@ -3,4 +3,5 @@
 + 0.2.1: Image control for image height in a column
 + 0.3.0: Table option using `.grid--table--12`
 + 0.3.1: File rename and removal of unnecessary files
++ 0.3.2: Typo fix for alignments and display types
 
