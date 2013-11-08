@@ -1,0 +1,259 @@
+/* ==========================================================================
+   Twelve-Space Structure System Helper Classes [v0.4.0]
+   ========================================================================== */
+/*!
+ * Twelve-Space Structure System Helper Classes v0.4.0
+ * Created by Kevin Mack
+ * http://stash/users/kmack/repos/twelve-space
+ *
+ * Date: 2013-11-08
+ */
+
+
+/**
+ * Display types
+ */
+
+%block-setup, %block, %show, %display-block {
+	display: block;
+}
+
+.block, .show, .display-block {
+	@extend %block-setup;
+}
+
+%inline-block-setup, %inline-block, %display-inline-block {
+	display: inline-block;
+}
+
+.inline-block, .display-inline-block {
+	@extend %inline-block-setup;
+}
+
+%inline-setup, %inline, %display-inline {
+	display: inline-block;
+}
+
+.inline, .display-inline {
+	@extend %inline-setup;
+}
+
+%hidden-setup, %hidden, %hide, %display-hidden {
+	display: hidden;
+}
+
+.hidden, .hide, .display-hidden {
+	@extend %hidden-setup;
+}
+
+
+/**
+ * Z-Index for Absolute and Relative Positions
+ * Used for layering
+ */
+
+%position-relative-setup, %position-relative, %relative {
+	position: relative;
+}
+
+.position-relative, .relative {
+	@extend %position-relative-setup;
+}
+
+%position-absolute-setup, %position-absolute, %absolute {
+	position: absolute;
+}
+
+.position-absolute, .absolute {
+	@extend %position-absolute-setup;
+}
+
+%position-setup, %position, %position--1 {
+	@extend %position-relative;
+	z-index: 1;
+}
+
+.position, .position--1 {
+	@extend %position-setup;
+	z-index: 1;
+}
+
+@for $i from 0 through 12 {
+	%position-relative--#{$i} {
+		@extend .position-relative;
+		z-index: $i;
+	}
+	.position-relative--#{$i} {
+		@extend %position-relative--#{$i};
+	}
+}
+
+@for $i from 0 through 12 {
+	%position-absolute--#{$i} {
+		@extend .position-absolute;
+		z-index: $i;
+	}
+	.position-absolute--#{$i} {
+		@extend %position-absolute--#{$i};
+	}
+}
+
+%overflow-setup, %overflow, %overflow-hidden, %hidden {
+	overflow: hidden;
+}
+
+.overflow-hidden, .hidden {
+	@extend %overflow-setup;
+}
+
+%overflow-hidden--x-setup, %overflow-hidden--x, %hidden--x {
+	overflow-x: hidden;
+
+}
+
+.overflow-hidden--x, .hidden--x {
+	@extend %overflow-hidden--x-setup;
+}
+
+%overflow-hidden--y-setup, %overflow-hidden--y, %hidden--y {
+	overflow-y: hidden;
+
+}
+
+.overflow-hidden--y, .hidden--y {
+	@extend %overflow-hidden--y-setup;
+}
+
+
+/**
+ * Vertical Alignment for `space--table--12` types
+ */
+
+%vertical-align, %vertical-align--middle {
+	vertical-align: middle;
+}
+
+.vertical-align, .vertical-align--middle {
+	@extend %vertical-align;
+}
+
+%vertical-align--baseline {
+	vertical-align: baseline;
+}
+
+.vertical-align--baseline {
+	@extend %vertical-align--baseline;
+}
+
+.vertical-align--bottom {
+	vertical-align: bottom;
+}
+
+.vertical-align--bottom {
+	@extend %vertical-align--bottom;
+}
+
+%vertical-align--text-bottom {
+	vertical-align: text-bottom;
+}
+
+.vertical-align--text-bottom {
+	@extend %vertical-align--text-bottom;
+}
+
+%vertical-align--top {
+	vertical-align: top;
+}
+
+.vertical-align--top {
+	@extend %vertical-align--top;
+}
+
+%vertical-align--bottom {
+	vertical-align: bottom;
+}
+
+.vertical-align--bottom {
+	@extend %vertical-align--bottom;
+}
+
+
+/**
+ * Image Widths
+ * `.space__cell--asset` and `.asset-container` make children `<img />` width equal to "100%"
+ */
+
+ %full {
+	display: block;
+	width: 100%;
+ }
+
+img.full  {
+	@extend %full;
+}
+
+%cell-child--full {
+	.full {
+		width: 100%;
+	}
+}
+
+%space__cell--asset-setup, %space__cell--asset, %asset-container {
+	@extend %cell-child--full;
+	img {
+		@extend img.full;
+		width: 100%;
+	}
+}
+
+.space__cell--asset.space__cell--asset, .asset-container {
+	@extend %space__cell--asset-setup;
+}
+
+%space-setup, %space, %space--12 {
+	@extend %cell-child--full;
+}
+
+
+/**
+ * Image Height Disfactor!
+ * Make an `<img />` not be the deciding factor of height
+ * Usage:
+```
+   	<div class="overflow-control">
+   		<div class="space__cell overflow-control__wrapper">
+   			<img class="overflow-control__wrapper__image" src="http://placehold.it/100x150" />
+   		</div>
+   	</div>
+```
+ * Pre fixed with "ns-" follow namespacing and inheritance path of:
+```
+   	<div class="ns-overflow-control"> <!-- Must follow path of ns-overflow-control > class*="space__cell" > img -->
+   		<div class="space__cell">  <!-- Any combo of `class*="space__cell"` -->
+   			<img src="http://placehold.it/100x150" /> <!-- This gets the treatment -->
+   		</div>
+   	</div>
+```
+ */
+
+.overflow-control, .ns-overflow-control {
+	@extend .overflow-hidden--y;
+}
+
+.ns-overflow-control {
+	> div {
+		@extend .position-relative;
+		> img {
+			@extend .position-absolute;
+		}
+	}
+}
+
+.overflow-control__wrapper {
+	@extend .position-relative;
+}
+
+.overflow-control__wrapper__image {
+	@extend .position-absolute;
+}
+
