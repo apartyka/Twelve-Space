@@ -1,8 +1,8 @@
 /* ==========================================================================
-   Twelve-Space Structure System Helper Classes [v0.5.0]
+   Twelve-Space Structure System Helper Classes [v0.6.0]
    ========================================================================== */
 /*!
- * Twelve-Space Structure System Helper Classes v0.5.0
+ * Twelve-Space Structure System Helper Classes v0.6.0
  * Created by Kevin Mack
  * http://stash/users/kmack/repos/twelve-space
  *
@@ -78,7 +78,7 @@
 	z-index: 1;
 }
 
-@for $i from 0 through 12 {
+@for $i from 0 through $twelve-space--max-spaces {
 	%position-relative--#{$i} {
 		@extend .position-relative;
 		z-index: $i;
@@ -88,7 +88,7 @@
 	}
 }
 
-@for $i from 0 through 12 {
+@for $i from 0 through $twelve-space--max-spaces {
 	%position-absolute--#{$i} {
 		@extend .position-absolute;
 		z-index: $i;
@@ -126,7 +126,7 @@
 
 
 /**
- * Vertical Alignment for `space--table--12` types
+ * Vertical Alignment for `space--table--#{$twelve-space--max-spaces}` types
  */
 
 %vertical-align, %vertical-align--middle {
@@ -193,7 +193,7 @@ img.full  {
 }
 
 %cell-child--full {
-	.full {
+	> .full {
 		width: 100%;
 	}
 }
@@ -206,11 +206,11 @@ img.full  {
 	}
 }
 
-.space__cell--asset.space__cell--asset, .asset-container {
+.#{$twelve-space--block-name}__#{$twelve-space--block__element-name}--asset, .asset-container {
 	@extend %space__cell--asset-setup;
 }
 
-%space-setup, %space, %space--12 {
+%space-setup, %space, %space--#{$twelve-space--max-spaces} {
 	@extend %cell-child--full;
 }
 
