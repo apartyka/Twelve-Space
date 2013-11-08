@@ -34,11 +34,11 @@
  * Z-Index for Absolute and Relative Positions
  * Used for layering
  */
-.position-relative, .position-relative--0, .position-relative--1, .position-relative--2, .position-relative--3, .position-relative--4, .position-relative--5, .position-relative--6, .position-relative--7, .position-relative--8, .position-relative--9, .position-relative--10, .position-relative--11, .position-relative--12, .ns-overflow-control > div, .overflow-control__wrapper, .relative, .position, .position--1 {
+.position-relative, .position-relative--0, .position-relative--1, .position-relative--2, .position-relative--3, .position-relative--4, .position-relative--5, .position-relative--6, .position-relative--7, .position-relative--8, .position-relative--9, .position-relative--10, .position-relative--11, .position-relative--12, .relative, .position, .position--1 {
   position: relative;
 }
 
-.position-absolute, .position-absolute--0, .position-absolute--1, .position-absolute--2, .position-absolute--3, .position-absolute--4, .position-absolute--5, .position-absolute--6, .position-absolute--7, .position-absolute--8, .position-absolute--9, .position-absolute--10, .position-absolute--11, .position-absolute--12, .ns-overflow-control > div > img, .overflow-control__wrapper__image, .absolute {
+.position-absolute, .position-absolute--0, .position-absolute--1, .position-absolute--2, .position-absolute--3, .position-absolute--4, .position-absolute--5, .position-absolute--6, .position-absolute--7, .position-absolute--8, .position-absolute--9, .position-absolute--10, .position-absolute--11, .position-absolute--12, .absolute {
   position: absolute;
 }
 
@@ -162,7 +162,7 @@
   overflow-x: hidden;
 }
 
-.overflow-hidden--y, .overflow-control, .ns-overflow-control, .hidden--y {
+.overflow-hidden--y, .hidden--y {
   overflow-y: hidden;
 }
 
@@ -210,26 +210,6 @@ img.full, .space__cell--asset img, .asset-container img {
   width: 100%;
 }
 
-/**
- * Image Height Disfactor!
- * Make an `<img />` not be the deciding factor of height
- * Usage:
-```
-   	<div class="overflow-control">
-   		<div class="space__cell overflow-control__wrapper">
-   			<img class="overflow-control__wrapper__image" src="http://placehold.it/100x150" />
-   		</div>
-   	</div>
-```
- * Pre fixed with "ns-" follow namespacing and inheritance path of:
-```
-   	<div class="ns-overflow-control"> <!-- Must follow path of ns-overflow-control > class*="space__cell" > img -->
-   		<div class="space__cell">  <!-- Any combo of `class*="space__cell"` -->
-   			<img src="http://placehold.it/100x150" /> <!-- This gets the treatment -->
-   		</div>
-   	</div>
-```
- */
 /*
  * Twelve-Space Structure System v0.4.0
  * Created by Kevin Mack
