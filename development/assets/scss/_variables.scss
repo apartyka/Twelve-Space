@@ -6,6 +6,8 @@
  * Twelve Space Variables
  */
 
-$twelve-space--block-name: "space";
-$twelve-space--block__element-name: "cell";
-$twelve-space--max-spaces: 12;
+$twelve-space--block-name: "space"; // "space" in `.space--12`
+$twelve-space--block__element-name: "cell"; // "cell" in `.space__cell`
+
+$twelve-space--selectors__output: true; // Output all selectors, if `false` only %placeholder selector's are available
+$twelve-space--helper-classes__output: true; // Include helper classes, if `false` only %placeholder selector's are available

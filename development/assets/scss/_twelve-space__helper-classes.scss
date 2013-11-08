@@ -18,32 +18,36 @@
 	display: block;
 }
 
-.block, .show, .display-block {
-	@extend %block-setup;
-}
-
 %inline-block-setup, %inline-block, %display-inline-block {
 	display: inline-block;
 }
 
-.inline-block, .display-inline-block {
-	@extend %inline-block-setup;
-}
 
 %inline-setup, %inline, %display-inline {
 	display: inline-block;
 }
 
-.inline, .display-inline {
-	@extend %inline-setup;
-}
 
 %hidden-setup, %hidden, %hide, %display-hidden {
 	display: hidden;
 }
 
-.hidden, .hide, .display-hidden {
-	@extend %hidden-setup;
+@if ($twelve-space--helper-classes__output) {
+	.block, .show, .display-block {
+		@extend %block-setup;
+	}
+
+	.inline-block, .display-inline-block {
+		@extend %inline-block-setup;
+	}
+
+	.inline, .display-inline {
+		@extend %inline-setup;
+	}
+
+	.hidden, .hide, .display-hidden {
+		@extend %hidden-setup;
+	}
 }
 
 
@@ -56,16 +60,8 @@
 	position: relative;
 }
 
-.position-relative, .relative {
-	@extend %position-relative-setup;
-}
-
 %position-absolute-setup, %position-absolute, %absolute {
 	position: absolute;
-}
-
-.position-absolute, .absolute {
-	@extend %position-absolute-setup;
 }
 
 %position-setup, %position, %position--1 {
@@ -73,9 +69,19 @@
 	z-index: 1;
 }
 
-.position, .position--1 {
-	@extend %position-setup;
-	z-index: 1;
+@if ($twelve-space--helper-classes__output) {
+	.position-relative, .relative {
+		@extend %position-relative-setup;
+	}
+
+	.position-absolute, .absolute {
+		@extend %position-absolute-setup;
+	}
+
+	.position, .position--1 {
+		@extend %position-setup;
+		z-index: 1;
+	}
 }
 
 @for $i from 0 through $twelve-space--max-spaces {
@@ -83,8 +89,11 @@
 		@extend .position-relative;
 		z-index: $i;
 	}
-	.position-relative--#{$i} {
-		@extend %position-relative--#{$i};
+
+	@if ($twelve-space--helper-classes__output) {
+		.position-relative--#{$i} {
+			@extend %position-relative--#{$i};
+		}
 	}
 }
 
@@ -93,8 +102,11 @@
 		@extend .position-absolute;
 		z-index: $i;
 	}
-	.position-absolute--#{$i} {
-		@extend %position-absolute--#{$i};
+
+	@if ($twelve-space--helper-classes__output) {
+		.position-absolute--#{$i} {
+			@extend %position-absolute--#{$i};
+		}
 	}
 }
 
@@ -102,26 +114,26 @@
 	overflow: hidden;
 }
 
-.overflow-hidden, .hidden {
-	@extend %overflow-setup;
-}
-
 %overflow-hidden--x-setup, %overflow-hidden--x, %hidden--x {
 	overflow-x: hidden;
-
-}
-
-.overflow-hidden--x, .hidden--x {
-	@extend %overflow-hidden--x-setup;
 }
 
 %overflow-hidden--y-setup, %overflow-hidden--y, %hidden--y {
 	overflow-y: hidden;
-
 }
 
-.overflow-hidden--y, .hidden--y {
-	@extend %overflow-hidden--y-setup;
+@if ($twelve-space--helper-classes__output) {
+	.overflow-hidden, .hidden {
+		@extend %overflow-setup;
+	}
+
+	.overflow-hidden--x, .hidden--x {
+		@extend %overflow-hidden--x-setup;
+	}
+
+	.overflow-hidden--y, .hidden--y {
+		@extend %overflow-hidden--y-setup;
+	}
 }
 
 
@@ -133,48 +145,50 @@
 	vertical-align: middle;
 }
 
-.vertical-align, .vertical-align--middle {
-	@extend %vertical-align;
-}
-
 %vertical-align--baseline {
 	vertical-align: baseline;
-}
-
-.vertical-align--baseline {
-	@extend %vertical-align--baseline;
-}
-
-.vertical-align--bottom {
-	vertical-align: bottom;
-}
-
-.vertical-align--bottom {
-	@extend %vertical-align--bottom;
-}
-
-%vertical-align--text-bottom {
-	vertical-align: text-bottom;
-}
-
-.vertical-align--text-bottom {
-	@extend %vertical-align--text-bottom;
-}
-
-%vertical-align--top {
-	vertical-align: top;
-}
-
-.vertical-align--top {
-	@extend %vertical-align--top;
 }
 
 %vertical-align--bottom {
 	vertical-align: bottom;
 }
 
-.vertical-align--bottom {
-	@extend %vertical-align--bottom;
+%vertical-align--text-bottom {
+	vertical-align: text-bottom;
+}
+
+%vertical-align--top {
+	vertical-align: top;
+}
+
+%vertical-align--bottom {
+	vertical-align: bottom;
+}
+
+@if ($twelve-space--helper-classes__output) {
+	.vertical-align, .vertical-align--middle {
+		@extend %vertical-align;
+	}
+
+	.vertical-align--baseline {
+		@extend %vertical-align--baseline;
+	}
+
+	.vertical-align--bottom {
+		@extend %vertical-align--bottom;
+	}
+
+	.vertical-align--text-bottom {
+		@extend %vertical-align--text-bottom;
+	}
+
+	.vertical-align--top {
+		@extend %vertical-align--top;
+	}
+
+	.vertical-align--bottom {
+		@extend %vertical-align--bottom;
+	}
 }
 
 
@@ -188,8 +202,10 @@
 	width: 100%;
  }
 
-img.full  {
-	@extend %full;
+@if ($twelve-space--helper-classes__output) {
+	img.full  {
+		@extend %full;
+	}
 }
 
 %cell-child--full {
@@ -206,8 +222,10 @@ img.full  {
 	}
 }
 
-.#{$twelve-space--block-name}__#{$twelve-space--block__element-name}--asset, .asset-container {
-	@extend %space__cell--asset-setup;
+@if ($twelve-space--helper-classes__output) {
+	.#{$twelve-space--block-name}__#{$twelve-space--block__element-name}--asset, .asset-container {
+		@extend %space__cell--asset-setup;
+	}
 }
 
 %space-setup, %space, %space--#{$twelve-space--max-spaces} {

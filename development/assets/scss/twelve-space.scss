@@ -1,9 +1,6 @@
 /* ==========================================================================
    Twelve-Space Structure System [v0.6.0]
    ========================================================================== */
-@import "variables";
-@import "twelve-space__helper-classes";
-
 /*!
  * Twelve-Space Structure System v0.6.0
  * Created by Kevin Mack
@@ -12,6 +9,16 @@
  * Date: 2013-11-08
  */
 
+@import "variables";
+
+/**
+ * Definition of Twelve
+ * DO NOT CHANGE, SERIOUSLY... but you could, but don't.
+   ... thank you.
+ */
+$twelve-space--max-spaces: 12;
+
+@import "twelve-space__helper-classes";
 
 %space {
 	> .#{$twelve-space--block-name}__#{$twelve-space--block__element-name} {
@@ -31,12 +38,14 @@
  * **nth-child(1n)** is `float: left` and **nth-child(2n)** is `float: right`
  */
 
-.#{$twelve-space--block-name} {
-	@extend %space;
-}
+@if ($twelve-space--selectors__output) {
+	.#{$twelve-space--block-name} {
+		@extend %space;
+	}
 
-.#{$twelve-space--block-name}, .#{$twelve-space--block-name}--#{$twelve-space--max-spaces} {
-	@extend %space-setup;
+	.#{$twelve-space--block-name}, .#{$twelve-space--block-name}--#{$twelve-space--max-spaces} {
+		@extend %space-setup;
+	}
 }
 
 
@@ -49,8 +58,10 @@
 	clear: both;
 }
 
-.clear, .#{$twelve-space--block-name}__row, .#{$twelve-space--block-name}--table__row {
-	@extend %clear-setup;
+@if ($twelve-space--selectors__output) {
+	.clear, .#{$twelve-space--block-name}__row, .#{$twelve-space--block-name}--table__row {
+		@extend %clear-setup;
+	}
 }
 
 %clear-after {
@@ -87,8 +98,10 @@
 	width: 100%;
 }
 
-.#{$twelve-space--block-name}--table, .#{$twelve-space--block-name}--table--#{$twelve-space--max-spaces}, .#{$twelve-space--block-name}--table__row {
-	@extend %space--table-setup;
+@if ($twelve-space--selectors__output) {
+	.#{$twelve-space--block-name}--table, .#{$twelve-space--block-name}--table--#{$twelve-space--max-spaces}, .#{$twelve-space--block-name}--table__row {
+		@extend %space--table-setup;
+	}
 }
 
 %float--cell--left {
@@ -124,8 +137,10 @@
 		}
 	}
 
-	.#{$twelve-space--block-name}--equal--#{$i} {
-		@extend %space--equal--#{$i};
+	@if ($twelve-space--selectors__output) {
+		.#{$twelve-space--block-name}--equal--#{$i} {
+			@extend %space--equal--#{$i};
+		}
 	}
 }
 
@@ -138,23 +153,11 @@
 	@extend  %float--left-or-right;
 }
 
-.#{$twelve-space--block-name}, .#{$twelve-space--block-name}--#{$twelve-space--max-spaces}, .float-container, .#{$twelve-space--block-name}__row {
-	@extend  %space-setup--l-or-r;
-}
-
 %float-left-setup, %float-container, %space--#{$twelve-space--max-spaces}, %space__row {
 	@extend %float--cell--left;
 }
 
-.float-container, .#{$twelve-space--block-name}--#{$twelve-space--max-spaces}, .#{$twelve-space--block-name}__row {
-	@extend %float-left-setup;
-}
-
 %space--table--#{$twelve-space--max-spaces}, %space--table__row {
-	@extend %display-cell--table-cell;
-}
-
-.#{$twelve-space--block-name}--table--#{$twelve-space--max-spaces}, .#{$twelve-space--block-name}--table__row {
 	@extend %display-cell--table-cell;
 }
 
@@ -162,8 +165,22 @@
 	@extend  %clear-after;
 }
 
-.#{$twelve-space--block-name}, .#{$twelve-space--block-name}--#{$twelve-space--max-spaces} {
-	@extend  %clear-after;
+@if ($twelve-space--selectors__output) {
+	.#{$twelve-space--block-name}, .#{$twelve-space--block-name}--#{$twelve-space--max-spaces}, .float-container, .#{$twelve-space--block-name}__row {
+		@extend  %space-setup--l-or-r;
+	}
+
+	.float-container, .#{$twelve-space--block-name}--#{$twelve-space--max-spaces}, .#{$twelve-space--block-name}__row {
+		@extend %float-left-setup;
+	}
+
+	.#{$twelve-space--block-name}--table--#{$twelve-space--max-spaces}, .#{$twelve-space--block-name}--table__row {
+		@extend %display-cell--table-cell;
+	}
+
+	.#{$twelve-space--block-name}, .#{$twelve-space--block-name}--#{$twelve-space--max-spaces} {
+		@extend  %clear-after;
+	}
 }
 
 @mixin generate-space-expand( $space__cell-amount: 1, $space-offset-value: 1, $element-name: "expand", $property: "width", $twelve-space--block-name: ($twelve-space--block-name + "__" + $twelve-space--block__element-name), $space-column-quanity: $twelve-space--max-spaces ) {
@@ -171,8 +188,11 @@
 	%#{$class-name} {
 		#{$property}: percentage( 1 + ($space-offset-value / $space__cell-amount) );
 	}
-	.#{$class-name} {
-		@extend %#{$class-name};
+
+	@if ($twelve-space--selectors__output) {
+		.#{$class-name} {
+			@extend %#{$class-name};
+		}
 	}
 	// OUTPUT: .#{$twelve-space--block-name}__#{$twelve-space--block__element-name}--{cell spaces}__expand--{cell spaces}
 }
@@ -182,8 +202,11 @@
 	%#{$class-name} {
 		#{$property}:  percentage(($space-offset-value / $twelve-space--max-spaces)) * $positiveOrNegative;
 	}
-	.#{$class-name} {
-		@extend %#{$class-name};
+
+	@if ($twelve-space--selectors__output) {
+		.#{$class-name} {
+			@extend %#{$class-name};
+		}
 	}
 	// OUTPUT: .#{$twelve-space--block-name}__#{$twelve-space--block__element-name}--offset--{cell spaces}
 	// OUTPUT: .#{$twelve-space--block-name}__#{$twelve-space--block__element-name}--offset--negative--{cell spaces}
@@ -194,8 +217,11 @@
 	%#{$class-name} {
 		#{$property}: percentage(  ($space-offset-value / $space__cell-amount) ) * -1;
 	}
-	.#{$class-name} {
-		@extend %#{$class-name};
+
+	@if ($twelve-space--selectors__output) {
+		.#{$class-name} {
+			@extend %#{$class-name};
+		}
 	}
 	// OUTPUT: .#{$twelve-space--block-name}__#{$twelve-space--block__element-name}--{cell spaces}__offset--{cell spaces}
 	// OUTPUT: .#{$twelve-space--block-name}__#{$twelve-space--block__element-name}--{cell spaces}__offset--native--{cell spaces}
@@ -203,73 +229,60 @@
 
 
 @for $i from 1 through $twelve-space--max-spaces {
+
+	@include generate-space__cell-offset(1, $i, "cell--offset", "margin-left", 1, "space", #{$twelve-space--max-spaces} );
+
+	@include generate-space__cell-offset(1, $i, "cell--offset--negative", "margin-left", -1, "space", #{$twelve-space--max-spaces} );
+
 	@for $x from 1 through $twelve-space--max-spaces {
 		@include generate-space-expand($i, $x);
-	}
-}
-
-@for $i from 1 through $twelve-space--max-spaces {
-	@for $x from 1 through $twelve-space--max-spaces {
 		@include generate-space__cell__offset($i, $x, "offset", "margin-right", -1, ($twelve-space--block-name + "__" + $twelve-space--block__element-name), #{$twelve-space--max-spaces} );
-	}
-}
-
-@for $i from 1 through $twelve-space--max-spaces {
-	@include generate-space__cell-offset(1, $i, "cell--offset", "margin-left", 1, "space", #{$twelve-space--max-spaces} );
-}
-
-@for $i from 1 through $twelve-space--max-spaces {
-	@include generate-space__cell-offset(1, $i, "cell--offset--negative", "margin-left", -1, "space", #{$twelve-space--max-spaces} );
-}
-
-@for $i from 1 through $twelve-space--max-spaces {
-	@for $x from 1 through $twelve-space--max-spaces {
 		@include generate-space__cell__offset($i, $x, "offset--negative", "margin-left", -1, ($twelve-space--block-name + "__" + $twelve-space--block__element-name), #{$twelve-space--max-spaces} );
 	}
+
 }
 
 @for $i from 1 through $twelve-space--max-spaces {
 	%space__cell--#{$i} {
 		width: percentage( $i / $twelve-space--max-spaces);
 	}
-	.#{$twelve-space--block-name}__#{$twelve-space--block__element-name}--#{$i} {
-		@extend %space__cell--#{$i}
-	}
-}
 
-@for $i from 1 through $twelve-space--max-spaces {
 	%space__cell--#{$i} {
 		@extend %float-left;
 	}
-	.#{$twelve-space--block-name}__#{$twelve-space--block__element-name}--#{$i} {
-		@extend %space__cell--#{$i};
-	}
-}
 
-@for $i from 1 through $twelve-space--max-spaces {
 	%space--table__cell--#{$i} {
 		@extend %display-table-cell;
 	}
-	.#{$twelve-space--block-name}--table__#{$twelve-space--block__element-name}--#{$i} {
-		@extend %space--table__cell--#{$i};
-	}
-}
 
-@for $i from 1 through $twelve-space--max-spaces {
 	%space__gap--left--#{$i} {
 		margin-left: percentage( $i / $twelve-space--max-spaces);
 	}
-	.#{$twelve-space--block-name}__gap--left--#{$i} {
-		@extend %space__gap--left--#{$i};
-	}
-}
 
-@for $i from 1 through $twelve-space--max-spaces {
 	%space__gap--right--#{$i} {
 		margin-right: percentage( $i / $twelve-space--max-spaces);
 	}
-	.#{$twelve-space--block-name}__gap--right--#{$i} {
-		@extend %space__gap--right--#{$i};
+
+	@if ($twelve-space--selectors__output) {
+		.#{$twelve-space--block-name}__#{$twelve-space--block__element-name}--#{$i} {
+			@extend %space__cell--#{$i}
+		}
+
+		.#{$twelve-space--block-name}__#{$twelve-space--block__element-name}--#{$i} {
+			@extend %space__cell--#{$i};
+		}
+
+		.#{$twelve-space--block-name}--table__#{$twelve-space--block__element-name}--#{$i} {
+			@extend %space--table__cell--#{$i};
+		}
+
+		.#{$twelve-space--block-name}__gap--left--#{$i} {
+			@extend %space__gap--left--#{$i};
+		}
+
+		.#{$twelve-space--block-name}__gap--right--#{$i} {
+			@extend %space__gap--right--#{$i};
+		}
 	}
 }
 
