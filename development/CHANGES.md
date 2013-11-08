@@ -8,4 +8,5 @@
 + 0.5.0: Moved helper classes into a separate partial file
 + 0.6.0: Variables for block-name and element-name, variable for max quantity (making 12 optional)
 + 0.7.0: Boolean in "_variables" to control output of selectors
++ 0.7.1: First public release
 

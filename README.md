@@ -1,4 +1,4 @@
-Twelve-Space Structure System [v0.5.0]
+Twelve-Space Structure System [v0.7.1]
 =====
 
 **PLEASE NOTE:** This project is still in development, but it is ready to be used. Updates to documentation and examples will be outlined in this README file and in the gh-page. Some features may be dropped or extended for the official release. Official release date is TBD. Keep checking back and help contribute -- Thanks!
