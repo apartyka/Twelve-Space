@@ -9,4 +9,5 @@
 + 0.6.0: Variables for block-name and element-name, variable for max quantity (making 12 optional)
 + 0.7.0: Boolean in "_variables" to control output of selectors
 + 0.7.1: First public release
++ 0.7.2: Fix for `space--table__cell--#` widths
 
