@@ -1,4 +1,48 @@
-@import "variables"; // Global variables
+// ## Global Spaces
+$default-space: 20px;
+$default-space--2x: $default-space * 2;
+$default-space--half: $default-space / 2;
+$default-space--smallest: 5px;
+$default-space--smaller: $default-space--half;
+
+
+// ## Global Widths
+$max-width: 1200px;
+
+// ## Global Colors
+$black-varient: #010101;
+$black: $black-varient;
+$gray: #2A2A2A;
+$white: #F3F4F4;
+$resource-green: #7EB400;
+$green: $resource-green;
+
+$container-background--black: #000;
+$container--black__headline-color: #FFF;
+$container--black__text-color: #FFF;
+
+$container-background--gray: #2A2A2A;
+$container--gray__headline-color: #FFF;
+$container--gray__text-color: #FFF;
+
+$container-background--white: #FFF;
+$container--white__headline-color: $green;
+$container--white__text-color: $gray;
+
+$container-background--white-dark: $white;
+$container--white-dark__headline-color: $green;
+$container--white-dark__text-color: $gray;
+
+$container-background--gray-light: #F2F2F2;
+$container--gray__light-headline-color: $green;
+$container--gray__light-text-color: $gray;
+
+$container-background--green: $green;
+$container--green__headline-color: #FFF;
+$container--green__text-color: #FFF;
+
+
+
 
 /* ==========================================================================
    Master Base Template - Structure

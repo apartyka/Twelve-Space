@@ -1,6 +1,7 @@
 /* ==========================================================================
    Twelve-Space Structure System [v0.5.0]
    ========================================================================== */
+@import "variables";
 @import "twelve-space__helper-classes";
 
 /*!
@@ -13,7 +14,7 @@
 
 
 %space {
-	> .space__cell {
+	> .#{$twelve-space--block-name}__#{$twelve-space--block__element-name} {
 		&:nth-child(odd) {
 			float: left;
 		}
@@ -30,13 +31,14 @@
  * **nth-child(1n)** is `float: left` and **nth-child(2n)** is `float: right`
  */
 
-.space {
+.#{$twelve-space--block-name} {
 	@extend %space;
 }
 
-.space, .space--12 {
+.#{$twelve-space--block-name}, .#{$twelve-space--block-name}--#{$twelve-space--max-spaces} {
 	@extend %space-setup;
 }
+
 
 
 /*
@@ -47,7 +49,7 @@
 	clear: both;
 }
 
-.clear, .space__row, .space--table__row {
+.clear, .#{$twelve-space--block-name}__row, .#{$twelve-space--block-name}--table__row {
 	@extend %clear-setup;
 }
 
@@ -60,10 +62,10 @@
 }
 
 %float--left-or-right {
-	> .space__cell--left {
+	> .#{$twelve-space--block-name}__#{$twelve-space--block__element-name}--left {
 		float: left;
 	}
-	> .space__cell--right {
+	> .#{$twelve-space--block-name}__#{$twelve-space--block__element-name}--right {
 		float: right;
 	}
 }
@@ -80,23 +82,23 @@
  	display: table;
 }
 
-%space--table-setup, %space--table, %space--table--12, %space--table__row {
+%space--table-setup, %space--table, %space--table--#{$twelve-space--max-spaces}, %space--table__row {
 	@extend %display-table;
 	width: 100%;
 }
 
-.space--table, .space--table--12, .space--table__row {
+.#{$twelve-space--block-name}--table, .#{$twelve-space--block-name}--table--#{$twelve-space--max-spaces}, .#{$twelve-space--block-name}--table__row {
 	@extend %space--table-setup;
 }
 
 %float--cell--left {
-	> .space__cell, .space__row > .space__cell {
+	> .#{$twelve-space--block-name}__#{$twelve-space--block__element-name}, .#{$twelve-space--block-name}__row > .#{$twelve-space--block-name}__#{$twelve-space--block__element-name} {
 		@extend %float-left;
 	}
 }
 
 %display-cell--table-cell {
-	> .space__cell {
+	> .#{$twelve-space--block-name}__#{$twelve-space--block__element-name} {
 		@extend %display-table-cell;
 	}
 }
@@ -107,13 +109,13 @@
  * Clears on #nth-child+1 for even rows
  */
 
-@for $i from 1 through 12 {
+@for $i from 1 through $twelve-space--max-spaces {
 	%space--equal--#{$i} {
 		@extend %clear-after;
 		@extend %float--left-or-right;
 		@extend  %float--cell--left;
 		@extend %cell-child--full;
-		> [class*="space__cell"] {
+		> [class*="#{$twelve-space--block-name}__#{$twelve-space--block__element-name}"] {
 			width: percentage( 1 / $i );
 			// Clear for equal space/column heights:
 			&:nth-child(#{$i}n+1) {
@@ -122,7 +124,7 @@
 		}
 	}
 
-	.space--equal--#{$i} {
+	.#{$twelve-space--block-name}--equal--#{$i} {
 		@extend %space--equal--#{$i};
 	}
 }
@@ -132,141 +134,141 @@
  * Equal heights for any parent class that has `space` in it
  */
 
-%space-setup--l-or-r, %space, %space--12, %float-container, %space__row {
+%space-setup--l-or-r, %space, %space--#{$twelve-space--max-spaces}, %float-container, %space__row {
 	@extend  %float--left-or-right;
 }
 
-.space, .space--12, .float-container, .space__row {
+.#{$twelve-space--block-name}, .#{$twelve-space--block-name}--#{$twelve-space--max-spaces}, .float-container, .#{$twelve-space--block-name}__row {
 	@extend  %space-setup--l-or-r;
 }
 
-%float-left-setup, %float-container, %space--12, %space__row {
+%float-left-setup, %float-container, %space--#{$twelve-space--max-spaces}, %space__row {
 	@extend %float--cell--left;
 }
 
-.float-container, .space--12, .space__row {
+.float-container, .#{$twelve-space--block-name}--#{$twelve-space--max-spaces}, .#{$twelve-space--block-name}__row {
 	@extend %float-left-setup;
 }
 
-%space--table--12, %space--table__row {
+%space--table--#{$twelve-space--max-spaces}, %space--table__row {
 	@extend %display-cell--table-cell;
 }
 
-.space--table--12, .space--table__row {
+.#{$twelve-space--block-name}--table--#{$twelve-space--max-spaces}, .#{$twelve-space--block-name}--table__row {
 	@extend %display-cell--table-cell;
 }
 
-%space, %space--12 {
+%space, %space--#{$twelve-space--max-spaces} {
 	@extend  %clear-after;
 }
 
-.space, .space--12 {
+.#{$twelve-space--block-name}, .#{$twelve-space--block-name}--#{$twelve-space--max-spaces} {
 	@extend  %clear-after;
 }
 
-@mixin generate-space-expand( $space__cell-amount: 1, $space-offset-value: 1, $element-name: "expand", $property: "width", $block-name: "space__cell", $space-column-quanity: 12 ) {
-	$class-name: $block-name + "--" + $space__cell-amount + "__" + $element-name + "--" + $space-offset-value;
+@mixin generate-space-expand( $space__cell-amount: 1, $space-offset-value: 1, $element-name: "expand", $property: "width", $twelve-space--block-name: ($twelve-space--block-name + "__" + $twelve-space--block__element-name), $space-column-quanity: $twelve-space--max-spaces ) {
+	$class-name: $twelve-space--block-name + "--" + $space__cell-amount + "__" + $element-name + "--" + $space-offset-value;
 	%#{$class-name} {
 		#{$property}: percentage( 1 + ($space-offset-value / $space__cell-amount) );
 	}
 	.#{$class-name} {
 		@extend %#{$class-name};
 	}
-	// OUTPUT: .space__cell--{cell spaces}__expand--{cell spaces}
+	// OUTPUT: .#{$twelve-space--block-name}__#{$twelve-space--block__element-name}--{cell spaces}__expand--{cell spaces}
 }
 
-@mixin generate-space__cell-offset( $space__cell-amount: 1, $space-offset-value: 1, $element-name: "expand", $property: "width", $positiveOrNegative: 1, $block-name: "space__cell", $space-column-quanity: 12 ) {
-	$class-name: $block-name + "__" + $element-name + "--" + $space-offset-value;
+@mixin generate-space__cell-offset( $space__cell-amount: 1, $space-offset-value: 1, $element-name: "expand", $property: "width", $positiveOrNegative: 1, $twelve-space--block-name: ($twelve-space--block-name + "__" + $twelve-space--block__element-name), $space-column-quanity: $twelve-space--max-spaces ) {
+	$class-name: $twelve-space--block-name + "__" + $element-name + "--" + $space-offset-value;
 	%#{$class-name} {
-		#{$property}:  percentage(($space-offset-value / $space-column-quanity)) * $positiveOrNegative;
+		#{$property}:  percentage(($space-offset-value / $twelve-space--max-spaces)) * $positiveOrNegative;
 	}
 	.#{$class-name} {
 		@extend %#{$class-name};
 	}
-	// OUTPUT: .space__cell--offset--{cell spaces}
-	// OUTPUT: .space__cell--offset--negative--{cell spaces}
+	// OUTPUT: .#{$twelve-space--block-name}__#{$twelve-space--block__element-name}--offset--{cell spaces}
+	// OUTPUT: .#{$twelve-space--block-name}__#{$twelve-space--block__element-name}--offset--negative--{cell spaces}
 }
 
-@mixin generate-space__cell__offset( $space__cell-amount: 1, $space-offset-value: 1, $element-name: "expand", $property: "width", $positiveOrNegative: 1, $block-name: "space__cell", $space-column-quanity: 12 ) {
-	$class-name: $block-name + "--" + $space__cell-amount +  "__" + $element-name + "--" + $space-offset-value;
+@mixin generate-space__cell__offset( $space__cell-amount: 1, $space-offset-value: 1, $element-name: "expand", $property: "width", $positiveOrNegative: 1, $twelve-space--block-name: ($twelve-space--block-name + "__" + $twelve-space--block__element-name), $space-column-quanity: $twelve-space--max-spaces ) {
+	$class-name: $twelve-space--block-name + "--" + $space__cell-amount +  "__" + $element-name + "--" + $space-offset-value;
 	%#{$class-name} {
 		#{$property}: percentage(  ($space-offset-value / $space__cell-amount) ) * -1;
 	}
 	.#{$class-name} {
 		@extend %#{$class-name};
 	}
-	// OUTPUT: .space__cell--{cell spaces}__offset--{cell spaces}
-	// OUTPUT: .space__cell--{cell spaces}__offset--native--{cell spaces}
+	// OUTPUT: .#{$twelve-space--block-name}__#{$twelve-space--block__element-name}--{cell spaces}__offset--{cell spaces}
+	// OUTPUT: .#{$twelve-space--block-name}__#{$twelve-space--block__element-name}--{cell spaces}__offset--native--{cell spaces}
 }
 
 
-@for $i from 1 through 12 {
-	@for $x from 1 through 12 {
+@for $i from 1 through $twelve-space--max-spaces {
+	@for $x from 1 through $twelve-space--max-spaces {
 		@include generate-space-expand($i, $x);
 	}
 }
 
-@for $i from 1 through 12 {
-	@for $x from 1 through 12 {
-		@include generate-space__cell__offset($i, $x, "offset", "margin-right", -1, "space__cell", 12 );
+@for $i from 1 through $twelve-space--max-spaces {
+	@for $x from 1 through $twelve-space--max-spaces {
+		@include generate-space__cell__offset($i, $x, "offset", "margin-right", -1, ($twelve-space--block-name + "__" + $twelve-space--block__element-name), #{$twelve-space--max-spaces} );
 	}
 }
 
-@for $i from 1 through 12 {
-	@include generate-space__cell-offset(1, $i, "cell--offset", "margin-left", 1, "space", 12 );
+@for $i from 1 through $twelve-space--max-spaces {
+	@include generate-space__cell-offset(1, $i, "cell--offset", "margin-left", 1, "space", #{$twelve-space--max-spaces} );
 }
 
-@for $i from 1 through 12 {
-	@include generate-space__cell-offset(1, $i, "cell--offset--negative", "margin-left", -1, "space", 12 );
+@for $i from 1 through $twelve-space--max-spaces {
+	@include generate-space__cell-offset(1, $i, "cell--offset--negative", "margin-left", -1, "space", #{$twelve-space--max-spaces} );
 }
 
-@for $i from 1 through 12 {
-	@for $x from 1 through 12 {
-		@include generate-space__cell__offset($i, $x, "offset--negative", "margin-left", -1, "space__cell", 12 );
+@for $i from 1 through $twelve-space--max-spaces {
+	@for $x from 1 through $twelve-space--max-spaces {
+		@include generate-space__cell__offset($i, $x, "offset--negative", "margin-left", -1, ($twelve-space--block-name + "__" + $twelve-space--block__element-name), #{$twelve-space--max-spaces} );
 	}
 }
 
-@for $i from 1 through 12 {
+@for $i from 1 through $twelve-space--max-spaces {
 	%space__cell--#{$i} {
-		width: percentage( $i / 12);
+		width: percentage( $i / $twelve-space--max-spaces);
 	}
-	.space__cell--#{$i} {
+	.#{$twelve-space--block-name}__#{$twelve-space--block__element-name}--#{$i} {
 		@extend %space__cell--#{$i}
 	}
 }
 
-@for $i from 1 through 12 {
+@for $i from 1 through $twelve-space--max-spaces {
 	%space__cell--#{$i} {
 		@extend %float-left;
 	}
-	.space__cell--#{$i} {
+	.#{$twelve-space--block-name}__#{$twelve-space--block__element-name}--#{$i} {
 		@extend %space__cell--#{$i};
 	}
 }
 
-@for $i from 1 through 12 {
+@for $i from 1 through $twelve-space--max-spaces {
 	%space--table__cell--#{$i} {
 		@extend %display-table-cell;
 	}
-	.space--table__cell--#{$i} {
+	.#{$twelve-space--block-name}--table__#{$twelve-space--block__element-name}--#{$i} {
 		@extend %space--table__cell--#{$i};
 	}
 }
 
-@for $i from 1 through 12 {
+@for $i from 1 through $twelve-space--max-spaces {
 	%space__gap--left--#{$i} {
-		margin-left: percentage( $i / 12);
+		margin-left: percentage( $i / $twelve-space--max-spaces);
 	}
-	.space__gap--left--#{$i} {
+	.#{$twelve-space--block-name}__gap--left--#{$i} {
 		@extend %space__gap--left--#{$i};
 	}
 }
 
-@for $i from 1 through 12 {
+@for $i from 1 through $twelve-space--max-spaces {
 	%space__gap--right--#{$i} {
-		margin-right: percentage( $i / 12);
+		margin-right: percentage( $i / $twelve-space--max-spaces);
 	}
-	.space__gap--right--#{$i} {
+	.#{$twelve-space--block-name}__gap--right--#{$i} {
 		@extend %space__gap--right--#{$i};
 	}
 }

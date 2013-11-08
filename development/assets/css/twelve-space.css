@@ -2,6 +2,12 @@
    Twelve-Space Structure System [v0.5.0]
    ========================================================================== */
 /* ==========================================================================
+   Global Variables
+   ========================================================================== */
+/*
+ * Twelve Space Variables
+ */
+/* ==========================================================================
    Twelve-Space Structure System Helper Classes [v0.5.0]
    ========================================================================== */
 /*
@@ -202,7 +208,7 @@ img.full, .space__cell--asset img, .asset-container img {
   width: 100%;
 }
 
-.space__cell--asset .full, .asset-container .full, .space .full, .space--12 .full, .space--equal--1 .full, .space--equal--2 .full, .space--equal--3 .full, .space--equal--4 .full, .space--equal--5 .full, .space--equal--6 .full, .space--equal--7 .full, .space--equal--8 .full, .space--equal--9 .full, .space--equal--10 .full, .space--equal--11 .full, .space--equal--12 .full {
+.space__cell--asset > .full, .asset-container > .full, .space > .full, .space--12 > .full, .space--equal--1 > .full, .space--equal--2 > .full, .space--equal--3 > .full, .space--equal--4 > .full, .space--equal--5 > .full, .space--equal--6 > .full, .space--equal--7 > .full, .space--equal--8 > .full, .space--equal--9 > .full, .space--equal--10 > .full, .space--equal--11 > .full, .space--equal--12 > .full {
   width: 100%;
 }
 
