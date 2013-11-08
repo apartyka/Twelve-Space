@@ -1,8 +1,8 @@
 /* ==========================================================================
-   Twelve-Space Structure System [v0.7.0]
+   Twelve-Space Structure System [v0.7.1]
    ========================================================================== */
 /*
- * Twelve-Space Structure System v0.7.0
+ * Twelve-Space Structure System v0.7.1
  * Created by Kevin Mack
  * http://stash/users/kmack/repos/twelve-space
  *
@@ -20,10 +20,10 @@
    ... thank you.
  */
 /* ==========================================================================
-   Twelve-Space Structure System Helper Classes [v0.7.0]
+   Twelve-Space Structure System Helper Classes [v0.7.1]
    ========================================================================== */
 /*
- * Twelve-Space Structure System Helper Classes v0.7.0
+ * Twelve-Space Structure System Helper Classes v0.7.1
  * Created by Kevin Mack
  * http://stash/users/kmack/repos/twelve-space
  *
@@ -2360,9 +2360,7 @@ body {
    Master Base Template - Structure
    ========================================================================== */
 body {
-  -webkit-overflow-scrolling: touch;
-  background-color: #010101;
-  color: #FFF;
+  color: #333;
   font-size: 16px;
   font-family: Arial, Verdana, sans-serif;
   line-height: 125%;
@@ -2371,14 +2369,18 @@ body {
 /* ==========================================================================
    Containers & Holders
    ========================================================================== */
-.testing-grid [class*="__cell"] {
+.space--12 {
+  outline: 2px solid rgba(0, 0, 0, 0.9);
+}
+
+[class*="__cell"] {
   outline: 1px solid rgba(0, 0, 0, 0.9);
 }
-.testing-grid [class*="__cell"]:nth-child(even) {
-  background-color: rgba(255, 255, 255, 0.2);
+[class*="__cell"]:nth-child(even) {
+  outline: 1px solid rgba(0, 0, 0, 0.1);
 }
-.testing-grid [class*="__cell"]:nth-child(odd) {
-  background-color: rgba(255, 255, 255, 0.3);
+[class*="__cell"]:nth-child(odd) {
+  outline: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .margin-bottom--2x {
@@ -2390,18 +2392,18 @@ body {
   margin-left: auto;
 }
 
-.container--full > .container {
+.container {
   width: 1200px;
 }
 @media screen and (max-width: 1240px) {
-  .container--full > .container {
+  .container {
     margin-right: 20px;
     margin-left: 20px;
     width: auto;
   }
 }
 @media screen and (max-width: 400px) {
-  .container--full > .container {
+  .container {
     margin-right: 10px;
     margin-left: 10px;
   }

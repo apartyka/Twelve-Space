@@ -5,53 +5,15 @@ $default-space--half: $default-space / 2;
 $default-space--smallest: 5px;
 $default-space--smaller: $default-space--half;
 
-
 // ## Global Widths
 $max-width: 1200px;
-
-// ## Global Colors
-$black-varient: #010101;
-$black: $black-varient;
-$gray: #2A2A2A;
-$white: #F3F4F4;
-$resource-green: #7EB400;
-$green: $resource-green;
-
-$container-background--black: #000;
-$container--black__headline-color: #FFF;
-$container--black__text-color: #FFF;
-
-$container-background--gray: #2A2A2A;
-$container--gray__headline-color: #FFF;
-$container--gray__text-color: #FFF;
-
-$container-background--white: #FFF;
-$container--white__headline-color: $green;
-$container--white__text-color: $gray;
-
-$container-background--white-dark: $white;
-$container--white-dark__headline-color: $green;
-$container--white-dark__text-color: $gray;
-
-$container-background--gray-light: #F2F2F2;
-$container--gray__light-headline-color: $green;
-$container--gray__light-text-color: $gray;
-
-$container-background--green: $green;
-$container--green__headline-color: #FFF;
-$container--green__text-color: #FFF;
-
-
-
 
 /* ==========================================================================
    Master Base Template - Structure
    ========================================================================== */
 
 body {
-	-webkit-overflow-scrolling: touch;
-	background-color: #010101;
-	color: #FFF;
+	color: #333;
 	font-size: 16px;
 	font-family: Arial, Verdana, sans-serif;
 	line-height: percentage( 20 / 16 );
@@ -62,15 +24,17 @@ body {
    Containers & Holders
    ========================================================================== */
 
-.testing-grid {
-	[class*="__cell"] {
-		outline: 1px solid rgba(0,0,0,.9);
-		&:nth-child(even) {
-			background-color: rgba(255,255,255,.2);
-		}
-		&:nth-child(odd) {
-			background-color: rgba(255,255,255,.3);
-		}
+.space--12 {
+	outline: 2px solid rgba(0,0,0,.9);
+}
+
+[class*="__cell"] {
+	outline: 1px solid rgba(0,0,0,.9);
+	&:nth-child(even) {
+		outline: 1px solid rgba(0,0,0,.1);
+	}
+	&:nth-child(odd) {
+		outline: 1px solid rgba(0,0,0,.1);
 	}
 }
 
@@ -84,25 +48,23 @@ body {
 }
 
 .container--full {
-	> .container {
-		width: $max-width;
-
-		@media screen and ( max-width: $max-width + $default-space * 2 ) {
-			margin-right: $default-space;
-			margin-left: $default-space;
-			width: auto; // Keep "fluid feel" of gutters for containers
-		}
-
-		@media screen and ( max-width:400px ) {
-				margin-right: $default-space--smaller;
-				margin-left: $default-space--smaller;
-		}
-
-	}
 }
 
+ .container {
+	width: $max-width;
 
+	@media screen and ( max-width: $max-width + $default-space * 2 ) {
+		margin-right: $default-space;
+		margin-left: $default-space;
+		width: auto; // Keep "fluid feel" of gutters for containers
+	}
 
+	@media screen and ( max-width:400px ) {
+			margin-right: $default-space--smaller;
+			margin-left: $default-space--smaller;
+	}
+
+}
 
 .align--center {
 	text-align: center;
