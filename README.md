@@ -1,5 +1,7 @@
-Twelve-Space Structure System [v0.3.0]
+Twelve-Space Structure System [v0.4.0]
 =====
+
+**PLEASE NOTE:** This project is still in development, but it is ready to be used. Updates to documentation and examples will be outlined in this README file and in the gh-page. Some features may be dropped or extended for the official release. Official release date is TBD. Keep checking back and help contribute -- Thanks!
 
 This is a structure system for creating containers for content that is based in twelves and not a pixel dimension. The system keeps structures fluid to meet design needs and to allow for flexibility to focus on the context of content.
 
