@@ -131,7 +131,7 @@ $twelve-space--max-spaces: 12;
 			width: percentage( 1 / $i );
 			// Clear for equal space/column heights:
 			&:nth-child(#{$i}n+1) {
-				clear: both;
+				@extend %clear-setup;
 			}
 		}
 	}
@@ -241,17 +241,19 @@ $twelve-space--max-spaces: 12;
 
 }
 
+
 @for $i from 1 through $twelve-space--max-spaces {
-	%space__cell--#{$i} {
+	%space__cell--#{$i}-setup {
 		width: percentage( $i / $twelve-space--max-spaces);
 	}
-
 	%space__cell--#{$i} {
 		@extend %float-left;
+		@extend %space__cell--#{$i}-setup;
 	}
 
 	%space--table__cell--#{$i} {
 		@extend %display-table-cell;
+		@extend %space__cell--#{$i}-setup;
 	}
 
 	%space__gap--left--#{$i} {
