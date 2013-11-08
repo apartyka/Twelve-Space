@@ -4,4 +4,5 @@
 + 0.3.0: Table option using `.grid--table--12`
 + 0.3.1: File rename and removal of unnecessary files
 + 0.3.2: Typo fix for alignments and display types
++ 0.4.0: Placeholder selectors, change from `grid` to `space` in all selectors, setup for future enhancements of booleans
 

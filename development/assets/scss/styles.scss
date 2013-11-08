@@ -24,13 +24,3 @@ body {
  * Comment or delete this line and feel free to delete this from "scss" directory
  */
 @import "demo-only";
-
-body {
-	background-color: #FFF;
-}
-
-* {
-	background-color: rgba(0,0,0,.1) !important;
-	outline: 1px solid rgba(0,0,0,.2);
-
-}
