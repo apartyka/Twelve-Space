@@ -1,33 +1,48 @@
-@import "variables";
-
 /* ==========================================================================
-   Grids / Twelve-Space Structure System [v0.3.2]
+   Twelve-Space Structure System [v0.4.0]
    ========================================================================== */
 /*!
- * Twelve-Space Structure System v0.3.2
+ * Twelve-Space Structure System v0.4.0
  * Created by Kevin Mack
  * http://stash/users/kmack/repos/twelve-space
  *
- * Date: 2013-11-04
+ * Date: 2013-11-08
  */
 
 /**
  * Display types
  */
-.block, .show {
+
+%block-setup, %block, %show, %display-block {
 	display: block;
 }
 
-.inline-block {
+.block, .show, .display-block {
+	@extend %block-setup;
+}
+
+%inline-block-setup, %inline-block, %display-inline-block {
 	display: inline-block;
 }
 
-.inline {
-	display: inline;
+.inline-block, .display-inline-block {
+	@extend %inline-block-setup;
 }
 
-.hidden, .hide {
+%inline-setup, %inline, %display-inline {
+	display: inline-block;
+}
+
+.inline, .display-inline {
+	@extend %inline-setup;
+}
+
+%hidden-setup, %hidden, %hide, %display-hidden {
 	display: hidden;
+}
+
+.hidden, .hide, .display-hidden {
+	@extend %hidden-setup;
 }
 
 /**
@@ -35,75 +50,135 @@
  * Used for layering
  */
 
-.position-relative {
+
+%position-relative-setup, %position-relative, %relative {
 	position: relative;
 }
 
-.position-absolute {
+.position-relative, .relative {
+	@extend %position-relative-setup;
+}
+
+%position-absolute-setup, %position-absolute, %absolute {
 	position: absolute;
 }
 
-.position, .position--1 {
+.position-absolute, .absolute {
+	@extend %position-absolute-setup;
+}
+
+
+%position-setup, %position, %position--1 {
+	@extend %position-relative;
 	z-index: 1;
 }
 
-.overflow-hidden {
+.position, .position--1 {
+	@extend %position-setup;
+	z-index: 1;
+}
+
+%overflow-setup, %overflow, %overflow-hidden, %hidden {
 	overflow: hidden;
 }
 
-.overflow-hidden--x {
-	overflow-x: hidden;
+.overflow-hidden, .hidden {
+	@extend %overflow-setup;
 }
 
-.overflow-hidden--y {
-	overflow-y: hidden;
+%overflow-hidden--x-setup, %overflow-hidden--x, %hidden--x {
+	overflow-x: hidden;
+
 }
+
+.overflow-hidden--x, .hidden--x {
+	@extend %overflow-hidden--x-setup;
+}
+
+%overflow-hidden--y-setup, %overflow-hidden--y, %hidden--y {
+	overflow-y: hidden;
+
+}
+
+.overflow-hidden--y, .hidden--y {
+	@extend %overflow-hidden--y-setup;
+}
+
 
 /**
- * Vertical Alignment for `grid--table--12` types
+ * Vertical Alignment for `space--table--12` types
  */
-.vertical-align, .vertical-align--middle {
+
+%vertical-align, %vertical-align--middle {
 	vertical-align: middle;
 }
 
-.vertical-align--baseline {
+.vertical-align, .vertical-align--middle {
+	@extend %vertical-align;
+}
+
+%vertical-align--baseline {
 	vertical-align: baseline;
 }
 
-.vertical-align--bottom {
-	vertical-align: middle;
-}
-
-.vertical-align--text-bottom {
-	vertical-align: text-bottom;
-}
-
-.vertical-align--top {
-	vertical-align: top;
+.vertical-align--baseline {
+	@extend %vertical-align--baseline;
 }
 
 .vertical-align--bottom {
 	vertical-align: bottom;
 }
 
+.vertical-align--bottom {
+	@extend %vertical-align--bottom;
+}
 
+%vertical-align--text-bottom {
+	vertical-align: text-bottom;
+}
+
+.vertical-align--text-bottom {
+	@extend %vertical-align--text-bottom;
+}
+
+%vertical-align--top {
+	vertical-align: top;
+}
+
+.vertical-align--top {
+	@extend %vertical-align--top;
+}
+
+%vertical-align--bottom {
+	vertical-align: bottom;
+}
+
+.vertical-align--bottom {
+	@extend %vertical-align--bottom;
+}
 
 @for $i from 0 through 12 {
-	.position-relative--#{$i} {
+	%position-relative--#{$i} {
 		@extend .position-relative;
 		z-index: $i;
 	}
-}
-
-@for $i from 0 through 12 {
-	.position-absolute--#{$i} {
-		@extend .position-absolute;
-		z-index:  $i;
+	.position-relative--#{$i} {
+		@extend %position-relative--#{$i};
 	}
 }
 
-%grid {
-	> .grid__cell {
+@for $i from 0 through 12 {
+	%position-absolute--#{$i} {
+		@extend .position-absolute;
+		z-index: $i;
+	}
+	.position-absolute--#{$i} {
+		@extend %position-absolute--#{$i};
+	}
+}
+
+%space {
+	> .space__cell {
 		&:nth-child(odd) {
 			float: left;
 		}
@@ -119,15 +194,15 @@
  * Usage:
 ```
    	<div class="overflow-control">
-   		<div class="grid__cell overflow-control__wrapper">
+   		<div class="space__cell overflow-control__wrapper">
    			<img class="overflow-control__wrapper__image" src="http://placehold.it/100x150" />
    		</div>
    	</div>
 ```
  * Pre fixed with "ns-" follow namespacing and inheritance path of:
 ```
-   	<div class="ns-overflow-control"> <!-- Must follow path of ns-overflow-control > class*="grid__cell" > img -->
-   		<div class="grid__cell">  <!-- Any combo of `class*="grid__cell"` -->
+   	<div class="ns-overflow-control"> <!-- Must follow path of ns-overflow-control > class*="space__cell" > img -->
+   		<div class="space__cell">  <!-- Any combo of `class*="space__cell"` -->
    			<img src="http://placehold.it/100x150" /> <!-- This gets the treatment -->
    		</div>
    	</div>
@@ -157,24 +232,28 @@
 
 
 /**
- * Grid
- * Inherits `%grid` properties
+ * space
+ * Inherits `%space` properties
  * **nth-child(1n)** is `float: left` and **nth-child(2n)** is `float: right`
  */
 
-.grid {
-	@extend %grid;
+.space {
+	@extend %space;
 }
 
 
 /**
  * Image Widths
- * `.grid__cell--asset` and `.asset-container` make children `<img />` width equal to "100%"
+ * `.space__cell--asset` and `.asset-container` make children `<img />` width equal to "100%"
  */
 
-img.full  {
+ %full {
 	display: block;
 	width: 100%;
+ }
+
+img.full  {
+	@extend %full;
 }
 
 %cell-child--full {
@@ -183,7 +262,7 @@ img.full  {
 	}
 }
 
-.grid__cell--asset, .asset-container {
+%space__cell--asset-setup, %space__cell--asset, %asset-container {
 	@extend %cell-child--full;
 	img {
 		@extend img.full;
@@ -191,16 +270,28 @@ img.full  {
 	}
 }
 
-.grid, .grid--12 {
+.space__cell--asset.space__cell--asset, .asset-container {
+	@extend %space__cell--asset-setup;
+}
+
+%space-setup, %space, %space--12 {
 	@extend %cell-child--full;
+}
+
+.space, .space--12 {
+	@extend %space-setup;
 }
 
 
 /*
  * ## Clear Floats
  */
-.clear, .grid__row, .grid--table__row {
+%clear-setup, %clear, %space__row, %space--table__row {
 	clear: both;
+}
+
+.clear, .space__row, .space--table__row {
+	@extend %clear-setup;
 }
 
 %clear-after {
@@ -212,10 +303,10 @@ img.full  {
 }
 
 %float--left-or-right {
-	> .grid__cell--left {
+	> .space__cell--left {
 		float: left;
 	}
-	> .grid__cell--right {
+	> .space__cell--right {
 		float: right;
 	}
 }
@@ -232,19 +323,23 @@ img.full  {
  	display: table;
 }
 
-.grid--table, .grid--table--12, .grid--table__row {
+%space--table-setup, %space--table, %space--table--12, %space--table__row {
 	@extend %display-table;
 	width: 100%;
 }
 
+.space--table, .space--table--12, .space--table__row {
+	@extend %space--table-setup;
+}
+
 %float--cell--left {
-	> .grid__cell, .grid__row > .grid__cell {
+	> .space__cell, .space__row > .space__cell {
 		@extend %float-left;
 	}
 }
 
 %display-cell--table-cell {
-	> .grid__cell {
+	> .space__cell {
 		@extend %display-table-cell;
 	}
 }
@@ -255,122 +350,165 @@ img.full  {
  */
 
 @for $i from 1 through 12 {
-	.grid--equal--#{$i} {
+	%space--equal--#{$i} {
 		@extend %clear-after;
 		@extend %float--left-or-right;
 		@extend  %float--cell--left;
 		@extend %cell-child--full;
-		> [class*="grid__cell"] {
+		> [class*="space__cell"] {
 			width: percentage( 1 / $i );
-			// Clear for equal grid/column heights:
+			// Clear for equal space/column heights:
 			&:nth-child(#{$i}n+1) {
 				clear: both;
 			}
 		}
 	}
+
+	.space--equal--#{$i} {
+		@extend %space--equal--#{$i};
+	}
 }
 
 
 /**
- * Equal heights for any parent class that has `grid` in it
+ * Equal heights for any parent class that has `space` in it
  */
 
-.grid, .grid--12, .float-container, .grid__row {
+%space-setup--l-or-r, %space, %space--12, %float-container, %space__row {
 	@extend  %float--left-or-right;
 }
 
-.float-container, .grid--12, .grid__row {
+.space, .space--12, .float-container, .space__row {
+	@extend  %space-setup--l-or-r;
+}
+
+%float-left-setup, %float-container, %space--12, %space__row {
 	@extend %float--cell--left;
 }
 
-.grid--table--12, .grid--table__row {
+.float-container, .space--12, .space__row {
+	@extend %float-left-setup;
+}
+
+%space--table--12, %space--table__row {
 	@extend %display-cell--table-cell;
 }
 
-.grid, .grid--12 {
+.space--table--12, .space--table__row {
+	@extend %display-cell--table-cell;
+}
+
+%space, %space--12 {
 	@extend  %clear-after;
 }
 
-@mixin generate-grid-expand( $grid__cell-amount: 1, $grid-offset-value: 1, $element-name: "expand", $property: "width", $block-name: "grid__cell", $grid-column-quanity: 12 ) {
-	$class-name: $block-name + "--" + $grid__cell-amount + "__" + $element-name + "--" + $grid-offset-value;
-	.#{$class-name} {
-		#{$property}: percentage( 1 + ($grid-offset-value / $grid__cell-amount) );
-	}
-	// OUTPUT: .grid__cell--{cell spaces}__expand--{cell spaces}
+.space, .space--12 {
+	@extend  %clear-after;
 }
 
-@mixin generate-grid__cell-offset( $grid__cell-amount: 1, $grid-offset-value: 1, $element-name: "expand", $property: "width", $positiveOrNegative: 1, $block-name: "grid__cell", $grid-column-quanity: 12 ) {
-	$class-name: $block-name + "__" + $element-name + "--" + $grid-offset-value;
-	.#{$class-name} {
-		#{$property}:  percentage(($grid-offset-value / $grid-column-quanity)) * $positiveOrNegative;
+@mixin generate-space-expand( $space__cell-amount: 1, $space-offset-value: 1, $element-name: "expand", $property: "width", $block-name: "space__cell", $space-column-quanity: 12 ) {
+	$class-name: $block-name + "--" + $space__cell-amount + "__" + $element-name + "--" + $space-offset-value;
+	%#{$class-name} {
+		#{$property}: percentage( 1 + ($space-offset-value / $space__cell-amount) );
 	}
-	// OUTPUT: .grid__cell--offset--{cell spaces}
-	// OUTPUT: .grid__cell--offset--negative--{cell spaces}
+	.#{$class-name} {
+		@extend %#{$class-name};
+	}
+	// OUTPUT: .space__cell--{cell spaces}__expand--{cell spaces}
 }
 
-@mixin generate-grid__cell__offset( $grid__cell-amount: 1, $grid-offset-value: 1, $element-name: "expand", $property: "width", $positiveOrNegative: 1, $block-name: "grid__cell", $grid-column-quanity: 12 ) {
-	$class-name: $block-name + "--" + $grid__cell-amount +  "__" + $element-name + "--" + $grid-offset-value;
-	.#{$class-name} {
-		#{$property}: percentage(  ($grid-offset-value / $grid__cell-amount) ) * -1;
+@mixin generate-space__cell-offset( $space__cell-amount: 1, $space-offset-value: 1, $element-name: "expand", $property: "width", $positiveOrNegative: 1, $block-name: "space__cell", $space-column-quanity: 12 ) {
+	$class-name: $block-name + "__" + $element-name + "--" + $space-offset-value;
+	%#{$class-name} {
+		#{$property}:  percentage(($space-offset-value / $space-column-quanity)) * $positiveOrNegative;
 	}
-	// OUTPUT: .grid__cell--{cell spaces}__offset--{cell spaces}
-	// OUTPUT: .grid__cell--{cell spaces}__offset--native--{cell spaces}
+	.#{$class-name} {
+		@extend %#{$class-name};
+	}
+	// OUTPUT: .space__cell--offset--{cell spaces}
+	// OUTPUT: .space__cell--offset--negative--{cell spaces}
+}
+
+@mixin generate-space__cell__offset( $space__cell-amount: 1, $space-offset-value: 1, $element-name: "expand", $property: "width", $positiveOrNegative: 1, $block-name: "space__cell", $space-column-quanity: 12 ) {
+	$class-name: $block-name + "--" + $space__cell-amount +  "__" + $element-name + "--" + $space-offset-value;
+	%#{$class-name} {
+		#{$property}: percentage(  ($space-offset-value / $space__cell-amount) ) * -1;
+	}
+	.#{$class-name} {
+		@extend %#{$class-name};
+	}
+	// OUTPUT: .space__cell--{cell spaces}__offset--{cell spaces}
+	// OUTPUT: .space__cell--{cell spaces}__offset--native--{cell spaces}
 }
 
 
 @for $i from 1 through 12 {
 	@for $x from 1 through 12 {
-		@include generate-grid-expand($i, $x);
+		@include generate-space-expand($i, $x);
 	}
 }
 
 @for $i from 1 through 12 {
 	@for $x from 1 through 12 {
-		@include generate-grid__cell__offset($i, $x, "offset", "margin-right", -1, "grid__cell", 12 );
+		@include generate-space__cell__offset($i, $x, "offset", "margin-right", -1, "space__cell", 12 );
 	}
 }
 
 @for $i from 1 through 12 {
-	@include generate-grid__cell-offset(1, $i, "cell--offset", "margin-left", 1, "grid", 12 );
+	@include generate-space__cell-offset(1, $i, "cell--offset", "margin-left", 1, "space", 12 );
 }
 
 @for $i from 1 through 12 {
-	@include generate-grid__cell-offset(1, $i, "cell--offset--negative", "margin-left", -1, "grid", 12 );
+	@include generate-space__cell-offset(1, $i, "cell--offset--negative", "margin-left", -1, "space", 12 );
 }
 
 @for $i from 1 through 12 {
 	@for $x from 1 through 12 {
-		@include generate-grid__cell__offset($i, $x, "offset--negative", "margin-left", -1, "grid__cell", 12 );
+		@include generate-space__cell__offset($i, $x, "offset--negative", "margin-left", -1, "space__cell", 12 );
 	}
 }
 
 @for $i from 1 through 12 {
-	.grid__cell--#{$i} {
-		// @extend  %float-left;
+	%space__cell--#{$i} {
 		width: percentage( $i / 12);
 	}
+	.space__cell--#{$i} {
+		@extend %space__cell--#{$i}
+	}
 }
 @for $i from 1 through 12 {
-	.grid--12 > .grid__cell--#{$i} {
+	%space__cell--#{$i} {
 		@extend %float-left;
 	}
+	.space__cell--#{$i} {
+		@extend %space__cell--#{$i};
+	}
 }
 @for $i from 1 through 12 {
-	.grid--table--12 > .grid__cell--#{$i}, .grid--table__row > .grid__cell--#{$i} {
+	%space--table__cell--#{$i} {
 		@extend %display-table-cell;
 	}
+	.space--table__cell--#{$i} {
+		@extend %space--table__cell--#{$i};
+	}
 }
 
 
 @for $i from 1 through 12 {
-	.grid__space--left--#{$i} {
+	%space__gap--left--#{$i} {
 		margin-left: percentage( $i / 12);
+	}
+	.space__gap--left--#{$i} {
+		@extend %space__gap--left--#{$i};
 	}
 }
 
 @for $i from 1 through 12 {
-	.grid__space--right--#{$i} {
+	%space__gap--right--#{$i} {
 		margin-right: percentage( $i / 12);
+	}
+	.space__gap--right--#{$i} {
+		@extend %space__gap--right--#{$i};
 	}
 }
 
