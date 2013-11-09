@@ -257,12 +257,33 @@ $twelve-space--max-spaces: 12;
 	}
 
 	%space__gap--left--#{$i} {
-		margin-left: percentage( $i / $twelve-space--max-spaces);
+		margin-left: percentage($i / $twelve-space--max-spaces);
 	}
 
 	%space__gap--right--#{$i} {
-		margin-right: percentage( $i / $twelve-space--max-spaces);
+		margin-right: percentage($i / $twelve-space--max-spaces);
 	}
+
+
+	@for $x from 1 through $twelve-space--max-spaces {
+		%space__cell--#{$i}__gap--left--#{$x} {
+			padding-left: percentage($x / $i);
+		}
+
+		%space__cell--#{$i}__gap--right--#{$x} {
+			padding-right: percentage($x / $i);
+		}
+
+		.space__cell--#{$i}__gap--left--#{$x} {
+			@extend %space__cell--#{$i}__gap--left--#{$x};
+		}
+
+		.space__cell--#{$i}__gap--right--#{$x} {
+			@extend %space__cell--#{$i}__gap--right--#{$x};
+		}
+	}
+
+
 
 	@if ($twelve-space--selectors__output) {
 		.#{$twelve-space--block-name}__#{$twelve-space--block__element-name}--#{$i} {
