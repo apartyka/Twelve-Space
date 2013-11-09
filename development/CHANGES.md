@@ -10,4 +10,5 @@
 + 0.7.0: Boolean in "_variables" to control output of selectors
 + 0.7.1: First public release
 + 0.7.2: Fix for `space--table__cell--#` widths
++ 0.8.0: Fix for "__cell--offset" now using `$positiveOrNegative` correctly, some helper classes clean up
 
