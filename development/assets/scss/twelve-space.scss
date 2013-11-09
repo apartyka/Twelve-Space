@@ -11,22 +11,31 @@
 
 @import "variables";
 
-/**
- * Definition of Twelve
- * DO NOT CHANGE, SERIOUSLY... but you could, but don't.
-   ... thank you.
- */
+
+// `$twelve-space--max-spaces` is the definition of Twelve
+// DO NOT CHANGE, SERIOUSLY... but you could, but don't.
+// ... thank you.
 $twelve-space--max-spaces: 12;
 
+
 @import "twelve-space__helper-classes";
+
+
+%float-left-setup {
+	float: left;
+}
+
+%float-right-setup {
+	float: right;
+}
 
 %space {
 	> .#{$twelve-space--block-name}__#{$twelve-space--block__element-name} {
 		&:nth-child(odd) {
-			float: left;
+			@extend %float-left-setup;
 		}
 		&:nth-child(even) {
-			float: right;
+			@extend %float-right-setup;
 		}
 	}
 }
@@ -73,15 +82,15 @@ $twelve-space--max-spaces: 12;
 
 %float--left-or-right {
 	> .#{$twelve-space--block-name}__#{$twelve-space--block__element-name}--left {
-		float: left;
+		@extend %float-left-setup;
 	}
 	> .#{$twelve-space--block-name}__#{$twelve-space--block__element-name}--right {
-		float: right;
+		@extend %float-right-setup;
 	}
 }
 
 %float-left {
-	float: left;
+	@extend %float-left-setup;
 }
 
 %display-table-cell {
@@ -105,7 +114,7 @@ $twelve-space--max-spaces: 12;
 
 %float--cell--left {
 	> .#{$twelve-space--block-name}__#{$twelve-space--block__element-name}, .#{$twelve-space--block-name}__row > .#{$twelve-space--block-name}__#{$twelve-space--block__element-name} {
-		@extend %float-left;
+		@extend %float-left-setup;
 	}
 }
 
@@ -247,7 +256,7 @@ $twelve-space--max-spaces: 12;
 		width: percentage( $i / $twelve-space--max-spaces);
 	}
 	%space__cell--#{$i} {
-		@extend %float-left;
+		@extend %float-left-setup;
 		@extend %space__cell--#{$i}-setup;
 	}
 
@@ -282,8 +291,6 @@ $twelve-space--max-spaces: 12;
 			@extend %space__cell--#{$i}__gap--right--#{$x};
 		}
 	}
-
-
 
 	@if ($twelve-space--selectors__output) {
 		.#{$twelve-space--block-name}__#{$twelve-space--block__element-name}--#{$i} {
