@@ -1,8 +1,8 @@
 /* ==========================================================================
-   Twelve-Space Structure System Helper Classes [v0.7.2]
+   Twelve-Space Structure System Helper Classes [v0.7.3]
    ========================================================================== */
 /*!
- * Twelve-Space Structure System Helper Classes v0.7.2
+ * Twelve-Space Structure System Helper Classes v0.7.3
  * Created by Kevin Mack
  * http://stash/users/kmack/repos/twelve-space
  *
@@ -24,7 +24,7 @@
 
 
 %inline-setup, %inline, %display-inline {
-	display: inline-block;
+	display: inline;
 }
 
 
@@ -69,6 +69,33 @@
 	z-index: 1;
 }
 
+
+@for $i from 0 through $twelve-space--max-spaces {
+	%position-index-setup--#{$i} {
+		z-index: $i;
+	}
+
+	%position-relative--#{$i} {
+		@extend %position-relative-setup;
+		@extend %position-index-setup--#{$i};
+	}
+
+	%position-absolute--#{$i} {
+		@extend %position-absolute-setup;
+		@extend %position-index-setup--#{$i};
+	}
+
+	@if ($twelve-space--helper-classes__output) {
+		.position-relative--#{$i} {
+			@extend %position-relative--#{$i};
+		}
+
+		.position-absolute--#{$i} {
+			@extend %position-absolute--#{$i};
+		}
+	}
+}
+
 @if ($twelve-space--helper-classes__output) {
 	.position-relative, .relative {
 		@extend %position-relative-setup;
@@ -79,35 +106,10 @@
 	}
 
 	.position, .position--1 {
-		@extend %position-setup;
-		z-index: 1;
-	}
-}
-
-@for $i from 0 through $twelve-space--max-spaces {
-	%position-relative--#{$i} {
-		@extend .position-relative;
-		z-index: $i;
+		@extend %position-relative-setup;
+		@extend %position-index-setup--1;
 	}
 
-	@if ($twelve-space--helper-classes__output) {
-		.position-relative--#{$i} {
-			@extend %position-relative--#{$i};
-		}
-	}
-}
-
-@for $i from 0 through $twelve-space--max-spaces {
-	%position-absolute--#{$i} {
-		@extend .position-absolute;
-		z-index: $i;
-	}
-
-	@if ($twelve-space--helper-classes__output) {
-		.position-absolute--#{$i} {
-			@extend %position-absolute--#{$i};
-		}
-	}
 }
 
 %overflow-setup, %overflow, %overflow-hidden, %hidden {
@@ -196,10 +198,13 @@
  * Image Widths
  * `.space__cell--asset` and `.asset-container` make children `<img />` width equal to "100%"
  */
+%width--100-full {
+	width: 100%;
 
+}
  %full {
 	display: block;
-	width: 100%;
+	@extend %width--100-full;
  }
 
 @if ($twelve-space--helper-classes__output) {
@@ -210,15 +215,14 @@
 
 %cell-child--full {
 	> .full {
-		width: 100%;
+		@extend %width--100-full;
 	}
 }
 
 %space__cell--asset-setup, %space__cell--asset, %asset-container {
 	@extend %cell-child--full;
 	img {
-		@extend img.full;
-		width: 100%;
+		@extend %full;
 	}
 }
 
