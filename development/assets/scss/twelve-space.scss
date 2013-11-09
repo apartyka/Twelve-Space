@@ -1,8 +1,8 @@
 /* ==========================================================================
-   Twelve-Space Structure System [v0.7.2]
+   Twelve-Space Structure System [v0.7.3]
    ========================================================================== */
 /*!
- * Twelve-Space Structure System v0.7.2
+ * Twelve-Space Structure System v0.7.3
  * Created by Kevin Mack
  * http://stash/users/kmack/repos/twelve-space
  *
@@ -193,7 +193,7 @@ $twelve-space--max-spaces: 12;
 			@extend %#{$class-name};
 		}
 	}
-	// OUTPUT: .#{$twelve-space--block-name}__#{$twelve-space--block__element-name}--{cell spaces}__expand--{cell spaces}
+	// OUTPUT: .space__cell--{cell spaces}__expand--{cell spaces}
 }
 
 @mixin generate-space__cell-offset( $space__cell-amount: 1, $space-offset-value: 1, $element-name: "expand", $property: "width", $positiveOrNegative: 1, $twelve-space--block-name: ($twelve-space--block-name + "__" + $twelve-space--block__element-name), $space-column-quanity: $twelve-space--max-spaces ) {
@@ -207,14 +207,14 @@ $twelve-space--max-spaces: 12;
 			@extend %#{$class-name};
 		}
 	}
-	// OUTPUT: .#{$twelve-space--block-name}__#{$twelve-space--block__element-name}--offset--{cell spaces}
-	// OUTPUT: .#{$twelve-space--block-name}__#{$twelve-space--block__element-name}--offset--negative--{cell spaces}
+	// OUTPUT: .space__cell--offset--{cell spaces}
+	// OUTPUT: .space__cell--offset--negative--{cell spaces}
 }
 
 @mixin generate-space__cell__offset( $space__cell-amount: 1, $space-offset-value: 1, $element-name: "expand", $property: "width", $positiveOrNegative: 1, $twelve-space--block-name: ($twelve-space--block-name + "__" + $twelve-space--block__element-name), $space-column-quanity: $twelve-space--max-spaces ) {
 	$class-name: $twelve-space--block-name + "--" + $space__cell-amount +  "__" + $element-name + "--" + $space-offset-value;
 	%#{$class-name} {
-		#{$property}: percentage(  ($space-offset-value / $space__cell-amount) ) * -1;
+		#{$property}: percentage(  ($space-offset-value / $space__cell-amount) )  * $positiveOrNegative;
 	}
 
 	@if ($twelve-space--selectors__output) {
@@ -222,8 +222,8 @@ $twelve-space--max-spaces: 12;
 			@extend %#{$class-name};
 		}
 	}
-	// OUTPUT: .#{$twelve-space--block-name}__#{$twelve-space--block__element-name}--{cell spaces}__offset--{cell spaces}
-	// OUTPUT: .#{$twelve-space--block-name}__#{$twelve-space--block__element-name}--{cell spaces}__offset--native--{cell spaces}
+	// OUTPUT: .space__cell--{cell spaces}__offset--{cell spaces}
+	// OUTPUT: .space__cell--{cell spaces}__offset--native--{cell spaces}
 }
 
 
