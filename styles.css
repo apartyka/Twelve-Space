@@ -1,32 +1,12 @@
 /* ==========================================================================
-   Twelve-Space Structure System [v0.7.3]
+   Twelve-Space Structure System Helper Classes [v0.8.1]
    ========================================================================== */
 /*
- * Twelve-Space Structure System v0.7.3
+ * Twelve-Space Structure System Helper Classes v0.8.1
  * Created by Kevin Mack
  * http://stash/users/kmack/repos/twelve-space
  *
- * Date: 2013-11-08
- */
-/* ==========================================================================
-   Global Variables
-   ========================================================================== */
-/*
- * Twelve Space Variables
- */
-/*
- * Global Spaces
- * Variables used in "spacing.scss"
- */
-/* ==========================================================================
-   Twelve-Space Structure System Helper Classes [v0.7.2]
-   ========================================================================== */
-/*
- * Twelve-Space Structure System Helper Classes v0.7.2
- * Created by Kevin Mack
- * http://stash/users/kmack/repos/twelve-space
- *
- * Date: 2013-11-08
+ * Date: 2013-11-10
  */
 /**
  * Display types
@@ -154,7 +134,7 @@
  * Image Widths
  * `.space__cell--asset` and `.asset-container` make children `<img />` width equal to "100%"
  */
-img.full, .space__cell--asset img, .asset-container img, .space__cell--asset > .full, .asset-container > .full, .space > .full, .space--12 > .full, .space--equal--1 > .full, .space--equal--2 > .full, .space--equal--3 > .full, .space--equal--4 > .full, .space--equal--5 > .full, .space--equal--6 > .full, .space--equal--7 > .full, .space--equal--8 > .full, .space--equal--9 > .full, .space--equal--10 > .full, .space--equal--11 > .full, .space--equal--12 > .full {
+img.full, .space__cell--asset img, .asset-container img, .space__cell--asset > .full, .asset-container > .full, .space > .full, .space--12 > .full, .space--equal--1 > .space__cell--left > .full, .space--equal--2 > .space__cell--left > .full, .space--equal--3 > .space__cell--left > .full, .space--equal--4 > .space__cell--left > .full, .space--equal--5 > .space__cell--left > .full, .space--equal--6 > .space__cell--left > .full, .space--equal--7 > .space__cell--left > .full, .space--equal--8 > .space__cell--left > .full, .space--equal--9 > .space__cell--left > .full, .space--equal--10 > .space__cell--left > .full, .space--equal--11 > .space__cell--left > .full, .space--equal--12 > .space__cell--left > .full, .space > .space__cell--left > .full, .space--12 > .space__cell--left > .full, .float-container > .space__cell--left > .full, .space__row > .space__cell--left > .full, .space--equal--1 > .space__cell > .full, .space--equal--2 > .space__cell > .full, .space--equal--3 > .space__cell > .full, .space--equal--4 > .space__cell > .full, .space--equal--5 > .space__cell > .full, .space--equal--6 > .space__cell > .full, .space--equal--7 > .space__cell > .full, .space--equal--8 > .space__cell > .full, .space--equal--9 > .space__cell > .full, .space--equal--10 > .space__cell > .full, .space--equal--11 > .space__cell > .full, .space--equal--12 > .space__cell > .full, .space--equal--1 .space__row > .space__cell > .full, .space--equal--2 .space__row > .space__cell > .full, .space--equal--3 .space__row > .space__cell > .full, .space--equal--4 .space__row > .space__cell > .full, .space--equal--5 .space__row > .space__cell > .full, .space--equal--6 .space__row > .space__cell > .full, .space--equal--7 .space__row > .space__cell > .full, .space--equal--8 .space__row > .space__cell > .full, .space--equal--9 .space__row > .space__cell > .full, .space--equal--10 .space__row > .space__cell > .full, .space--equal--11 .space__row > .space__cell > .full, .space--equal--12 .space__row > .space__cell > .full, .space__cell--1 > .full, .space__cell--2 > .full, .space__cell--3 > .full, .space__cell--4 > .full, .space__cell--5 > .full, .space__cell--6 > .full, .space__cell--7 > .full, .space__cell--8 > .full, .space__cell--9 > .full, .space__cell--10 > .full, .space__cell--11 > .full, .space__cell--12 > .full, .float-container > .full, .space__row > .full, .space--equal--1 > .full, .space--equal--2 > .full, .space--equal--3 > .full, .space--equal--4 > .full, .space--equal--5 > .full, .space--equal--6 > .full, .space--equal--7 > .full, .space--equal--8 > .full, .space--equal--9 > .full, .space--equal--10 > .full, .space--equal--11 > .full, .space--equal--12 > .full {
   width: 100%;
 }
 
@@ -162,11 +142,11 @@ img.full, .space__cell--asset img, .asset-container img {
   display: block;
 }
 
-.space > .space__cell:nth-child(odd), .space--equal--1 > .space__cell--left, .space--equal--2 > .space__cell--left, .space--equal--3 > .space__cell--left, .space--equal--4 > .space__cell--left, .space--equal--5 > .space__cell--left, .space--equal--6 > .space__cell--left, .space--equal--7 > .space__cell--left, .space--equal--8 > .space__cell--left, .space--equal--9 > .space__cell--left, .space--equal--10 > .space__cell--left, .space--equal--11 > .space__cell--left, .space--equal--12 > .space__cell--left, .space > .space__cell--left, .space--12 > .space__cell--left, .float-container > .space__cell--left, .space__row > .space__cell--left, .space--equal--1 > .space__cell, .space--equal--2 > .space__cell, .space--equal--3 > .space__cell, .space--equal--4 > .space__cell, .space--equal--5 > .space__cell, .space--equal--6 > .space__cell, .space--equal--7 > .space__cell, .space--equal--8 > .space__cell, .space--equal--9 > .space__cell, .space--equal--10 > .space__cell, .space--equal--11 > .space__cell, .space--equal--12 > .space__cell, .space--equal--1 .space__row > .space__cell, .space--equal--2 .space__row > .space__cell, .space--equal--3 .space__row > .space__cell, .space--equal--4 .space__row > .space__cell, .space--equal--5 .space__row > .space__cell, .space--equal--6 .space__row > .space__cell, .space--equal--7 .space__row > .space__cell, .space--equal--8 .space__row > .space__cell, .space--equal--9 .space__row > .space__cell, .space--equal--10 .space__row > .space__cell, .space--equal--11 .space__row > .space__cell, .space--equal--12 .space__row > .space__cell, .float-container, .space--12, .space__row, .space__cell--1, .space__cell--2, .space__cell--3, .space__cell--4, .space__cell--5, .space__cell--6, .space__cell--7, .space__cell--8, .space__cell--9, .space__cell--10, .space__cell--11, .space__cell--12 {
+.space > .space__cell:nth-child(odd), .float-container > .space__cell:nth-child(odd), .space--12 > .space__cell:nth-child(odd), .space__row > .space__cell:nth-child(odd), .space--equal--1 > .space__cell--left, .space--equal--2 > .space__cell--left, .space--equal--3 > .space__cell--left, .space--equal--4 > .space__cell--left, .space--equal--5 > .space__cell--left, .space--equal--6 > .space__cell--left, .space--equal--7 > .space__cell--left, .space--equal--8 > .space__cell--left, .space--equal--9 > .space__cell--left, .space--equal--10 > .space__cell--left, .space--equal--11 > .space__cell--left, .space--equal--12 > .space__cell--left, .space > .space__cell--left, .space--12 > .space__cell--left, .float-container > .space__cell--left, .space__row > .space__cell--left, .space--equal--1 > .space__cell, .space--equal--2 > .space__cell, .space--equal--3 > .space__cell, .space--equal--4 > .space__cell, .space--equal--5 > .space__cell, .space--equal--6 > .space__cell, .space--equal--7 > .space__cell, .space--equal--8 > .space__cell, .space--equal--9 > .space__cell, .space--equal--10 > .space__cell, .space--equal--11 > .space__cell, .space--equal--12 > .space__cell, .space--equal--1 .space__row > .space__cell, .space--equal--2 .space__row > .space__cell, .space--equal--3 .space__row > .space__cell, .space--equal--4 .space__row > .space__cell, .space--equal--5 .space__row > .space__cell, .space--equal--6 .space__row > .space__cell, .space--equal--7 .space__row > .space__cell, .space--equal--8 .space__row > .space__cell, .space--equal--9 .space__row > .space__cell, .space--equal--10 .space__row > .space__cell, .space--equal--11 .space__row > .space__cell, .space--equal--12 .space__row > .space__cell, .space__cell--1, .space__cell--2, .space__cell--3, .space__cell--4, .space__cell--5, .space__cell--6, .space__cell--7, .space__cell--8, .space__cell--9, .space__cell--10, .space__cell--11, .space__cell--12 {
   float: left;
 }
 
-.space > .space__cell:nth-child(even), .space--equal--1 > .space__cell--right, .space--equal--2 > .space__cell--right, .space--equal--3 > .space__cell--right, .space--equal--4 > .space__cell--right, .space--equal--5 > .space__cell--right, .space--equal--6 > .space__cell--right, .space--equal--7 > .space__cell--right, .space--equal--8 > .space__cell--right, .space--equal--9 > .space__cell--right, .space--equal--10 > .space__cell--right, .space--equal--11 > .space__cell--right, .space--equal--12 > .space__cell--right, .space > .space__cell--right, .space--12 > .space__cell--right, .float-container > .space__cell--right, .space__row > .space__cell--right {
+.space > .space__cell:nth-child(even), .space--equal--1 > .space__cell--left > .space__cell:nth-child(even), .space--equal--2 > .space__cell--left > .space__cell:nth-child(even), .space--equal--3 > .space__cell--left > .space__cell:nth-child(even), .space--equal--4 > .space__cell--left > .space__cell:nth-child(even), .space--equal--5 > .space__cell--left > .space__cell:nth-child(even), .space--equal--6 > .space__cell--left > .space__cell:nth-child(even), .space--equal--7 > .space__cell--left > .space__cell:nth-child(even), .space--equal--8 > .space__cell--left > .space__cell:nth-child(even), .space--equal--9 > .space__cell--left > .space__cell:nth-child(even), .space--equal--10 > .space__cell--left > .space__cell:nth-child(even), .space--equal--11 > .space__cell--left > .space__cell:nth-child(even), .space--equal--12 > .space__cell--left > .space__cell:nth-child(even), .space > .space__cell--left > .space__cell:nth-child(even), .space--12 > .space__cell--left > .space__cell:nth-child(even), .float-container > .space__cell--left > .space__cell:nth-child(even), .space__row > .space__cell--left > .space__cell:nth-child(even), .space--equal--1 > .space__cell > .space__cell:nth-child(even), .space--equal--2 > .space__cell > .space__cell:nth-child(even), .space--equal--3 > .space__cell > .space__cell:nth-child(even), .space--equal--4 > .space__cell > .space__cell:nth-child(even), .space--equal--5 > .space__cell > .space__cell:nth-child(even), .space--equal--6 > .space__cell > .space__cell:nth-child(even), .space--equal--7 > .space__cell > .space__cell:nth-child(even), .space--equal--8 > .space__cell > .space__cell:nth-child(even), .space--equal--9 > .space__cell > .space__cell:nth-child(even), .space--equal--10 > .space__cell > .space__cell:nth-child(even), .space--equal--11 > .space__cell > .space__cell:nth-child(even), .space--equal--12 > .space__cell > .space__cell:nth-child(even), .space--equal--1 .space__row > .space__cell > .space__cell:nth-child(even), .space--equal--2 .space__row > .space__cell > .space__cell:nth-child(even), .space--equal--3 .space__row > .space__cell > .space__cell:nth-child(even), .space--equal--4 .space__row > .space__cell > .space__cell:nth-child(even), .space--equal--5 .space__row > .space__cell > .space__cell:nth-child(even), .space--equal--6 .space__row > .space__cell > .space__cell:nth-child(even), .space--equal--7 .space__row > .space__cell > .space__cell:nth-child(even), .space--equal--8 .space__row > .space__cell > .space__cell:nth-child(even), .space--equal--9 .space__row > .space__cell > .space__cell:nth-child(even), .space--equal--10 .space__row > .space__cell > .space__cell:nth-child(even), .space--equal--11 .space__row > .space__cell > .space__cell:nth-child(even), .space--equal--12 .space__row > .space__cell > .space__cell:nth-child(even), .space__cell--1 > .space__cell:nth-child(even), .space__cell--2 > .space__cell:nth-child(even), .space__cell--3 > .space__cell:nth-child(even), .space__cell--4 > .space__cell:nth-child(even), .space__cell--5 > .space__cell:nth-child(even), .space__cell--6 > .space__cell:nth-child(even), .space__cell--7 > .space__cell:nth-child(even), .space__cell--8 > .space__cell:nth-child(even), .space__cell--9 > .space__cell:nth-child(even), .space__cell--10 > .space__cell:nth-child(even), .space__cell--11 > .space__cell:nth-child(even), .space__cell--12 > .space__cell:nth-child(even), .float-container > .space__cell:nth-child(even), .space--12 > .space__cell:nth-child(even), .space__row > .space__cell:nth-child(even), .space--equal--1 > .space__cell--right, .space--equal--2 > .space__cell--right, .space--equal--3 > .space__cell--right, .space--equal--4 > .space__cell--right, .space--equal--5 > .space__cell--right, .space--equal--6 > .space__cell--right, .space--equal--7 > .space__cell--right, .space--equal--8 > .space__cell--right, .space--equal--9 > .space__cell--right, .space--equal--10 > .space__cell--right, .space--equal--11 > .space__cell--right, .space--equal--12 > .space__cell--right, .space > .space__cell--right, .space--12 > .space__cell--right, .float-container > .space__cell--right, .space__row > .space__cell--right, .space--equal--1 > .space__cell > .space__cell--right, .space--equal--2 > .space__cell > .space__cell--right, .space--equal--3 > .space__cell > .space__cell--right, .space--equal--4 > .space__cell > .space__cell--right, .space--equal--5 > .space__cell > .space__cell--right, .space--equal--6 > .space__cell > .space__cell--right, .space--equal--7 > .space__cell > .space__cell--right, .space--equal--8 > .space__cell > .space__cell--right, .space--equal--9 > .space__cell > .space__cell--right, .space--equal--10 > .space__cell > .space__cell--right, .space--equal--11 > .space__cell > .space__cell--right, .space--equal--12 > .space__cell > .space__cell--right, .space--equal--1 .space__row > .space__cell > .space__cell--right, .space--equal--2 .space__row > .space__cell > .space__cell--right, .space--equal--3 .space__row > .space__cell > .space__cell--right, .space--equal--4 .space__row > .space__cell > .space__cell--right, .space--equal--5 .space__row > .space__cell > .space__cell--right, .space--equal--6 .space__row > .space__cell > .space__cell--right, .space--equal--7 .space__row > .space__cell > .space__cell--right, .space--equal--8 .space__row > .space__cell > .space__cell--right, .space--equal--9 .space__row > .space__cell > .space__cell--right, .space--equal--10 .space__row > .space__cell > .space__cell--right, .space--equal--11 .space__row > .space__cell > .space__cell--right, .space--equal--12 .space__row > .space__cell > .space__cell--right, .space__cell--1 > .space__cell--right, .space__cell--2 > .space__cell--right, .space__cell--3 > .space__cell--right, .space__cell--4 > .space__cell--right, .space__cell--5 > .space__cell--right, .space__cell--6 > .space__cell--right, .space__cell--7 > .space__cell--right, .space__cell--8 > .space__cell--right, .space__cell--9 > .space__cell--right, .space__cell--10 > .space__cell--right, .space__cell--11 > .space__cell--right, .space__cell--12 > .space__cell--right {
   float: right;
 }
 
@@ -182,7 +162,7 @@ img.full, .space__cell--asset img, .asset-container img {
   clear: both;
 }
 
-.space--equal--1:after, .space--equal--2:after, .space--equal--3:after, .space--equal--4:after, .space--equal--5:after, .space--equal--6:after, .space--equal--7:after, .space--equal--8:after, .space--equal--9:after, .space--equal--10:after, .space--equal--11:after, .space--equal--12:after, .space:after, .space--12:after {
+.space--equal--1:after, .space--equal--2:after, .space--equal--3:after, .space--equal--4:after, .space--equal--5:after, .space--equal--6:after, .space--equal--7:after, .space--equal--8:after, .space--equal--9:after, .space--equal--10:after, .space--equal--11:after, .space--equal--12:after, .space:after, .space--equal--1 > .space__cell--left:after, .space--equal--2 > .space__cell--left:after, .space--equal--3 > .space__cell--left:after, .space--equal--4 > .space__cell--left:after, .space--equal--5 > .space__cell--left:after, .space--equal--6 > .space__cell--left:after, .space--equal--7 > .space__cell--left:after, .space--equal--8 > .space__cell--left:after, .space--equal--9 > .space__cell--left:after, .space--equal--10 > .space__cell--left:after, .space--equal--11 > .space__cell--left:after, .space--equal--12 > .space__cell--left:after, .space > .space__cell--left:after, .space--12 > .space__cell--left:after, .float-container > .space__cell--left:after, .space__row > .space__cell--left:after, .space--equal--1 > .space__cell:after, .space--equal--2 > .space__cell:after, .space--equal--3 > .space__cell:after, .space--equal--4 > .space__cell:after, .space--equal--5 > .space__cell:after, .space--equal--6 > .space__cell:after, .space--equal--7 > .space__cell:after, .space--equal--8 > .space__cell:after, .space--equal--9 > .space__cell:after, .space--equal--10 > .space__cell:after, .space--equal--11 > .space__cell:after, .space--equal--12 > .space__cell:after, .space--equal--1 .space__row > .space__cell:after, .space--equal--2 .space__row > .space__cell:after, .space--equal--3 .space__row > .space__cell:after, .space--equal--4 .space__row > .space__cell:after, .space--equal--5 .space__row > .space__cell:after, .space--equal--6 .space__row > .space__cell:after, .space--equal--7 .space__row > .space__cell:after, .space--equal--8 .space__row > .space__cell:after, .space--equal--9 .space__row > .space__cell:after, .space--equal--10 .space__row > .space__cell:after, .space--equal--11 .space__row > .space__cell:after, .space--equal--12 .space__row > .space__cell:after, .space__cell--1:after, .space__cell--2:after, .space__cell--3:after, .space__cell--4:after, .space__cell--5:after, .space__cell--6:after, .space__cell--7:after, .space__cell--8:after, .space__cell--9:after, .space__cell--10:after, .space__cell--11:after, .space__cell--12:after, .float-container:after, .space--12:after, .space__row:after {
   display: table;
   clear: both;
   content: "";
@@ -3375,81 +3355,54 @@ img.full, .space__cell--asset img, .asset-container img {
   padding-right: 100%;
 }
 
-
 /* ==========================================================================
-   Master Base Template - Structure
+   DEMO ONLY CODE
    ========================================================================== */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
+  -ms-box-sizing: border-box;
 }
 
 body {
   margin: 0;
-}
-
-/* ==========================================================================
-   DEMO ONLY STYLING
-   ========================================================================== */
-/**
- * `@import "demo-only"` This is used only for demo purposes, this should be removed from a project.
- * Comment or delete this line and feel free to delete this from "scss" directory
- */
-/* ==========================================================================
-   Master Base Template - Structure
-   ========================================================================== */
-body {
+  background-color: #FFF;
   color: #333;
-  font-size: 16px;
+  font-size: 14px;
   font-family: Arial, Verdana, sans-serif;
-  line-height: 125%;
+  line-height: 1.57143;
 }
 
-/* ==========================================================================
-   Containers & Holders
-   ========================================================================== */
-.space--12 {
-  outline: 2px solid rgba(0, 0, 0, 0.9);
+#main {
+  margin: 0 auto;
+  width: 1000px;
 }
 
-[class*="__cell"] {
-  outline: 1px solid rgba(0, 0, 0, 0.9);
-}
-[class*="__cell"]:nth-child(even) {
-  outline: 1px solid rgba(0, 0, 0, 0.1);
-}
-[class*="__cell"]:nth-child(odd) {
-  outline: 1px solid rgba(0, 0, 0, 0.1);
+#main .space--12 {
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
-.margin-bottom--2x {
-  margin-bottom: 40px;
+.space__cell {
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
-.container {
-  margin-right: auto;
-  margin-left: auto;
+.space--12 > div, .space--table--12 > div {
+  outline: 1px solid rgba(255, 255, 255, 0.5);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
-.container {
-  width: 1200px;
+.space--12 > div h2, .space--12 > div p, .space--table--12 > div h2, .space--table--12 > div p {
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
 }
-@media screen and (max-width: 1240px) {
-  .container {
+
+@media screen and (max-width: 1040px) {
+  #main {
     margin-right: 20px;
     margin-left: 20px;
     width: auto;
   }
-}
-@media screen and (max-width: 400px) {
-  .container {
-    margin-right: 10px;
-    margin-left: 10px;
-  }
-}
-
-.align--center {
-  text-align: center;
 }
