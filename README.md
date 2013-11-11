@@ -13,6 +13,7 @@ The structure system is inspired by traditional grid systems but includes layeri
 
 This repository includes the Sass file for compiling the CSS to be used. The naming convention follows [BEM](http://bem.info) methodology.
 
+**Check out some [basic demos](http://kevinmack18.github.io/Twelve-Space/)**. More examples, demos, documentation, tutorial videos coming soon.
 
 ---
 
