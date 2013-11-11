@@ -11,4 +11,5 @@
 + 0.7.1: First public release
 + 0.7.2: Fix for `space--table__cell--#` widths
 + 0.8.0: Fix for "__cell--offset" now using `$positiveOrNegative` correctly, some helper classes clean up
++ 0.8.1: Bug fix that extended %space incorrectly
 

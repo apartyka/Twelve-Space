@@ -1,8 +1,8 @@
 /* ==========================================================================
-   Twelve-Space Structure System [v0.7.3]
+   Twelve-Space Structure System [v0.8.1]
    ========================================================================== */
 /*!
- * Twelve-Space Structure System v0.7.3
+ * Twelve-Space Structure System v0.8.1
  * Created by Kevin Mack
  * http://stash/users/kmack/repos/twelve-space
  *
@@ -16,7 +16,6 @@
 // DO NOT CHANGE, SERIOUSLY... but you could, but don't.
 // ... thank you.
 $twelve-space--max-spaces: 12;
-
 
 @import "twelve-space__helper-classes";
 
@@ -162,14 +161,14 @@ $twelve-space--max-spaces: 12;
 }
 
 %float-left-setup, %float-container, %space--#{$twelve-space--max-spaces}, %space__row {
-	@extend %float--cell--left;
+	@extend %space;
 }
 
 %space--table--#{$twelve-space--max-spaces}, %space--table__row {
 	@extend %display-cell--table-cell;
 }
 
-%space, %space--#{$twelve-space--max-spaces} {
+%space, %space--#{$twelve-space--max-spaces}, %space__row {
 	@extend  %clear-after;
 }
 
@@ -179,14 +178,14 @@ $twelve-space--max-spaces: 12;
 	}
 
 	.float-container, .#{$twelve-space--block-name}--#{$twelve-space--max-spaces}, .#{$twelve-space--block-name}__row {
-		@extend %float-left-setup;
+		@extend %space;
 	}
 
 	.#{$twelve-space--block-name}--table--#{$twelve-space--max-spaces}, .#{$twelve-space--block-name}--table__row {
 		@extend %display-cell--table-cell;
 	}
 
-	.#{$twelve-space--block-name}, .#{$twelve-space--block-name}--#{$twelve-space--max-spaces} {
+	.#{$twelve-space--block-name}, .#{$twelve-space--block-name}--#{$twelve-space--max-spaces}, .#{$twelve-space--block-name}__row {
 		@extend  %clear-after;
 	}
 }
