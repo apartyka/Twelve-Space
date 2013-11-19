@@ -523,17 +523,24 @@ There are a serious of helper classes to help assist your structures and your pr
 * `%inline-block`, `%display-inline-block`, `.inline-block`, `.display-inline-block`: `display: inline-block;`
 * `%inline`, `%display-inline`, `.inline`, `.display-inline`: `display: inline;`
 * `%hidden`, `%hide`, `%display-hidden`, `.hidden`, `.hide`, `.display-hidden`: `display: hidden;`
+
+### Position Types and Z-Index
 * `%position-relative--` + `#`, `.position-relative--` + `#`: # can be 1-12, # represents the `z-index` with a `position: relative`
 * `%position-absolute--` + `#`, `.position-absolute--` + `#`: # can be 1-12, # represents the `z-index` with a `position: absolute`
 * `%overflow`, `%overflow-hidden`, `%hidden`, `.overflow-hidden`, `.hidden`: `overflow: hidden;`
 * `%overflow-hidden--y`, `%hidden--y`, `.overflow-hidden--y`, `.hidden--y`: `overflow-y: hidden;`
 * `%overflow-hidden--x`, `%hidden--x`, `.overflow-hidden-x`, `.hidden--x`: `overflow-x: hidden;`
+
+
+### Alignment for Tables
 * `%vertical-align`, `%vertical-align--middle`, `.vertical-align`, `.vertical-align--middle`: `vertical-align: middle;`, use with "space--table__cell" elements
 * `%vertical-align--baseline`,  `.vertical-align--baseline`: `vertical-align: baseline;`, use with "space--table__cell" elements
 * `%vertical-align--bottom`,  `.vertical-align--bottom`: `vertical-align: bottom;`, use with "space--table__cell" elements
 * `%vertical-align--text-bottom`,  `.vertical-align--text-bottom`: `vertical-align: text-bottom;`, use with "space--table__cell" elements
 * `%vertical-align--top`,  `.vertical-align--top`: `vertical-align: top;`, use with "space--table__cell" elements
 * `%vertical-align--bottom`,  `.vertical-align--bottom`: `vertical-align: bottom;`, use with "space--table__cell" elements
+
+### Full Widths
 * `%full`, `.full`: `width: 100%;`
   * `img.full`:  `width: 100%` and `display: block`
 
