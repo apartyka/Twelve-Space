@@ -515,7 +515,7 @@ The system comes with some helper classes, which is will be a growing library of
 
 ## Helper Classes
 
-There are a serious of helper classes to help assist your structures and your project.
+There are a series of helper classes to help assist your structures and your project.
 
 ### Display Types
 
