@@ -32,36 +32,36 @@ When developing design or code, remember the purpose/goal of your project. The c
 Follows [BEM](http://bem.info), below are the selector's naming conventions:
 
 
-* **`.space`** : Block / Compound Block
+* `.space` : Block / Compound Block
   * Modifiers:
-    1.  **`.space--12`**
-    1.  **`.space--table--12`**
-    2.  **`.space--equal--`** + **`#`**: # can be 1-12
-* **`.space__cell`** : Element
+    1.  `.space--12`
+    1.  `.space--table--12`
+    2.  `.space--equal--` + `#`: # can be 1-12
+* `.space__cell` : Element
   * Modifiers/Inherited Modifiers:
-    1.  **`.space__cell--`** + **`#`**: # can be 1-12
-    1.  **`.space--table__cell`** + **`#`**: # can be 1-12
-* **`.space__cell`** + **"option"** : Element helper class 
+    1.  `.space__cell--` + `#`: # can be 1-12
+    1.  `.space--table__cell` + `#`: # can be 1-12
+* `.space__cell` + "option" : Element helper class 
   * Options:
-    2.  **`.space__cell--expand--`** + **`#`**: # can be 1-12
-    2.  **`.space__cell--offset--`** + **`#`**: # can be 1-12
-    2.  **`.space__cell--offset--negative--`** + **`#`**: # can be 1-12
-    2.  **`.space__cell__gap--right--`** + **`#`**: # can be 1-12
-    2.  **`.space__cell__gap--left--`** + **`#`**: # can be 1-12
-* **`.space__cell--`** + **`#`** + **`__`** + **"option"** : Compound block's element/block's element (block > element > child). Where # is parent's space, # can be 1-12
+    2.  `.space__cell--expand--` + `#`: # can be 1-12
+    2.  `.space__cell--offset--` + `#`: # can be 1-12
+    2.  `.space__cell--offset--negative--` + `#`: # can be 1-12
+    2.  `.space__cell__gap--right--` + `#`: # can be 1-12
+    2.  `.space__cell__gap--left--` + `#`: # can be 1-12
+* `.space__cell--` + `#` + `__` + "option" : Compound block's element/block's element (block > element > child). Where # is parent's space, # can be 1-12
   * Options:
-    1. `.space__cell--#` + **`__expand--`** + **`#`**: # can be 1-12
-    1. `.space__cell--#` + **`__offset--`** + **`#`**: # can be 1-12
-    1. `.space__cell--#` + **`__offset--negative--`** + **`#`**: # can be 1-12
-    1. `.space__cell--#` + **`__gap--left--`** + **`#`**: # can be 1-12
-    1. `.space__cell--#` + **`__gap--right--`** + **`#`**: # can be 1-12
-* **`.space--table__cell--`** + **`#`** + **`__`** + **"option"** : Compound block's element/block's element (block > element > child). Where # is parent's space, # can be 1-12
+    1. `.space__cell--#` +  `__expand--` + `#`=: # can be 1-12
+    1. `.space__cell--#` +  `__offset--` + `#`=: # can be 1-12
+    1. `.space__cell--#` +  `__offset--negative--` + `#`: # can be 1-12
+    1. `.space__cell--#` +  `__gap--left--` + `#`: # can be 1-12
+    1. `.space__cell--#` +  `__gap--right--` + `#`: # can be 1-12
+* `.space--table__cell--`  + `#` + `__` + "option" : Compound block's element/block's element (block > element > child). Where # is parent's space, # can be 1-12
   * Options:
-    1. `.space--table__cell--#` + **`__expand--`** + **`#`**: # can be 1-12
-    1. `.space--table__cell--#` + **`__offset--`** + **`#`**: # can be 1-12
-    1. `.space--table__cell--#` + **`__offset--negative--`** + **`#`**: # can be 1-12
-    1. `.space--table__cell--#` + **`__gap--left--`** + **`#`**: # can be 1-12
-    1. `.space--table__cell--#` + **`__gap--right--`** + **`#`**: # can be 1-12
+    1. `.space--table__cell--#` + `__expand--` + `#`: # can be 1-12
+    1. `.space--table__cell--#` + `__offset--` + `#`: # can be 1-12
+    1. `.space--table__cell--#` + `__offset--negative--` + `#`: # can be 1-12
+    1. `.space--table__cell--#` + `__gap--left--` + `#`: # can be 1-12
+    1. `.space--table__cell--#` + `__gap--right--` + `#`: # can be 1-12
 
 
 ### Create Space Structures
@@ -296,8 +296,8 @@ Expanding at "block > element" is only available for "non-table" structures. Exp
 
 * block > element: Can expand/layer positive. 
   * `.space__cell--expand--` + `#`
-* block > element > child: Can expand/layer positive or negatively. Major difference between is that "child" includes the parent block's modifier # of spaces. Example: `.space__cell--expand--2`
-  * `.space__cell--` + `parent's space # ` + `--expand--` + `#`
+* block > element > child: Can expand/layer positive or negatively. Major difference between is that "child" includes the parent block's modifier # of spaces. Example: `.space__cell--3__expand--2`
+  * `.space__cell--` + `parent's space # ` + `__expand--` + `#`
 
 #### Gaps
 Added spacing to a container, can be used for both "non-table" and "table" structures.
@@ -510,6 +510,32 @@ The system contains "_variables.scss" which is a [partial file](http://sass-lang
 You can also change the block name and element name within "_variables.scss". For example change `$twelve-space--block-name` to equal "grid" for your selectors to be like: `.grid--12`, `.grid__cell`, etc.
 
 The system comes with some helper classes, which is will be a growing library of selectors to use in structure systems. You can turn off these within your options ("_variables.scss") too.
+
+
+
+## Helper Classes
+
+There are a serious of helper classes to help assist your structures and your project.
+
+### Display Types
+
+* `%block`, `%show`, `%display-block`, `.block`, `.show`, `.display-block`: `display: block;`
+* `%inline-block`, `%display-inline-block`, `.inline-block`, `.display-inline-block`: `display: inline-block;`
+* `%inline`, `%display-inline`, `.inline`, `.display-inline`: `display: inline;`
+* `%hidden`, `%hide`, `%display-hidden`, `.hidden`, `.hide`, `.display-hidden`: `display: hidden;`
+* `%position-relative--` + `#`, `.position-relative--` + `#`: # can be 1-12, # represents the `z-index` with a `position: relative`
+* `%position-absolute--` + `#`, `.position-absolute--` + `#`: # can be 1-12, # represents the `z-index` with a `position: absolute`
+* `%overflow`, `%overflow-hidden`, `%hidden`, `.overflow-hidden`, `.hidden`: `overflow: hidden;`
+* `%overflow-hidden--y`, `%hidden--y`, `.overflow-hidden--y`, `.hidden--y`: `overflow-y: hidden;`
+* `%overflow-hidden--x`, `%hidden--x`, `.overflow-hidden-x`, `.hidden--x`: `overflow-x: hidden;`
+* `%vertical-align`, `%vertical-align--middle`, `.vertical-align`, `.vertical-align--middle`: `vertical-align: middle;`, use with "space--table__cell" elements
+* `%vertical-align--baseline`,  `.vertical-align--baseline`: `vertical-align: baseline;`, use with "space--table__cell" elements
+* `%vertical-align--bottom`,  `.vertical-align--bottom`: `vertical-align: bottom;`, use with "space--table__cell" elements
+* `%vertical-align--text-bottom`,  `.vertical-align--text-bottom`: `vertical-align: text-bottom;`, use with "space--table__cell" elements
+* `%vertical-align--top`,  `.vertical-align--top`: `vertical-align: top;`, use with "space--table__cell" elements
+* `%vertical-align--bottom`,  `.vertical-align--bottom`: `vertical-align: bottom;`, use with "space--table__cell" elements
+* `%full`, `.full`: `width: 100%;`
+  * `img.full`:  `width: 100%` and `display: block`
 
 ---
 
