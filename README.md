@@ -1,4 +1,4 @@
-Twelve-Space Structure System [v0.8.1]
+Twelve-Space Structure System [v0.9.0]
 =====
 
 **PLEASE NOTE:** This project is still in development, but it is ready to be used. Updates to documentation and examples will be outlined in this README file and in the gh-page. Some features may be dropped or extended for the official release. Official release date is TBD. Keep checking back, log issues/bugs, and help contribute -- Thanks!
@@ -7,7 +7,7 @@ Twelve-Space Structure System [v0.8.1]
 
 ## What is Twelve-Space?
 
-This is a structure system for creating relative containers for content based in twelves. The system keeps the structures fluid to meet design needs and to allow for flexibility to focus on the context of content not pixel dimensions. 
+This is a structure system for creating relative containers for content based in twelves. The system keeps the structures fluid to meet design needs and to allow for flexibility to focus on the context of content not pixel dimensions.
 
 The structure system is inspired by traditional grid systems but includes layering and expanding, allowing you to *go off the grid*.
 
@@ -19,7 +19,7 @@ This repository includes the Sass file for compiling the CSS to be used. The nam
 
 ### Why Twelve-Space?
 
-Twelve-Space is more than a structure system for content, it is a developing methodology for approaching projects, design patterns, reuse, and content development. Future documentation and updates will include outlines for creating design patterns in traditional design programs (like PhotoShop, InDesign, and Illustrator). 
+Twelve-Space is more than a structure system for content, it is a developing methodology for approaching projects, design patterns, reuse, and content development. Future documentation and updates will include outlines for creating design patterns in traditional design programs (like PhotoShop, InDesign, and Illustrator).
 
 This system can be used for *mobile-first*  or *desktop-first*. If you start "mobile", think about how to *add columns*; if you start "desktop", think about how to *add rows*. Overall, the system is flexible to meet the needs of the content and your approach for *mobile-first*  or *desktop-first* should be based on the content itself.
 
@@ -41,9 +41,8 @@ Follows [BEM](http://bem.info), below are the selector's naming conventions:
   * Modifiers/Inherited Modifiers:
     1.  `.space__cell--` + `#`: # can be 1-12
     1.  `.space--table__cell` + `#`: # can be 1-12
-* `.space__cell` + "option" : Element helper class 
+* `.space__cell` + "option" : Element helper class
   * Options:
-    2.  `.space__cell--expand--` + `#`: # can be 1-12
     2.  `.space__cell--offset--` + `#`: # can be 1-12
     2.  `.space__cell--offset--negative--` + `#`: # can be 1-12
     2.  `.space__cell__gap--right--` + `#`: # can be 1-12
@@ -84,7 +83,7 @@ For example, a "two column structure" that has two child containers that are `sp
 
 #### 5-7 Example (Table)
 
-There is a modifier that can be applied to the block and element containers to make the structure follow the functionality of `<table />`. Add "table" in the block: **`.space--table--12`** and "table" to elements: `.space--table__cell--5`. 
+There is a modifier that can be applied to the block and element containers to make the structure follow the functionality of `<table />`. Add "table" in the block: **`.space--table--12`** and "table" to elements: `.space--table__cell--5`.
 
 ```
 	<div class="space--table--12">
@@ -99,7 +98,7 @@ There is a modifier that can be applied to the block and element containers to m
 
 #### 5-7 Example (Table)
 
-There is a modifier that can be applied to the block and element containers to make the structure follow the functionality of `<table />`. Add "table" in the block: **`.space--table--12`** and "table" to elements: `.space--table__cell--5`. 
+There is a modifier that can be applied to the block and element containers to make the structure follow the functionality of `<table />`. Add "table" in the block: **`.space--table--12`** and "table" to elements: `.space--table__cell--5`.
 
 ```
 	<div class="space--table--12">
@@ -133,7 +132,7 @@ You can align vertically with tables: `.vertical-align--middle`, `.vertical-alig
 		<div class="space__cell--3  vertical-align--top">
 			I take up "3 Spaces"
 			<br />
-			New line.			
+			New line.
 		</div>
 		<div class="space__cell--5 vertical-align--middle">
 			I am aligned in the middle vertically
@@ -284,18 +283,17 @@ Layering can happen at the *block > element level* or *block > element > child l
 #### Offset
 Offsetting at "block > element" is only available for "non-table" structures. Offsetting is available for "non-table" and "table" structures at the "block > element > child" level.
 
-* block > element: Can offset/layer positive or negatively. 
+* block > element: Can offset/layer positive or negatively.
   * Positive: `.space__cell--offset--` + `#`
   * Negative: `.space__cell--offset--negative--` + `#`
 * block > element > child: Can offset/layer positive or negatively. Major difference between is that "child" includes the parent block's block's modifier # of spaces. Example: `.space__cell--7__offset--negative--2`
   * Positive: `.space__cell--` + `parent's space # ` + `--offset--` + `#`
   * Negative: `.space__cell--` + `parent's space # ` + `--offset--negative` + `#`
-  
+
 #### Expand
 Expanding at "block > element" is only available for "non-table" structures. Expanding is available for "non-table" and "table" structures at the "block > element > child" level.
 
-* block > element: Can expand/layer positive. 
-  * `.space__cell--expand--` + `#`
+
 * block > element > child: Can expand/layer positive or negatively. Major difference between is that "child" includes the parent block's modifier # of spaces. Example: `.space__cell--3__expand--2`
   * `.space__cell--` + `parent's space # ` + `__expand--` + `#`
 
@@ -336,7 +334,7 @@ Use block container's class (ie: `space__cell--5`) plus `__expand--` plus `#` of
 
 Use block container's class (ie: `space__cell--7`) plus `__offset--negative--` plus `#` of spaces:
 
-```	
+```
 	<div class="space--12">
 		<div class="space__cell--5">
 			<p>
@@ -358,7 +356,7 @@ Use block container's class (ie: `space__cell--7`) plus `__offset--negative--` p
 
 Use block container's class (ie: `space__cell--7`) plus `__offset--negative--` plus `#` of spaces:
 
-```		
+```
 	<div class="space--12">
 		<div class="space__cell--5">
 			<p>
@@ -382,7 +380,7 @@ Wait... 5+7+2=14... YES! But I am offset by "2" spaces making it: 5+7+14-2=12
 
 Use `space__cell--offset--negative--`+`#` on element container (ie: `space__cell--offset--negative--2`)
 
-```	
+```
 	<div class="space--12">
 		<div class="space__cell--5">
 			<p>
@@ -407,12 +405,12 @@ Use `space__cell--offset--negative--`+`#` on element container (ie: `space__cell
 
 #### 5-7 Expanded Example
 
-Yep, you can go outside of the parent container. 
+Yep, you can go outside of the parent container.
 
 Use block container's class (ie: `space__cell--7`) plus `__offset--` plus `#` of spaces:
 
 
-```	
+```
 	<div class="space--12">
 		<div class="space__cell--5">
 			<p>
@@ -432,12 +430,12 @@ Use block container's class (ie: `space__cell--7`) plus `__offset--` plus `#` of
 
 #### 5-7 Expanded Example (Reverse)
 
-Yep, you can go outside of the parent container. 
+Yep, you can go outside of the parent container.
 
 Use block container's class (ie: `space__cell--5`) plus `__offset--negative--` plus `#` of spaces:
 
 
-```	
+```
 	<div class="space--12">
 		<div class="space__cell--5">
 			<h2 class="space__cell--5__offset--negative--2">
@@ -473,7 +471,7 @@ Additional structures to keep row height's consistent to keep a clean grid of co
 ```
 
 #### Equal Column widths
-Add `.space--equal--` + `# of columns` to block and `.space__cell` as elements. 
+Add `.space--equal--` + `# of columns` to block and `.space__cell` as elements.
 * Available options: `.space--equal--1`, `.space--equal--2`, `.space--equal--3`, `.space--equal--4`, `.space--equal--5`, `.space--equal--6`, `.space--equal--7`, `.space--equal--8`, `.space--equal--9`, `.space--equal--10`, `.space--equal--11`, `.space--equal--12`
 
 #### 2 Column - Equal Widths
