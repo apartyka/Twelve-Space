@@ -1,0 +1,28 @@
+{
+	"name": "twelve-space",
+	"version": "0.9.1",
+	"homepage": "https://github.com/kevinmack18/Twelve-Space",
+	"authors": [
+		"kevinmack18"
+	],
+	"description": "Structure system for creating modular layouts",
+	"keywords": [
+		"sass",
+		"scss",
+		"css",
+		"grid",
+		"structure",
+		"bem",
+		"oocss",
+		"layout",
+		"module",
+		"helper classes",
+		"silent classes",
+		"css framework",
+		"sass framework"
+	],
+	"license": "MIT",
+	"ignore": [
+		"./.gitignore",
+	]
+}
