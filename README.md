@@ -1,9 +1,6 @@
-Twelve-Space Structure System [v0.9.0]
+Twelve-Space Structure System [v0.9.1]
 =====
 
-**PLEASE NOTE:** This project is still in development, but it is ready to be used. Updates to documentation and examples will be outlined in this README file and in the gh-page. Some features may be dropped or extended for the official release. Official release date is TBD. Keep checking back, log issues/bugs, and help contribute -- Thanks!
-
----
 
 ## What is Twelve-Space?
 
@@ -13,7 +10,9 @@ The structure system is inspired by traditional grid systems but includes layeri
 
 This repository includes the Sass file for compiling the CSS to be used. The naming convention follows [BEM](http://bem.info) methodology.
 
-**Check out some [basic demos](http://kevinmack18.github.io/Twelve-Space/)**. More examples, demos, documentation, tutorial videos coming soon.
+**Check out some [basic demos](http://kevinmack18.github.io/Twelve-Space/)**.
+
+* Additional documentation, more examples, demos, and tutorial videos coming soon.
 
 ---
 
