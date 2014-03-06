@@ -23,6 +23,6 @@
 	],
 	"license": "MIT",
 	"ignore": [
-		"./.gitignore",
+		".gitignore"
 	]
 }
